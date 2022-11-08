@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import IProduct from '../data/models/IProduct';
-import { CardProduct } from '../components/CardProduct';
+import { CardProducts } from '../components/CardProduct';
 import {ReactComponent as Photo1} from '../images/1.svg';
 import {ReactComponent as Photo3} from '../images/3.svg';
 import { useNavigate } from 'react-router-dom';
+import { stringify } from 'querystring';
 
 interface IProps {
   products: IProduct[];
@@ -12,13 +12,12 @@ interface IProps {
 export const Home = (props: IProps) => {
 
   const [popularProducts, setPopularProducts] = React.useState<(IProduct)[]>([]);
-  const productItems = props.products;
   const navigate = useNavigate();
 
   useEffect(() => {
-    const popularItems = [...productItems].sort((a, b) => a.popularity - b.popularity);
+    const popularItems = [...props.products].sort((a, b) => a.popularity - b.popularity);
     setPopularProducts(popularItems.splice(0,3));
-  }, [...productItems]);
+  }, [JSON.stringify(props.products)]);
 
   return(
     <div>
@@ -26,7 +25,7 @@ export const Home = (props: IProps) => {
           <div className="simItemStyle">
               Best Sellers
           </div>
-          <div><CardProduct products = {popularProducts}/> </div>
+          <div><CardProducts products = {popularProducts}/> </div>
 
           <div className="btnHomeStylePos">
             <button className="btnHomeStyle" onClick={() => navigate(`/bracelet/`)}>

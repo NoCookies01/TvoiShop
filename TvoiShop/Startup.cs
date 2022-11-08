@@ -1,16 +1,23 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TvoiShop.Infrastructure;
+using TvoiShop.Infrastructure.Repositories;
+using TvoiShop.Infrastructure.Repositories.Implmentations;
+using TvoiShop.Infrastructure.Services;
+using TvoiShop.Infrastructure.Services.Implementations;
+using TvoiShop.ApplicationCofiguration;
 
 namespace TvoiShop
 {
     public class Startup
     {
+        private readonly AuthConfiguration _authConfiguration = new AuthConfiguration();
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -22,6 +29,17 @@ namespace TvoiShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<TvoiShopDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("ProductsDataBase")));
+
+            services.AddTransient<IProductsRepository, ProductsRepository>();
+
+            services.AddTransient<IProductsService, ProductsService>();
+
+            services.AddSwaggerGen();
+
+            _authConfiguration.ConfigureAuth(services);
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -44,11 +62,18 @@ namespace TvoiShop
                 app.UseHsts();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseIdentityServer();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
