@@ -1,5 +1,4 @@
 import React from "react";
-import IProduct from "../data/models/IProduct";
 
 interface IProps {
     products: IProduct[];

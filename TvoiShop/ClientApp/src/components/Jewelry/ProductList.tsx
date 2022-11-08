@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import IProduct from '../../data/models/IProduct';
-import { CardProduct } from '../CardProduct';
+import { CardProducts } from '../CardProduct';
 import { InstrumentPanel } from '../InstrumentPanel';
 
 interface IProps {
@@ -11,14 +10,12 @@ interface IProps {
 }
 
 export const ProductList = (props: IProps) => {
-  const [product, setProduct] = React.useState<(IProduct)[]>([]);
+  const [products, setProducts] = React.useState<(IProduct)[]>([]);
   
-  const productItems = props.products;
-
   useEffect(() => {
-    const prod = [...productItems].filter((p) => p.category === props.category).sort((a, b) => a.labelName.localeCompare(b.labelName));
-    setProduct(prod);
-  },[...productItems, props]);
+    const prod = [...props.products].filter((p) => p.category === props.category).sort((a, b) => a.labelName.localeCompare(b.labelName));
+    setProducts(prod);
+  },[JSON.stringify(props.products), props]);
 
   return(
     <div>
@@ -26,12 +23,12 @@ export const ProductList = (props: IProps) => {
         <div className="simItemStyle">
           {props.title}
         </div>
-        <InstrumentPanel products = {product}/>
+        <InstrumentPanel products = {products}/>
       </div>
 
 
       <div className='productView'> 
-          <CardProduct products = {product}/>
+        <CardProducts products = {products}/>
       </div>
     </div>
   )

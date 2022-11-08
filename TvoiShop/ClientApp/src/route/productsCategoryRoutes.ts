@@ -5,15 +5,15 @@ export interface IProductCategoryRoute {
 }
 
 export const productCategoryRoutes: IProductCategoryRoute[] = [{
-    title: "bracelets",
+    title: "Bracelets",
     category: "Bracelet",
     path: "/bracelet"
 },{
-    title: "watches",
+    title: "Watches",
     category: "Watch",
     path: "/watches"
 },{
-    title: "necklaces",
+    title: "Necklaces",
     category: "Necklace",
     path: "/necklace"
 },{
@@ -21,11 +21,11 @@ export const productCategoryRoutes: IProductCategoryRoute[] = [{
     category: "Earrings",
     path: "/earrings"
 },{
-    title: "rings",
+    title: "Rings",
     category: "Rings",
     path: "/rings"
 },{
-    title: "charms",
+    title: "Charms",
     category: "Charm",
     path: "/charm"
 }];

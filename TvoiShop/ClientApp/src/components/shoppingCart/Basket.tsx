@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import IProduct from '../../data/models/IProduct';
 import { OnConfirmOrderWindow } from '../windows/OnConfirmOrderWindow';
 
 export default function Basket({cart, setCart, handleChange}: any) {

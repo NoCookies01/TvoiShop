@@ -6,19 +6,23 @@ import './custom.css'
 import {ProductList} from './components/Jewelry/ProductList';
 import { SearchBar } from './components/SearchBar';
 import {ProductInfo} from './pages/ProductInfo';
-import IProduct from './data/models/IProduct';
 import { products as db } from './data/db';
 import { productCategoryRoutes } from './route/productsCategoryRoutes';
 import Basket from './components/shoppingCart/Basket';
+import { ShoppingCart } from './pages/ShoppingCart';
+import { GetAll } from './api/endpoints/products';
 
 export default function App() {
-
-  const [products, setProducts] = React.useState<IProduct[]>(db.sort((a, b) => a.labelName.localeCompare(b.labelName)));
+  const [products, setProducts] = React.useState<IProduct[]>([]);
   const [sortedPproduct, setSortedProduct] = React.useState<(IProduct)[]>([]);
+
+  useEffect(() => {
+    GetAll().then(responce => setProducts(responce.data));
+  }, [])
 
   const search = (sortQuerry: string) => {
     setSortedProduct(products.filter((p) => {
-        return p.labelName.toLowerCase().indexOf(sortQuerry.toLowerCase()) !== -1;
+      return p.labelName.toLowerCase().indexOf(sortQuerry.toLowerCase()) !== -1;
     }));
   };
 
@@ -48,7 +52,7 @@ export default function App() {
     ]);
   };
 
-  const handleChange = (id:number, d:number) => {
+  const handleChange = (id:string, d:number) => {
     setCart((cart) =>
       cart.flatMap((cartItem) =>
         cartItem.id === id

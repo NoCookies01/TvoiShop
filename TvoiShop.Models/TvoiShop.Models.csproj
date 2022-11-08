@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Reinforced.Typings.settings.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Reinforced.Typings.settings.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Reinforced.Typings" Version="1.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+  	<Content Include="Reinforced.Typings.settings.xml">
+  		<SubType>Designer</SubType>
+  	</Content>
+  </ItemGroup>
+
+</Project>

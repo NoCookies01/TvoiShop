@@ -28,7 +28,7 @@ export const SideBar = () => {
                 <NavLink className="navItem" to={"/charm"}>
                     charm
                 </NavLink> 
-                </div>
             </div>
- );
+        </div>
+    );
 };
