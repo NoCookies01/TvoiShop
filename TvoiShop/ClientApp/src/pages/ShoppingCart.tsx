@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import IProduct from '../data/models/IProduct';
 import Basket from '../components/shoppingCart/Basket';
 
 interface IProps {
@@ -16,7 +15,7 @@ export const ShoppingCart = (props: IProps) => {
   
   const onRemove = (product: IProduct) => {
     const exist = cartItems.find((x) => x.id === product.id);
-};
+  };
 
   return (
     <div>

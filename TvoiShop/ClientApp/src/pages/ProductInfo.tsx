@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { defaultProduct } from '../data/defaults';
-import IProduct from '../data/models/IProduct';
-import { CardProduct } from '../components/CardProduct';
+import { CardProducts } from '../components/CardProduct';
 
 interface IProps {
     products: IProduct[];
@@ -17,11 +16,11 @@ export const ProductInfo = (props: IProps) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        var prod = products.find(Element => Element.id === Number(id)) ?? defaultProduct;
+        var prod = products.find(Element => Element.id === id) ?? defaultProduct;
         setProductItem(prod);
         const offeredItems = [...products].filter((p) => p.category === "Necklace");
         setOfferedProduct(offeredItems.splice(0,3));
-    }, [products, id]);
+    }, [id]);
 
     return(
         <div>
@@ -82,7 +81,7 @@ export const ProductInfo = (props: IProps) => {
                 <div className="simItemStyle">
                     You may like also:
                 </div>
-                <CardProduct products={offeredProduct}/>
+                <CardProducts products={offeredProduct}/>
             </div>
         </div>
         

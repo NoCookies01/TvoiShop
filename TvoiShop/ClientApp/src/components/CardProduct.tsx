@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import IProduct from './../data/models/IProduct';
 import { useNavigate } from "react-router-dom";
 
 interface IProps {
   products: IProduct[];
 }
 
-export const CardProduct = (props: IProps) => {
+export const CardProducts = (props: IProps) => {
 
   const productItems = props.products;
   const navigate = useNavigate();

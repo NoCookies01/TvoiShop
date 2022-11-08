@@ -1,11 +1,9 @@
-import IProduct from "./models/IProduct";
-
 export const defaultNumber = 0;
 export const defaultText = "...";
 export const defaultImage = "https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg";
 
 export const defaultProduct: IProduct = {
-    id: defaultNumber,
+    id: defaultText,
     collection: defaultText,
     category: defaultText,
     labelName: defaultText,
