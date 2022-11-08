@@ -1,5 +1,6 @@
 export default interface IProduct{
     id: number,
+    count: number,
     collection: string,
     category: string,
     labelName: string,

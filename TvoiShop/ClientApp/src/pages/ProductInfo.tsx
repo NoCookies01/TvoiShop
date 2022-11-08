@@ -6,6 +6,7 @@ import { CardProduct } from '../components/CardProduct';
 
 interface IProps {
     products: IProduct[];
+    handleClick: (item: any) => void;
 }
 
 export const ProductInfo = (props: IProps) => {
@@ -13,15 +14,16 @@ export const ProductInfo = (props: IProps) => {
     let {id} = useParams<any>();
     const [productItem, setProductItem] = useState<IProduct>(defaultProduct);
     const [offeredProduct, setOfferedProduct] = useState<IProduct[]>([]);
-    const products = props.products;
+    const items = props.products;
     const navigate = useNavigate();
 
+
     useEffect(() => {
-        var prod = products.find(Element => Element.id === Number(id)) ?? defaultProduct;
+        var prod = items.find(Element => Element.id === Number(id)) ?? defaultProduct;
         setProductItem(prod);
-        const offeredItems = [...products].filter((p) => p.category === "Necklace");
+        const offeredItems = [...items].filter((p) => p.category === "Necklace");
         setOfferedProduct(offeredItems.splice(0,3));
-    }, [products, id]);
+    }, [items, id]);
 
     return(
         <div>
@@ -73,7 +75,7 @@ export const ProductInfo = (props: IProps) => {
                     </div>
                     <div className="btnInfoPgStylePos">
                         <button className="btnInfoPgStyle"onClick={() => navigate(`/cart/`)}> buy now </button>
-                        <button className="btnInfoPgStyle"> add to cart</button>
+                        <button className="btnInfoPgStyle" onClick={() => props.handleClick(items)}> add to cart</button>
                     </div>
                 </div>
             </div>

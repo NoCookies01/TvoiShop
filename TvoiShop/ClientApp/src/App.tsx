@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {Home} from './pages/Home';
 import {SideBar} from './components/SideBar';
@@ -8,8 +8,8 @@ import { SearchBar } from './components/SearchBar';
 import {ProductInfo} from './pages/ProductInfo';
 import IProduct from './data/models/IProduct';
 import { products as db } from './data/db';
-import { ShoppingCart } from './pages/ShoppingCart';
 import { productCategoryRoutes } from './route/productsCategoryRoutes';
+import Basket from './components/shoppingCart/Basket';
 
 export default function App() {
 
@@ -20,7 +20,50 @@ export default function App() {
     setSortedProduct(products.filter((p) => {
         return p.labelName.toLowerCase().indexOf(sortQuerry.toLowerCase()) !== -1;
     }));
-};
+  };
+
+  const [show, setShow] = useState(true);
+  const [cart, setCart] = useState<IProduct[]>([]);
+
+  const handleClick = (item: any) => {
+    // Update cart item quantity if already in cart
+    if (cart.some((cartItem) => cartItem.id === item.id)) {
+      setCart((cart) =>
+        cart.map((cartItem) =>
+          cartItem.id === item.id
+            ? {
+                ...cartItem,
+                amount: cartItem.count + 1
+              }
+            : cartItem
+        )
+      );
+      return;
+    }
+
+    // Add to cart
+    setCart((cart) => [
+      ...cart,
+      { ...item, amount: 1 } // <-- initial amount 1
+    ]);
+  };
+
+  const handleChange = (id:number, d:number) => {
+    setCart((cart) =>
+      cart.flatMap((cartItem) =>
+        cartItem.id === id
+          ? cartItem.count + d < 1
+            ? [] // <-- remove item if amount will be less than 1
+            : [
+                {
+                  ...cartItem,
+                  amount: cartItem.count + d
+                }
+              ]
+          : [cartItem]
+      )
+    );
+  };
 
     return (
         <div className='App'>
@@ -29,11 +72,11 @@ export default function App() {
             <SearchBar sort={search}/>
               <Routes>
                 <Route path='/' element={<Home products={products}/> } />
-                <Route path='/productInfo/:id' element={<ProductInfo products={products} />} />
+                <Route path='/productInfo/:id' element={<ProductInfo products={products} handleClick={handleClick} />} />
                 {productCategoryRoutes.map(pcr => (
                   <Route path={pcr.path} element={<ProductList products={products} title={pcr.title} category={pcr.category} />} />
                 ))}
-                <Route path='/cart' element={<ShoppingCart products={products}/>} />
+                <Route path='/cart' element={<Basket products={products} cart={cart} setCart={setCart} handleChange={handleChange}/>} />
               </Routes>
             </BrowserRouter>
         </div>

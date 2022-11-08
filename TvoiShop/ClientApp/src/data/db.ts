@@ -3,6 +3,7 @@ import IProduct from "./models/IProduct";
 export const products: IProduct[] = [
 {
     id: 1,
+    count: 0,
     collection: "winter `22",
     category: "Bracelet",
     labelName: "Pandora reflexion",
@@ -20,6 +21,7 @@ export const products: IProduct[] = [
 
 {
     id: 2,
+    count: 0,
     collection: "winter `22",
     category: "Bracelet",
     labelName: "Pandora ME",
@@ -37,6 +39,7 @@ export const products: IProduct[] = [
 
 {
     id: 3,
+    count: 0,
     collection: "winter `22",
     category: "Bracelet",
     labelName: "Tiffany & Co classic",
@@ -54,6 +57,7 @@ export const products: IProduct[] = [
 
 {
     id: 4,
+    count: 0,
     collection: "autumn `22",
     category: "Bracelet",
     labelName: "Hermes bracelet",
@@ -71,6 +75,7 @@ export const products: IProduct[] = [
 
 {
     id: 5,
+    count: 0,
     collection: "winter `22",
     category: "Necklace",
     labelName: "Pandora necklace",
@@ -88,6 +93,7 @@ export const products: IProduct[] = [
 
 {
     id: 6,
+    count: 0,
     collection: "autumn `22",
     category: "Watch",
     labelName: "Esprit watch woman",
