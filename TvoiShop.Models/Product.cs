@@ -14,6 +14,7 @@ namespace TvoiShop.Models
     {
         [TsProperty(Type = "string")]
         public Guid Id { get; set; }
+        public int Count { get; set; }
         public string Collection { get; set; }
         public string Category { get; set; }
         public string LabelName { get; set; }
@@ -27,5 +28,6 @@ namespace TvoiShop.Models
         public float Size { get; set; }
         public string Description { get; set; }
         public float Popularity { get; set; }
+        public float CustomPopularity { get; set; }
     }
 }

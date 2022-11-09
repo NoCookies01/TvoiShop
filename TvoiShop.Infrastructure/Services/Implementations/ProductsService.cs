@@ -21,5 +21,18 @@ namespace TvoiShop.Infrastructure.Services.Implementations
         {
             return _productsRepository.GetAll();
         }
+
+        public void AddProduct(Product item)
+        {
+            _productsRepository.AddProduct(item);
+        }
+        public void DeleteProductById(Guid id)
+        {
+            _productsRepository.DeleteProductById(id);
+        }
+        public void UpdateProduct(Product item)
+        {
+            _productsRepository.UpdateProduct(item);
+        }
     }
 }

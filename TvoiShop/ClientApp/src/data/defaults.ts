@@ -4,6 +4,7 @@ export const defaultImage = "https://kubalubra.is/wp-content/uploads/2017/11/def
 
 export const defaultProduct: IProduct = {
     id: defaultText,
+    count:  defaultNumber,
     collection: defaultText,
     category: defaultText,
     labelName: defaultText,

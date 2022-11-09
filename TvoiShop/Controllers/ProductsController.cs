@@ -1,6 +1,7 @@
 ﻿using Duende.IdentityServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -27,6 +28,24 @@ namespace TvoiShop.Controllers
         public Task<List<Product>> GetAll()
         {
             return _productsService.GetAll();
+        }
+
+        [HttpPost]
+        public void AddProduct(Product item)
+        {
+            _productsService.AddProduct(item);
+        }
+
+        [HttpDelete]
+        public void DeleteProductById(Guid id)
+        {
+            _productsService.DeleteProductById(id);
+        }
+
+        [HttpPatch]
+        public void UpdateProduct(Product item)
+        {
+            _productsService.UpdateProduct(item);
         }
     }
 }

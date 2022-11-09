@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TvoiShop.Infrastructure;
 
@@ -11,9 +12,10 @@ using TvoiShop.Infrastructure;
 namespace TvoiShop.Infrastructure.Migrations
 {
     [DbContext(typeof(TvoiShopDBContext))]
-    partial class TvoiShopDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221108152855_add_count_and_custom_popularity")]
+    partial class add_count_and_custom_popularity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
