@@ -21,5 +21,33 @@ namespace TvoiShop.Infrastructure.Repositories.Implmentations
         {
             return _dbContext.Products.ToListAsync();
         }
+
+        public void AddProduct(Product item)
+        {
+            _dbContext.Products.Add(item);
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteProductById(Guid id)
+        {
+            var itemToRemove = _dbContext.Products.FirstOrDefault(p => p.Id == id);
+            if (itemToRemove == null)
+            {
+                return;
+            }
+            _dbContext.Products.Remove(itemToRemove);
+            _dbContext.SaveChanges();
+        }
+
+        public void UpdateProduct(Product item)
+        {
+            var itemToUpdate = _dbContext.Products.FirstOrDefault(p => p.Id == item.Id);
+            if (itemToUpdate == null)
+            {
+                return;
+            }
+            _dbContext.Entry(itemToUpdate).CurrentValues.SetValues(item);
+            _dbContext.SaveChanges();
+        }
     }
 }
