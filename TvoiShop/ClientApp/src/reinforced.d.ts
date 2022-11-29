@@ -5,6 +5,7 @@
 interface IProduct
 {
 	id: string;
+	count: number;
 	collection: string;
 	category: string;
 	labelName: string;
@@ -18,4 +19,5 @@ interface IProduct
 	size: number;
 	description: string;
 	popularity: number;
+	customPopularity: number;
 }

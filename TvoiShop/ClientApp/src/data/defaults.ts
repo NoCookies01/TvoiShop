@@ -17,5 +17,6 @@ export const defaultProduct: IProduct = {
     metal: defaultText,
     size: defaultNumber,
     description: defaultText,
-    popularity: defaultNumber
+    popularity: defaultNumber,
+    customPopularity: defaultNumber
 }

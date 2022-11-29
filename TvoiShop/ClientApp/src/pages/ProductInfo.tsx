@@ -1,31 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { defaultProduct } from '../data/defaults';
-import { CardProducts } from '../components/CardProduct';
+import { CardProducts } from '../components/productsView/CardProduct';
+import toastrService from "../services/toastr.service";
+import { CarouselGallery } from '../components/productsView/Carousel';
 
 interface IProps {
     products: IProduct[];
-    handleClick: (item: any) => void;
+    handleClick: (item: IProduct) => void;
 }
 
 export const ProductInfo = (props: IProps) => {
-
     let {id} = useParams<any>();
     const [productItem, setProductItem] = useState<IProduct>(defaultProduct);
+    const [popularProducts, setPopularProducts] = React.useState<(IProduct)[]>([]);
     const [offeredProduct, setOfferedProduct] = useState<IProduct[]>([]);
-    const items = props.products;
     const navigate = useNavigate();
 
 
     useEffect(() => {
-        var prod = items.find(Element => Element.id === id) ?? defaultProduct;
+        var prod = props.products.find(Element => Element.id === id) ?? defaultProduct;
         setProductItem(prod);
-        const offeredItems = [...items].filter((p) => p.category === "Necklace");
+        const offeredItems = [...props.products].sort((a, b) => b.customPopularity - a.customPopularity);
         setOfferedProduct(offeredItems.splice(0,3));
-    }, [id]);
+        const popularItems = [...props.products].sort((a, b) => a.popularity - b.popularity);
+        setPopularProducts(popularItems);
+    }, [id, props.products]);
 
     return(
         <div>
+            <br/>
+            <br/>
             <div className="productInfoView">
                 <div className="infoViewCard">
                     <div className="prLblName">{productItem.labelName}</div>
@@ -45,8 +50,9 @@ export const ProductInfo = (props: IProps) => {
                             </div>
 
                             <div>
-                                Size
-                                <p><div className="prTextMain">{productItem.size} cm</div></p>
+                                Weight
+                                <p><div className="prTextMain">{productItem.weight} g</div></p>
+                                <p className="hrLine"></p>
                             </div>
 
                             <div>
@@ -55,8 +61,8 @@ export const ProductInfo = (props: IProps) => {
                             </div>
 
                             <div>
-                                Weight
-                                <p><div className="prTextMain">{productItem.weight} g</div></p>
+                                Size
+                                <p><div className="prTextMain">{productItem.size} cm</div></p>
                                 <p className="hrLine"></p>
                             </div>
 
@@ -70,11 +76,13 @@ export const ProductInfo = (props: IProps) => {
                             <div>
                                 <p><div className="prTextMain">{productItem.collection}</div></p>
                             </div>
+                            <div onClick={() => {navigate(`/${productItem.category}`)}} className="hyperLinkStyle"> see more {productItem.category}</div>
                         </div>
                     </div>
+                        
                     <div className="btnInfoPgStylePos">
-                        <button className="btnInfoPgStyle"onClick={() => navigate(`/cart/`)}> buy now </button>
-                        <button className="btnInfoPgStyle" onClick={() => props.handleClick(items)}> add to cart</button>
+                        <button className="btnInfoPgStyle"onClick={() => {navigate(`/cart/`); props.handleClick(productItem)}}> buy now </button>
+                        <button className="btnInfoPgStyle" onClick={() => {props.handleClick(productItem); toastrService.callToastr("Added to Cart")}}> add to cart</button>
                     </div>
                 </div>
             </div>
@@ -83,8 +91,10 @@ export const ProductInfo = (props: IProps) => {
                 <div className="simItemStyle">
                     You may like also:
                 </div>
-                <CardProducts products={offeredProduct}/>
+                <div><CarouselGallery products ={popularProducts} handleClick={props.handleClick}/></div>
             </div>
+            <br/>
+            <br/>
         </div>
         
     );

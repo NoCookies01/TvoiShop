@@ -1,0 +1,15 @@
+.nestedItems {
+    position: absolute;
+    background-color: #232323;
+}
+
+.multiItem {
+    display: flex;
+    flex-direction: row;
+}
+
+.multiSubMenu {
+    position: absolute;
+    right: -46%;
+    top: 54%;
+}
