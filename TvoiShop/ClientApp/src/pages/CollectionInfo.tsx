@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CardProducts } from '../components/productsView/CardProduct';
+import { CarouselGallery } from '../components/productsView/Carousel';
 
 interface IProps {
     products: IProduct[];
@@ -21,8 +21,17 @@ export const CollectionInfo = (props: IProps) => {
     return(
         <div>
             <br/>
-            <div className="productInfoView">
-                <CardProducts products={collection} handleClick={props.handleClick}/>
+            <br/>
+            <div className='simItemPos'>
+
+                <div>
+                    Photo 1
+                </div>
+
+                <div className="productInfoView">
+                    <CarouselGallery products={collection} handleClick={props.handleClick}/>
+                </div>
+
             </div>
         </div>
         

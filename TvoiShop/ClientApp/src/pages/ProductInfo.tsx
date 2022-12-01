@@ -76,7 +76,7 @@ export const ProductInfo = (props: IProps) => {
                             <div>
                                 <p><div className="prTextMain">{productItem.collection}</div></p>
                             </div>
-                            <div onClick={() => {navigate(`/${productItem.category}`)}} className="hyperLinkStyle"> see more {productItem.category}</div>
+                            <div onClick={() => {navigate(`/${productItem.category}`)}} className="hyperLinkStyle">more {productItem.category}</div>
                         </div>
                     </div>
                         

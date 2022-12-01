@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { CarouselGallery } from '../components/productsView/Carousel';
 import { FooterPanel } from '../components/FooterPanel';
 import { CollectionInfo } from './CollectionInfo';
-import {ReactComponent as PhotoOne} from '../images/1.svg';
 import {ReactComponent as PhotoTwo} from '../images/6.svg';
-import {ReactComponent as MainLogo} from '../images/mainlogo.svg';
+import {ReactComponent as PhotoWatches} from '../images/7.svg';
 import { Categories } from '../components/productsView/Categories';
 
 interface IProps {
@@ -16,12 +15,18 @@ interface IProps {
 export const Home = (props: IProps) => {
 
   const [popularProducts, setPopularProducts] = React.useState<(IProduct)[]>([]);
+  const [collectionProducts, setCollectionProducts] = React.useState<(IProduct)[]>([]);
   const [products, setProducts] = React.useState<(IProduct)[]>([]);
+  const [watches, setWatches] = React.useState<(IProduct)[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const popularItems = [...props.products].sort((a, b) => a.popularity - b.popularity);
-    setPopularProducts(popularItems.splice(0,6));
+    const collectionItems = [...props.products].filter((p) => p.collection === "autumn `22");
+    const watches = [...props.products].filter((p) => p.category === "watches");
+    setCollectionProducts(collectionItems);
+    setWatches(watches);
+    setPopularProducts(popularItems);
     const items = props.products;
     setProducts(items);
   }, [JSON.stringify(props.products)]);
@@ -43,17 +48,12 @@ export const Home = (props: IProps) => {
         
           <div className='columnStyle positionCenter'>
 
-          <div className='positionCenter'>
-            <div className='photoBannerPos' onClick={() => navigate(`/collection`)}><PhotoTwo className="photoBannerStyle"/></div>
-            <div className='txtBanner'> elegance is tvoi</div>
-          </div>
+            <div className='photoBannerPos' ><PhotoTwo className="photoBannerStyle"/></div>
+            <div className='txtBanner' onClick={() => navigate(`/collection`)}> elegance is tvoi</div>
 
             <button className="btnHomeStyle" onClick={() => navigate(`/collection`)}>
               explore more
             </button>
-
-            <CollectionInfo products={products} handleClick={props.handleClick}/>
-
           </div>
 
           <div className="simItemStyle">
@@ -61,11 +61,20 @@ export const Home = (props: IProps) => {
           </div>
           <div><CarouselGallery products ={popularProducts} handleClick={props.handleClick}/> </div>
 
-          <div className="btnHomeStylePos">
-            <button className="btnHomeStyle" onClick={() => navigate(`/bracelet/`)}>
-                shop now
-              </button>
+
+          <div className="simItemStyle">
+            hot sales
           </div>
+
+          <div className='photoBannerPos'>
+              <PhotoWatches className="photoBannerStyle"/>
+          </div>
+          <div><CarouselGallery products ={watches} handleClick={props.handleClick}/></div>
+
+          <button className="btnHomeStyle" onClick={() => navigate(`/watches`)}>
+            explore more
+          </button>
+
         </div>
         <FooterPanel/>
     </div>

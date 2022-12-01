@@ -98,7 +98,7 @@ export default function Basket({cart, setCart, handleChange, cancel}: IProps) {
                     </div>
                 </div>
 
-                </div>
+            </div>
 
             {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel}/>}
         </div>

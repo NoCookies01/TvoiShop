@@ -13,7 +13,6 @@ export const CarouselGallery = (props: IProps) => {
 
     const viewProducts = productItems.map((p, index) => {
         return(
-          <Carousel.Item>
                 <div className='productCard' key={index} onClick={() => navigate(`/productInfo/${p.id}`)}>
 
                     <div className="productImagePos">
@@ -26,15 +25,12 @@ export const CarouselGallery = (props: IProps) => {
                       <div className='productPrice'>{p.price} UAH</div>
                     </div>
                 </div>
-            </Carousel.Item>
         )
       })
 
   return (
     <div className='productViewCarouselParent'> 
-        <Carousel cols={5} gap={0} marginWidth={0}>
           {viewProducts}
-        </Carousel>
     </div>
   )
 }
