@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CarouselGallery } from '../components/productsView/Carousel';
+import {ReactComponent as PhotoBanner} from '../images/8.svg';
 
 interface IProps {
     products: IProduct[];
@@ -24,8 +25,16 @@ export const CollectionInfo = (props: IProps) => {
             <br/>
             <div className='simItemPos'>
 
-                <div>
-                    Photo 1
+                <div className="simItemStyle">
+                    winter `22
+                </div>
+
+                <div className='photoBannerPos'>
+                    <PhotoBanner className="photoBannerStyle"/>
+                </div>
+
+                <div className="simItemStyle">
+                    Beauty is inside
                 </div>
 
                 <div className="productInfoView">
