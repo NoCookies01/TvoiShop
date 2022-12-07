@@ -11,10 +11,12 @@ import { GetAll } from './api/endpoints/products';
 import { CollectionInfo } from './pages/CollectionInfo';
 import { ToastrList } from './components/toastr/ToastrList';
 import { getPropertyFromObject, isPrimitive } from './services/object.service';
+import { SearchPage } from './pages/SearchPage';
 
 export default function App() {
   const [products, setProducts] = React.useState<IProduct[]>([]);
   const [filteredProducts, setFilteredProducts] = React.useState<IProduct[]>([]);
+  const [searchedProducts, setSearchedProducts] = React.useState<IProduct[]>([]);
   const [cart, setCart] = useState<IProduct[]>([]);
 
   useEffect(() => {
@@ -22,11 +24,12 @@ export default function App() {
       var data = responce.data.sort((a, b) => a.labelName.localeCompare(b.labelName));
       setProducts(data);
       setFilteredProducts(data);
+      setSearchedProducts(data);
     });
   }, []);
 
   const search = (sortQuerry: string) => {
-    setFilteredProducts(products.filter((p) => {
+    setSearchedProducts(products.filter((p) => {
       return p.labelName.toLowerCase().indexOf(sortQuerry.toLowerCase()) !== -1;
     }));
   };
@@ -97,11 +100,12 @@ export default function App() {
     <div className='App'>
       <ToastrList/>
         <BrowserRouter>
-        <SearchBar  cart={cart} setCart={setCart} handleChange={handleChange}/>
+        <SearchBar cart={cart} setCart={setCart} handleChange={handleChange} search={search}/>
           <Routes>
-            <Route path='/' element={<Home products={products} handleClick={handleClick}/> } />
+            <Route path='/' element={<Home products={products} handleClick={handleClick} /> } />
             <Route path='/productInfo/:id' element={<ProductInfo products={products} handleClick={handleClick} />} />
             <Route path='/collection' element={<CollectionInfo products={products} handleClick={handleClick} />} />
+            <Route path='/search' element={<SearchPage products={searchedProducts} handleClick={handleClick} />} />
             {productCategoryRoutes.map((pcr, index) => (
               <Route key={index} path={pcr.path} element={
                 <ProductList 

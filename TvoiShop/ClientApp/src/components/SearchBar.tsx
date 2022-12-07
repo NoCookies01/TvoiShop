@@ -29,6 +29,12 @@ export const SearchBar = (props: IProps) => {
     props.search(event.target.value);
   };
 
+  /*const enterKey = (event: any) =>{
+    if(event.key === 'Enter'){
+      navigate(`/search`)
+    }      
+  }*/
+
   return(
     <div className="sticky">
       <div>
@@ -49,6 +55,7 @@ export const SearchBar = (props: IProps) => {
             aria-label="Search"
             placeholder = "Search..."
             onClick={() => navigate(`/search`)}
+           //onKeyDown={enterKey}
             onChange ={handleSearch}
             />
         </form>

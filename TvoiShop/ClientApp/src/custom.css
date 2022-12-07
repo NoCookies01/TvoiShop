@@ -282,9 +282,12 @@ transform: translateY(-50%);
 .btnCarouselLeft{
   background-color: transparent;
   position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   left: 0px;
   z-index: 1;
-  width: 35px;
+  width: 100px;
   height: 337px;
   border: none;
   opacity: 7%;
@@ -299,9 +302,12 @@ transform: translateY(-50%);
 .btnCarouselRight{
   background-color: transparent;
   position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   right: 0px;
   z-index: 1;
-  width: 35px;
+  width: 100px;
   height: 337px;
   border: none;
   opacity: 7%;
@@ -422,6 +428,14 @@ transform: translateY(-50%);
     display: none;
   }
 
+  .btnCarouselLeft{
+    display: none;
+  }
+
+  .btnCarouselRight{
+    display: none;
+  }
+
   .productCard {
     margin: 10px;
   }
@@ -449,8 +463,8 @@ transform: translateY(-50%);
   }
 
   .prImg{
-    height: 390px !important;
-    width: 390px !important;
+    height: 100% !important;
+    width: 100% !important;
   }
 
   .prDesc{
@@ -648,6 +662,9 @@ transform: translateY(-50%);
   background-color: transparent;
 }
 
+.activeLink {
+  color: #9e9b9b !important;
+}
 
 /* Product Info Page Style*/
 .btnHomeStylePos{

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CarouselGallery } from '../components/productsView/Carousel';
+import { CardProducts } from '../components/productsView/CardProduct';
 import {ReactComponent as PhotoBanner} from '../images/8.svg';
 
 interface IProps {
@@ -34,11 +34,11 @@ export const CollectionInfo = (props: IProps) => {
                 </div>
 
                 <div className="simItemStyle">
-                    Beauty is inside
+                    Everything is falling into place as it`s meant to be
                 </div>
 
                 <div className="productInfoView">
-                    <CarouselGallery products={collection} handleClick={props.handleClick}/>
+                    <CardProducts products={collection} handleClick={props.handleClick}/>
                 </div>
 
             </div>

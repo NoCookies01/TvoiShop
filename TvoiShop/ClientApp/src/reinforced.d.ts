@@ -2,6 +2,12 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 
+interface IImages
+{
+	id: string;
+	url: string;
+	product: IProduct;
+}
 interface IProduct
 {
 	id: string;
@@ -12,7 +18,7 @@ interface IProduct
 	brand: string;
 	price: number;
 	salePrice: number;
-	image: string;
+	images: IImages[];
 	weight: number;
 	color: string;
 	metal: string;

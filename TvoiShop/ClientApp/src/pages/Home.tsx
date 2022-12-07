@@ -26,7 +26,7 @@ export const Home = (props: IProps) => {
     const watches = [...props.products].filter((p) => p.category === "watches");
     setCollectionProducts(collectionItems);
     setWatches(watches);
-    setPopularProducts(popularItems);
+    setPopularProducts(popularItems.splice(0,10));
     const items = props.products;
     setProducts(items);
   }, [JSON.stringify(props.products)]);
