@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import {ReactComponent as CartIcon} from '../images/cart.svg';
 import {ReactComponent as MenuIcon} from '../images/menu.svg';
 import {ReactComponent as MainLogo} from '../images/mainlogo.svg';
@@ -11,6 +11,7 @@ interface IProps {
   cart: IProduct[];
   setCart: (fn: (items: IProduct[]) => IProduct[]) => void;
   handleChange: (id: string, count: number) => void;
+  search: (querry: string) => void;
 }
 
 export const SearchBar = (props: IProps) => {
@@ -21,10 +22,12 @@ export const SearchBar = (props: IProps) => {
   const cancelBasket = () => {
     setOpenBasket(false);
   }
-
   const cancelSidebar = () => {
     setOpenSidebar(false);
   }
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    props.search(event.target.value);
+  };
 
   return(
     <div className="sticky">
@@ -45,6 +48,8 @@ export const SearchBar = (props: IProps) => {
             type="search" 
             aria-label="Search"
             placeholder = "Search..."
+            onClick={() => navigate(`/search`)}
+            onChange ={handleSearch}
             />
         </form>
         <div className="searchBarIconPos" >

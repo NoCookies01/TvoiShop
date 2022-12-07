@@ -11,7 +11,7 @@ interface IProps {
     cancel: () => void;
 }
 
-export default function Basket({cart, setCart, handleChange, cancel}: IProps) {
+export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
 
     const [window, setWindow] = React.useState(false)
 
@@ -92,13 +92,13 @@ export default function Basket({cart, setCart, handleChange, cancel}: IProps) {
                         <button className="btnHomeStyle" onClick={() => cancel()}> cancel </button>
                     </div>
                     <div className="btnHomeStylePos">
-                        <button className="btnHomeStyle" onClick={() => navigate(`/bracelet/`)}>
+                        <button className="btnHomeStyle" onClick={() => {navigate(`/`); cancel()}}>
                             shop more
                         </button>
                     </div>
                 </div>
 
-            </div>
+                </div>
 
             {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel}/>}
         </div>
