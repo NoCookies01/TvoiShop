@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import {ReactComponent as RightIcon} from "../../images/rightIcon.svg";
 import {ReactComponent as LeftIcon} from "../../images/leftIcon.svg";
+import { Price } from './Price';
 
 interface IProps {
     products: IProduct[];
@@ -23,21 +24,19 @@ export const CarouselGallery = (props: IProps) => {
     };
 
     const viewCarousel = productItems.map((p, index) => {
-        return(
-          <div className='productCard' key={index} onClick={() => navigate(`/productInfo/${p.id}`)}>
-
-              <div className="productImagePos">
-                <div className='ProductIconPos'></div>
-                <img className='productImage' src={p.image}/>
-              </div>
-
-              <div className='productLabel'>
-                <div>{p.labelName}</div>
-                <div className='productPrice'>{p.price} UAH</div>
-              </div>
+      return(
+        <div className='productCard' key={index} onClick={() => navigate(`/productInfo/${p.id}`)}>
+          <div className="productImagePos">
+            <div className='ProductIconPos'></div>
+            <img className='productImage' src={p.image}/>
           </div>
-        )
-      })
+          <div className='productLabel'>
+            <div>{p.labelName}</div>
+            <Price product={p} />
+          </div>
+        </div>
+      )
+    })
 
   return (
     <div>

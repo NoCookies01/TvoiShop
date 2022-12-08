@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useNavigate } from "react-router-dom";
 import toastrService from "../../services/toastr.service";
+import { Price } from './Price';
 
 interface IProps {
   products: IProduct[];
@@ -22,7 +23,7 @@ export const CardProducts = (props: IProps) => {
         
         <div className='productLabel' key={index} onClick={() => navigate(`/productInfo/${p.id}`)}>
           <div>{p.labelName}</div>
-          <div className='productPrice'>{p.price} UAH</div>
+          <Price product={p} />
         </div>
 
         <div className='positionCenter addToStyle'onClick={() => {props.handleClick(productItems[index]); toastrService.callToastr("Added to Cart")}}> 
@@ -34,8 +35,9 @@ export const CardProducts = (props: IProps) => {
   })
 
   return(
-      <div className='productView'> 
-          {viewProducts} 
-      </div>
-  )};
+    <div className='productView'> 
+      {viewProducts} 
+    </div>
+  )
+}
 
