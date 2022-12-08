@@ -48,9 +48,9 @@ export const SearchBar = (props: IProps) => {
         </div>
       </div>
       
-        <form role="search">
+        <form role="search" className="searchBarPos" >
             <input 
-            className="searchBar" 
+            className="searchBar"
             type="search" 
             aria-label="Search"
             placeholder = "Search..."
