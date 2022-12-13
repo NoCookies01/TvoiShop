@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { OnConfirmOrderWindow } from './windows/OnConfirmOrderWindow';
 import '../styles/shoppingCart.css'
 import {ReactComponent as DeleteIcon} from '../images/delete.svg';
+import { Price } from './productsView/Price';
+import OutsideAlerter from './helpers/Outside';
 
 interface IProps {
     cart: IProduct[];
@@ -28,9 +30,13 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
     }
     const handleRemove = (productId: string) => {
         setCart((cart: IProduct[]) => cart.filter(item => item.id !== productId));
-      };
+    };
+
+    const isSalePrice = (item:IProduct) => {
+        return item.salePrice > 0;
+    }
     
-    const price = cart.reduce((total:number, item:IProduct) => total + item.count * item.price, 0);
+    const price = cart.reduce((total:number, item:IProduct) => total + item.count * (isSalePrice(item) ?  item.salePrice : item.price), 0);
     
     const viewProducts = cart.map((item:IProduct) => {
         return(
@@ -60,7 +66,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
                         <div className='txtCartDesc'>{item.category}</div>
                         <div className='txtCartDesc'>{item.size} CM</div>
                         <div className='txtCartDesc'>{item.color} </div>
-                        <div className='txtCartPrice'>{item.price} UAH</div>
+                        <div className='txtCartPrice'><Price product={item}/></div>
                     </div>
 
 
@@ -72,7 +78,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
 
     return (
         <div className='cartPos'>
-
+            <OutsideAlerter onOutsideClick={cancel}>
             <div className='cartComponent'>
 
                 <div className="simItemStyle">
@@ -89,7 +95,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
                     </div>
                     <div className="btnHomeStylePos">
                         <button className="btnHomeStyle" onClick={onConfirm}> confirm </button>
-                        <button className="btnHomeStyle" onClick={() => cancel()}> cancel </button>
+                        <button className="btnHomeStyle" onClick={cancel}> cancel </button>
                     </div>
                     <div className="btnHomeStylePos">
                         <button className="btnHomeStyle" onClick={() => {navigate(`/`); cancel()}}>
@@ -101,6 +107,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
                 </div>
 
             {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel}/>}
+            </OutsideAlerter>
         </div>
   );
 }

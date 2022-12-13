@@ -4,6 +4,7 @@ import { defaultProduct } from '../data/defaults';
 import { CardProducts } from '../components/productsView/CardProduct';
 import toastrService from "../services/toastr.service";
 import { CarouselGallery } from '../components/productsView/Carousel';
+import { Price } from '../components/productsView/Price';
 
 interface IProps {
     products: IProduct[];
@@ -35,9 +36,11 @@ export const ProductInfo = (props: IProps) => {
                 <div className="infoViewCard">
                     <div className="prLblName">{productItem.labelName}</div>
                     <div className="prRowPos">
+
                         <div className="prImg">
                             <img className='productInfPgImage' src={productItem.image}/>
                         </div>
+                        
                         <div className="prColumnPos">
                             <div>
                                 Brand
@@ -68,7 +71,7 @@ export const ProductInfo = (props: IProps) => {
 
                             <div>
                                 Price
-                                <p><div className="prPrice">{productItem.price} UAH</div></p>
+                                <p><Price product={productItem}/></p>
                             </div>
                         </div>
                         <div className="prDesc">

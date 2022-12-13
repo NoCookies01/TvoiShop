@@ -9,9 +9,10 @@ import './nestedSelect.css';
 interface IProps {
     items: IItem[];
     onSelect: (value: string[]) => void;
+    reset: () => void;
 }
 
-export default function NestedSelect({ items, onSelect }: IProps){
+export default function NestedSelect({ items, onSelect, reset }: IProps){
     const [selectedItem, selectItem] = useState(["Filter by"]);
     const [isExpand, setExpand] = useState(false);
 
@@ -21,13 +22,20 @@ export default function NestedSelect({ items, onSelect }: IProps){
         setExpand(false);
     };
 
+    const resetClick = () => {
+        reset();
+        setExpand(false);
+        selectItem(["Filter by"]);
+    }
+
     return (
-        <div>
+        <div className="nestedList">
             <div onClick={() => setExpand(!isExpand)}>{selectedItem[selectedItem.length-1]}</div>
-            {isExpand &&<OutsideAlerter onOutsideClick={() => setExpand(false)}><div className="nestedItems">{items.map((child, key) => child.Items && child.Items.length > 0 ?
-                <MultiItem onSelect={select} item={child} key={key}/> :
+            {isExpand && <OutsideAlerter onOutsideClick={() => setExpand(false)}><div className="nestedItems">{items.map((child, key) => child.Items && child.Items.length > 0 ?
+                <MultiItem onSelect={select} item={child} key={key} /> :
                 <SingleItem onSelect={select} item={child} key={key} />
-            )}</div></OutsideAlerter>}
+            )}
+            <button className="btnHomeStyleWhite" onClick={resetClick}>Reset</button></div></OutsideAlerter>}
         </div>
     );
 };

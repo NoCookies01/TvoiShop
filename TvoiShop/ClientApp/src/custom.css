@@ -14,6 +14,11 @@ body {
   font-family: Montserrat;
 }
 
+.bgMainTheme{
+  background-color: #232323;
+  color: white;
+}
+
 .ButtonStyle{
   display: flex;
   align-items: flex-end;
@@ -143,7 +148,7 @@ transform: translateY(-50%);
 }
 
 .searchBarPos{
-  width: 85vw;
+  flex: 1;
 
 }
 .searchBarPos:focus{
@@ -152,7 +157,6 @@ transform: translateY(-50%);
 
 .searchBar{
   padding-left: 20px;
-  padding-right: 20px;
   background-color: white;
   border: transparent;
   color: rgb(150, 150, 150);
@@ -167,14 +171,8 @@ transform: translateY(-50%);
 .icon{
   background-color: transparent;
   width: 24px;
-  margin-right: 20px;
+  margin: 5px;
   cursor: pointer;
-  transition: 0.4s;
-}
-
-.icon:hover{
-  width: 26px;
-  transition: 0.4s;
 }
 
 .iconsimple{
@@ -455,6 +453,18 @@ transform: translateY(-50%);
 /* Product Info Page Style*/
 
 @media(max-width: 850px) {
+
+  .searchBar{
+    font-size: 20px !important;
+  }
+
+  .icon{
+    width: 28px !important;
+  }
+  .sticky{
+    height: 50px !important;
+    margin-bottom: 5px !important;
+  }
   .productViewCarouselParent{
     display: flex;
     flex-direction: row;
@@ -480,7 +490,7 @@ transform: translateY(-50%);
   }
 
   .productLabel{
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .productPrice{
@@ -523,6 +533,11 @@ transform: translateY(-50%);
     width: 100% !important;
   }
 
+  .productInfPgImage{
+    height: 100% !important;
+    width: 100% !important;
+  }
+
   .prDesc{
     font-size: 12px !important;
     margin: 0 !important;
@@ -552,9 +567,10 @@ transform: translateY(-50%);
 
   .categoriesStylePos{
     display: flex;
-    justify-content: flex-start !important;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: scroll;
   }
-
 
   .hyperLinkStyle{
     background-color: #232323;
@@ -581,8 +597,25 @@ transform: translateY(-50%);
     font-size: 10px;
   }
 
+  .txtCategory{
+    font-size: 13px !important;
+  }
+
   .logoStyle{
     width: 50px;
+  }
+
+  .categoryImagePos{
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    margin-top: 10px !important;
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .windowConfirmStyle{
+    width: 100vw !important;
+    height: auto !important;
   }
 }
 
@@ -709,8 +742,8 @@ transform: translateY(-50%);
 }
 
 .productInfPgImage{
-  height: 100%;
-  width: 100%;
+  height: 350px;
+  width: 350px;
   background-color: transparent;
 }
 
@@ -759,6 +792,27 @@ transform: translateY(-50%);
 .btnHomeStyleWhite:hover{
   background-color: #b8b8b8;
   transition: 0.1s;
+}
+
+.btnHomeStyleShort{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: 0.8s
+}
+
+.btnHomeStyleShort:hover{
+  background-color: #232323;
+  color: white;
+  transition: 0.8s;
 }
 
 /* Instrument Panel Style*/
@@ -882,7 +936,7 @@ button.badge {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50vw;
+  width: 550px;
   padding: 20px;
   background-color: white;
 }
@@ -1022,11 +1076,11 @@ button.badge {
 }
 
 .logoCategory{
-  width: 200px;
-  color: #232323;
-  text-align: center;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 5px;
+  color: #232323;
+  text-align: center;
   align-items: center;
   cursor: pointer;
   transition: 0.2s;
@@ -1046,18 +1100,30 @@ button.badge {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   padding: 5px;
-  overflow-x: scroll;
 }
 
 .txtCategory{
   font-family: 'Bodoni Moda', serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 100;
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
+}
+
+.categoryImagePos{
+  position: relative;
+  background-color: rgb(231, 231, 231);
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
 .hyperLinkStyle{

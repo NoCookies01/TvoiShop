@@ -15,7 +15,6 @@ export const SideBar = ({cancel, isOpen}: IProps) => {
 
     return (
         <div className={`sidenav ${!isOpen ? "hiddenNav" : ''}`}>
-            <MenuIcon className='icon' onClick={() => cancel()}/>
             <div className='logoSidebarPosition'>
                 <NavLink onClick={cancel} className="logoSidebar" to={"/"}>
                     tvoi

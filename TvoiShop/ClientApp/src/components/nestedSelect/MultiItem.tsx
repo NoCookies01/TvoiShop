@@ -3,6 +3,7 @@ import IItem from "./item";
 import SingleItem from "./SingleItem";
 import {ReactComponent as ExpandLessIcon} from "../../images/expandLessIcon.svg";
 import {ReactComponent as ExpandMoreIcon} from "../../images/expandMoreIcon.svg";
+import OutsideAlerter from "../helpers/Outside";
 
 interface IProps {
   item: IItem;
@@ -18,16 +19,18 @@ export default function MultiItem({ item, onSelect }: IProps){
   
     return (
       <React.Fragment>
-        <div className="multiItem" onClick={handleClick}>
-          <div>{item.Title}</div>
-          {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </div>
-        {open && <div className="multiSubMenu nestedItems">
+        <OutsideAlerter onOutsideClick={() => setOpen(false)}>
+          <div className="multiItem" onClick={handleClick}>
+            <div>{item.Title}</div>
+            {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </div>
+          {open && <div className="multiSubMenu nestedItems">
             {item.Items!.map((child, key) => child.Items && child.Items.length > 0 ?
-                <MultiItem onSelect={(value) => onSelect([item.Title, ...value])} item={child} key={key}/> :
-                <SingleItem onSelect={(value) => onSelect([item.Title, ...value])} item={child} key={key} />
+              <MultiItem onSelect={(value) => onSelect([item.Title, ...value])} item={child} key={key}/> :
+              <SingleItem onSelect={(value) => onSelect([item.Title, ...value])} item={child} key={key} />
             )}
-        </div>}
+          </div>}
+        </OutsideAlerter>
       </React.Fragment>
     );
   };

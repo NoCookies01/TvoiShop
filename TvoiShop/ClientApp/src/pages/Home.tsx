@@ -33,50 +33,43 @@ export const Home = (props: IProps) => {
 
   return(
     <div>
-        <br/>
-        <br/>
-       <div className="simItemPos">
+      <br/>
+      <br/>
+      <div className='break'/>
+      <div className="simItemPos">
 
-          <div className="simItemStyle">
-              Categories
-          </div>
-          <div><Categories products={products} handleClick={props.handleClick}/> </div>
-
-          <div className="simItemStyle">
-              Collection winter '22
-          </div>
-        
-          <div className='columnStyle positionCenter'>
-
-            <div className='photoBannerPos' ><PhotoTwo className="photoBannerStyle"/></div>
-            <div className='txtBanner' onClick={() => navigate(`/collection`)}> elegance is tvoi</div>
-
-            <button className="btnHomeStyle" onClick={() => navigate(`/collection`)}>
-              explore more
-            </button>
-          </div>
-
-          <div className="simItemStyle">
-              Best Sellers
-          </div>
-          <div><CarouselGallery products ={popularProducts} handleClick={props.handleClick}/> </div>
-
-
-          <div className="simItemStyle">
-            hot sales
-          </div>
-
-          <div className='photoBannerPos'>
-              <PhotoWatches className="photoBannerStyle"/>
-          </div>
-          <div><CarouselGallery products ={watches} handleClick={props.handleClick}/></div>
-
-          <button className="btnHomeStyle" onClick={() => navigate(`/watches`)}>
+        <div className="simItemStyle">
+            Catalog
+        </div>
+        <div className='btnHomeStylePos'><button className='btnHomeStyleShort' onClick={() => navigate(`/search`)} >view all products</button></div>
+        <div className="simItemStyle">
+            Collection winter '22
+        </div>
+      
+        <div className='columnStyle positionCenter'>
+          <div className='photoBannerPos' ><PhotoTwo className="photoBannerStyle"/></div>
+          <div className='txtBanner' onClick={() => navigate(`/collection`)}> elegance is tvoi</div>
+          <button className="btnHomeStyle" onClick={() => navigate(`/collection`)}>
             explore more
           </button>
-
         </div>
-        <FooterPanel/>
+        <div className="simItemStyle">
+            Best Sellers
+        </div>
+        <div><CarouselGallery products ={popularProducts} handleClick={props.handleClick}/> </div>
+        <div className="simItemStyle">
+          hot sales
+        </div>
+        <div className='photoBannerPos'>
+            <PhotoWatches className="photoBannerStyle"/>
+        </div>
+        <div><CarouselGallery products ={watches} handleClick={props.handleClick}/></div>
+        <button className="btnHomeStyle" onClick={() => navigate(`/watches`)}>
+          explore more
+        </button>
+
+      </div>
+      <FooterPanel/>
     </div>
   )
 

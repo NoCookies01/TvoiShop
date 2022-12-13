@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { CardProducts } from './productsView/CardProduct';
 import { InstrumentPanel } from './InstrumentPanel';
+import IItem from './nestedSelect/item';
+import { getFilterCriteriaBasedOnProducts } from '../services/filter.service';
 
 interface IProps {
   products: IProduct[];
@@ -9,6 +11,8 @@ interface IProps {
   title: string;
   sortBy: (property: string) => void;
   filterBy: (value: any, property: string) => void;
+  filterCriteria: IItem[];
+  resetFilter: () => void;
   handleClick: (item: IProduct) => void;
 }
 
@@ -29,7 +33,12 @@ export const ProductList = (props: IProps) => {
         <div className="simItemStyle">
           {props.title}
         </div>
-        <InstrumentPanel sortBy={props.sortBy} filterBy={props.filterBy}/>
+        <InstrumentPanel 
+          resetFilter={props.resetFilter} 
+          sortBy={props.sortBy} 
+          filterBy={props.filterBy} 
+          filterCriteria={props.filterCriteria}
+        />
       </div>
 
       <div className='productView'> 

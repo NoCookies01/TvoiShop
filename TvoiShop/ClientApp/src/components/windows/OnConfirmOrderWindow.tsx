@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import OutsideAlerter from "../helpers/Outside";
 
 export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
 
@@ -21,6 +22,7 @@ export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
 
     return(
         <div className="windowConfirmPosition"> 
+        <OutsideAlerter onOutsideClick={onCancel}>
             <div className="windowConfirmStyle">
 
                 <div className="confirmText">To confirm your order please fill all fields</div>
@@ -49,9 +51,9 @@ export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
 
                     <div>
                     <input type="text" 
-                    placeholder="Enter your E-mail" 
+                    placeholder="Enter your Post" 
                     className="inputStyle" 
-                    onChange={(event) => setEmail(event.target.value)}/>
+                    onChange={(event) => setPost(event.target.value)}/>
                     </div>
 
                     <div>
@@ -59,13 +61,6 @@ export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
                     placeholder="Enter your Town" 
                     className="inputStyle" 
                     onChange={(event) => setTown(event.target.value)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Post" 
-                    className="inputStyle" 
-                    onChange={(event) => setPost(event.target.value)}/>
                     </div>
 
                     <div>
@@ -81,6 +76,7 @@ export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
                         <button className="btnHomeStyle"onClick={() => onCancel()}>Cancel</button>
                     </div>
             </div>
+            </OutsideAlerter>
         </div>
     )
 }

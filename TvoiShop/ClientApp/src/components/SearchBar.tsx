@@ -42,12 +42,6 @@ export const SearchBar = (props: IProps) => {
         <OutsideAlerter onOutsideClick={cancelSidebar}><SideBar isOpen={openSidebar} {...props} cancel={cancelSidebar} /> </OutsideAlerter>
       </div>
 
-      <div className='positionCenter'>
-        <div className='logoStyle' onClick={() => navigate(`/`)}>
-          tvoi
-        </div>
-      </div>
-      
         <form role="search" className="searchBarPos" >
             <input 
             className="searchBar"
