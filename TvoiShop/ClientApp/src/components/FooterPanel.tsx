@@ -5,24 +5,12 @@ import {ReactComponent as PhoneIcon} from '../images/phone.svg';
 
 
 export const FooterPanel = () => {
-  const onInstaClick = () => {
-    location.href = "https://instagram.com/tvoii.ua?igshid=YmMyMTA2M2Y=";
-  }
-
-  const onTgClick = () => {
-    alert("Telegram: TVOIWATCH")
-  }
-
-  const onPhoneClick = () => {
-    alert("Phone: +380 97 790 33 14")
-  }
-  
   return(
     <div className="footerStylePos">
       <div className="footerStyle">
-        <InstaIcon className="icon" onClick={onInstaClick}/> 
-        <TelegramIcon className="icon" onClick={onTgClick}/>
-        <PhoneIcon className="icon" onClick={onPhoneClick}/>
+        <a href="https://instagram.com/tvoii.ua?igshid=YmMyMTA2M2Y=" target="_blank"><InstaIcon className="icon" /></a>
+        <a href="https://telegram.me/tvoiwatch" target="_blank"><TelegramIcon className="icon" /></a>
+        <a href="tel:380977903314" target="_blank"><PhoneIcon className="icon" /></a>
       </div>
     </div>
   );
