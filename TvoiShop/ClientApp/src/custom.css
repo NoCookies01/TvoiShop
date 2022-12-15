@@ -214,16 +214,50 @@ transform: translateY(-50%);
 
 /* CUSTOM SCROLLBAR */
 
-.photoBannerStyle{
+.bannerCarousel{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.bannerCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.bannerCardText{
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  color: rgb(0, 0, 0);
   width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.photoBannerStyle{
   height: 100%;
+  width: 100%;
 }
 
 .photoBannerPos{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.photoBannerCardPos{
   position: relative;
+  background-color: white;
+  color: black;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .watchBanner{
@@ -453,6 +487,14 @@ transform: translateY(-50%);
 /* Product Info Page Style*/
 
 @media(max-width: 850px) {
+
+  .photoBannerCardPos{
+    width: 342px;
+  }
+
+  .bannerCarousel{
+    justify-content: flex-start !important;
+  }
 
   .navItem{
     font-size: 20px !important;
