@@ -5,6 +5,7 @@ import { CardProducts } from '../components/productsView/CardProduct';
 import toastrService from "../services/toastr.service";
 import { CarouselGallery } from '../components/productsView/Carousel';
 import { Price } from '../components/productsView/Price';
+import { OnConfirmOrderWindow } from '../components/windows/OnConfirmOrderWindow';
 
 interface IProps {
     products: IProduct[];
@@ -16,8 +17,18 @@ export const ProductInfo = (props: IProps) => {
     const [productItem, setProductItem] = useState<IProduct>(defaultProduct);
     const [popularProducts, setPopularProducts] = React.useState<(IProduct)[]>([]);
     const [offeredProduct, setOfferedProduct] = useState<IProduct[]>([]);
+    const [window, setWindow] = React.useState(false)
     const navigate = useNavigate();
 
+    const onBuyNow = () =>{
+        setWindow(true);
+    }
+    const handleWindowOk = () => {
+        setWindow(false);
+    }
+    const handleWindowCancel = () => {
+        setWindow(false);
+    }
 
     useEffect(() => {
         var prod = props.products.find(Element => Element.id === id) ?? defaultProduct;
@@ -84,7 +95,7 @@ export const ProductInfo = (props: IProps) => {
                     </div>
                         
                     <div className="btnInfoPgStylePos">
-                        <button className="btnInfoPgStyle"onClick={() => {navigate(`/cart/`); props.handleClick(productItem)}}> buy now </button>
+                        <button className="btnInfoPgStyle"onClick={onBuyNow}> buy now </button>
                         <button className="btnInfoPgStyle" onClick={() => {props.handleClick(productItem); toastrService.callToastr("Added to Cart")}}> add to cart</button>
                     </div>
                 </div>
@@ -98,6 +109,7 @@ export const ProductInfo = (props: IProps) => {
             </div>
             <br/>
             <br/>
+            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel}/>}
         </div>
         
     );

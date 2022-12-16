@@ -488,6 +488,10 @@ transform: translateY(-50%);
 
 @media(max-width: 850px) {
 
+  .instrPanel{
+    margin-top: 5px !important;
+  }
+
   .photoBannerCardPos{
     width: 342px;
   }
@@ -641,7 +645,7 @@ transform: translateY(-50%);
   }
 
   .txtBanner{
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .txtCategory{

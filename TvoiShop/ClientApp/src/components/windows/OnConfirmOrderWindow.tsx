@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import OutsideAlerter from "../helpers/Outside";
+import { EndOrderWindow } from "./EndOrderWindow";
 
-export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
+interface IProps {
+    onCancel: () => void;
+    cancel: () => void;
+    onOk: () => void;
+}
+
+export const OnConfirmOrderWindow = ({onCancel, cancel}:IProps) => {
 
     const[vorName, setVorName] = useState("");
     const[lastName, setLastName] = useState("");
@@ -10,16 +17,21 @@ export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
     const[town, setTown] = useState("");
     const[post, setPost] = useState("");
     const[department, setDepartment] = useState(0);
-
+    const[orderWindow, setOrderWindow] = useState(false);
 
     const checkTextInput = (event: any) => {
         if (!vorName.trim()) {
             alert("You couldn`t set empty field")
             return;
         }
-        onOk()
+        onEndOrderOk()
       };
-
+    const onEndOrderOk = () =>{
+        setOrderWindow(true);
+    }
+    const handleWindowCancel = () =>{
+        setOrderWindow(false);
+    }
     return(
         <div className="windowConfirmPosition"> 
         <OutsideAlerter onOutsideClick={onCancel}>
@@ -72,10 +84,11 @@ export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
                 </form>
 
                     <div className="btnHomeStylePos">
-                        <button className="btnHomeStyle" onClick={() => checkTextInput(event)}>Ok</button>
+                        <button className="btnHomeStyle" onClick={() => {checkTextInput(event); onEndOrderOk()}}>Ok</button>
                         <button className="btnHomeStyle"onClick={() => onCancel()}>Cancel</button>
                     </div>
             </div>
+            {orderWindow && <EndOrderWindow handleWindowCancel ={handleWindowCancel} onCancel={onCancel} cancel={cancel}/>}
             </OutsideAlerter>
         </div>
     )

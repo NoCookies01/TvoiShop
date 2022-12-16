@@ -106,7 +106,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
 
                 </div>
 
-            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel}/>}
+            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel} cancel={cancel}/>}
             </OutsideAlerter>
         </div>
   );
