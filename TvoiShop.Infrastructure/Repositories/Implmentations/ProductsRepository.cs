@@ -19,7 +19,11 @@ namespace TvoiShop.Infrastructure.Repositories.Implmentations
 
         public Task<List<Product>> GetAll()
         {
-            return _dbContext.Products.ToListAsync();
+            return _dbContext.Products
+                .Include(p => p.Images)
+                .Include(p => p.Colors)
+                .Include(p => p.Sizes)
+                .ToListAsync();
         }
 
         public void AddProduct(Product item)
@@ -46,6 +50,9 @@ namespace TvoiShop.Infrastructure.Repositories.Implmentations
             {
                 return;
             }
+            itemToUpdate.Images = item.Images;
+            itemToUpdate.Colors = item.Colors;
+            itemToUpdate.Sizes = item.Sizes;
             _dbContext.Entry(itemToUpdate).CurrentValues.SetValues(item);
             _dbContext.SaveChanges();
         }
