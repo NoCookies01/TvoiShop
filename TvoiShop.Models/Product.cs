@@ -21,11 +21,11 @@ namespace TvoiShop.Models
         public string Brand { get; set; }
         public float Price { get; set; }
         public float SalePrice { get; set; }
-        public string Image { get; set; }
+        public virtual ICollection<Image> Images { get; set; }
         public float Weight { get; set; }
-        public string Color { get; set; }
+        public virtual ICollection<Color> Colors { get; set; }
         public string Metal { get; set; }
-        public float Size { get; set; }
+        public virtual ICollection<Size> Sizes { get; set; }
         public string Description { get; set; }
         public float Popularity { get; set; }
         public float CustomPopularity { get; set; }

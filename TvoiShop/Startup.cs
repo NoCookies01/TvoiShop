@@ -11,6 +11,7 @@ using TvoiShop.Infrastructure.Repositories.Implmentations;
 using TvoiShop.Infrastructure.Services;
 using TvoiShop.Infrastructure.Services.Implementations;
 using TvoiShop.ApplicationCofiguration;
+using System.Text.Json.Serialization;
 
 namespace TvoiShop
 {

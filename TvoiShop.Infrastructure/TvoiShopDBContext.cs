@@ -26,7 +26,9 @@ namespace TvoiShop.Infrastructure
         }
 
         public virtual DbSet<Product> Products { get; set; }
-
+        public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<Color> Colors { get; set; }
+        public virtual DbSet<Size> Sizes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,13 +38,35 @@ namespace TvoiShop.Infrastructure
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
-            
+
+            modelBuilder.Entity<Image>(entity =>
+            {
+                entity.ToTable("Images");
+
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            });
+
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.ToTable("Products");
 
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
             });
+
+            modelBuilder.Entity<Color>(entity =>
+            {
+                entity.ToTable("Colors");
+
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Size>(entity =>
+            {
+                entity.ToTable("Sizes");
+
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            });
+
 
             OnModelCreatingPartial(modelBuilder);
         }

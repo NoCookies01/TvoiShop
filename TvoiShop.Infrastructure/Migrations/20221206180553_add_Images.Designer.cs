@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TvoiShop.Infrastructure;
 
@@ -11,9 +12,10 @@ using TvoiShop.Infrastructure;
 namespace TvoiShop.Infrastructure.Migrations
 {
     [DbContext(typeof(TvoiShopDBContext))]
-    partial class TvoiShopDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221206180553_add_Images")]
+    partial class add_Images
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -366,32 +368,13 @@ namespace TvoiShop.Infrastructure.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("TvoiShop.Models.Color", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Colors", (string)null);
-                });
-
             modelBuilder.Entity("TvoiShop.Models.Image", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Url")
@@ -419,6 +402,9 @@ namespace TvoiShop.Infrastructure.Migrations
                     b.Property<string>("Collection")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
@@ -443,31 +429,15 @@ namespace TvoiShop.Infrastructure.Migrations
                     b.Property<float>("SalePrice")
                         .HasColumnType("real");
 
+                    b.Property<float>("Size")
+                        .HasColumnType("real");
+
                     b.Property<float>("Weight")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
 
                     b.ToTable("Products", (string)null);
-                });
-
-            modelBuilder.Entity("TvoiShop.Models.Size", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<float>("Value")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Sizes", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -521,34 +491,21 @@ namespace TvoiShop.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TvoiShop.Models.Color", b =>
-                {
-                    b.HasOne("TvoiShop.Models.Product", null)
-                        .WithMany("Colors")
-                        .HasForeignKey("ProductId");
-                });
-
             modelBuilder.Entity("TvoiShop.Models.Image", b =>
                 {
-                    b.HasOne("TvoiShop.Models.Product", null)
+                    b.HasOne("TvoiShop.Models.Product", "Product")
                         .WithMany("Images")
-                        .HasForeignKey("ProductId");
-                });
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_Product_To_Images");
 
-            modelBuilder.Entity("TvoiShop.Models.Size", b =>
-                {
-                    b.HasOne("TvoiShop.Models.Product", null)
-                        .WithMany("Sizes")
-                        .HasForeignKey("ProductId");
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("TvoiShop.Models.Product", b =>
                 {
-                    b.Navigation("Colors");
-
                     b.Navigation("Images");
-
-                    b.Navigation("Sizes");
                 });
 #pragma warning restore 612, 618
         }
