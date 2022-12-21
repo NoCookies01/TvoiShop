@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TvoiShop.Infrastructure;
 
@@ -11,9 +12,10 @@ using TvoiShop.Infrastructure;
 namespace TvoiShop.Infrastructure.Migrations
 {
     [DbContext(typeof(TvoiShopDBContext))]
-    partial class TvoiShopDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221220175246_set_color_as_array")]
+    partial class set_color_as_array
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -443,31 +445,15 @@ namespace TvoiShop.Infrastructure.Migrations
                     b.Property<float>("SalePrice")
                         .HasColumnType("real");
 
+                    b.Property<float>("Size")
+                        .HasColumnType("real");
+
                     b.Property<float>("Weight")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
 
                     b.ToTable("Products", (string)null);
-                });
-
-            modelBuilder.Entity("TvoiShop.Models.Size", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<float>("Value")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Sizes", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -535,20 +521,11 @@ namespace TvoiShop.Infrastructure.Migrations
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("TvoiShop.Models.Size", b =>
-                {
-                    b.HasOne("TvoiShop.Models.Product", null)
-                        .WithMany("Sizes")
-                        .HasForeignKey("ProductId");
-                });
-
             modelBuilder.Entity("TvoiShop.Models.Product", b =>
                 {
                     b.Navigation("Colors");
 
                     b.Navigation("Images");
-
-                    b.Navigation("Sizes");
                 });
 #pragma warning restore 612, 618
         }

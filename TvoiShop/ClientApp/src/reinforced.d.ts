@@ -2,6 +2,16 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 
+interface IColor
+{
+	id: string;
+	name: string;
+}
+interface IImage
+{
+	id: string;
+	url: string;
+}
 interface IProduct
 {
 	id: string;
@@ -12,12 +22,17 @@ interface IProduct
 	brand: string;
 	price: number;
 	salePrice: number;
-	image: string;
+	images: IImage[];
 	weight: number;
-	color: string;
+	colors: IColor[];
 	metal: string;
-	size: number;
+	sizes: ISize[];
 	description: string;
 	popularity: number;
 	customPopularity: number;
+}
+interface ISize
+{
+	id: string;
+	value: number;
 }
