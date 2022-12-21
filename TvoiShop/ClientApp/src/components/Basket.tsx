@@ -5,6 +5,8 @@ import '../styles/shoppingCart.css'
 import {ReactComponent as DeleteIcon} from '../images/delete.svg';
 import { Price } from './productsView/Price';
 import OutsideAlerter from './helpers/Outside';
+import translationService from '../services/translation.service';
+import { ImageBehaviour, Images } from './Images';
 
 interface IProps {
     cart: IProduct[];
@@ -44,13 +46,13 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
                 <div className='rowStyle'> 
 
                     <div className='imgPosition'>
-                        <img className='imgStyle' src={item.image}/>
+                        <Images images={item.images} behaviour={ImageBehaviour.Single} />
 
                         <div className='rowStyle'>
                             <div className='btnPosition'>
                             <button className='btnCart'onClick={() => handleChange(item.id, 1)}>+</button>
 
-                            <div className='txtCartCount'>Count: {item.count}</div>
+                            <div className='txtCartCount'>{translationService.translate("count|A")}: {item.count}</div>
 
                             <button className='btnCart'onClick={() => handleChange(item.id, -1)}>-</button>
 
@@ -64,8 +66,8 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
                     <div className='infoPosition'> 
                         <div className='txtCartLabel'>{item.labelName}</div>
                         <div className='txtCartDesc'>{item.category}</div>
-                        <div className='txtCartDesc'>{item.size} CM</div>
-                        <div className='txtCartDesc'>{item.color} </div>
+                        <div className='txtCartDesc'>{item.sizes.length} CM /// CHANGE TO SELECT SIZE</div>
+                        <div className='txtCartDesc'>{item.colors.length} /// CHANGE TO SELECT COLOR</div>
                         <div className='txtCartPrice'><Price product={item}/></div>
                     </div>
 
@@ -82,7 +84,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
             <div className='cartComponent'>
 
                 <div className="simItemStyle">
-                    Shopping cart
+                    {translationService.translate("shopping cart|A")}
                 </div>
                 
                 <div className="cartList">
@@ -91,15 +93,15 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
 
                 <div>
                     <div className="simItemStyle">
-                        Total Price: {price} UAH
+                    {translationService.translate("total price|A")}: {price} UAH
                     </div>
                     <div className="btnHomeStylePos">
-                        <button className="btnHomeStyle" onClick={onConfirm}> confirm </button>
-                        <button className="btnHomeStyle" onClick={cancel}> cancel </button>
+                        <button className="btnHomeStyle" onClick={onConfirm}> {translationService.translate("confirm|A")} </button>
+                        <button className="btnHomeStyle" onClick={cancel}> {translationService.translate("cancel|A")} </button>
                     </div>
                     <div className="btnHomeStylePos">
                         <button className="btnHomeStyle" onClick={() => {navigate(`/`); cancel()}}>
-                            shop more
+                            {translationService.translate("shop more|A")}
                         </button>
                     </div>
                 </div>

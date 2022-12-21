@@ -6,6 +6,7 @@ import {ReactComponent as CollectionPhotoTwo} from '../images/collection2.svg';
 import {ReactComponent as CollectionPhotoThree} from '../images/collection3.svg';
 import {ReactComponent as CollectionPhotoFour} from '../images/collection4.svg';
 import {ReactComponent as CollectionPhotoFive} from '../images/collection5.svg';
+import translationService from '../services/translation.service';
 
 interface IProps {
     products: IProduct[];
@@ -29,7 +30,7 @@ export const CollectionInfo = (props: IProps) => {
             <br/>
             <div className='simItemPos'> 
                 <div className="simItemStyle">
-                    winter`23
+                    {translationService.translate("winter`23|A")}
                 </div>
 
                 <div className='bannerCarousel'>

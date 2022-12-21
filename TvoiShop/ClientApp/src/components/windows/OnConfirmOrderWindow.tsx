@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import translationService from "../../services/translation.service";
 import OutsideAlerter from "../helpers/Outside";
 import { EndOrderWindow } from "./EndOrderWindow";
 
@@ -12,83 +13,101 @@ export const OnConfirmOrderWindow = ({onCancel, cancel}:IProps) => {
 
     const[vorName, setVorName] = useState("");
     const[lastName, setLastName] = useState("");
-    const[phone, setPhone] = useState(0);
-    const[email, setEmail] = useState("");
+    const[phone, setPhone] = useState("");
     const[town, setTown] = useState("");
     const[post, setPost] = useState("");
-    const[department, setDepartment] = useState(0);
+    const[department, setDepartment] = useState("");
+
     const[orderWindow, setOrderWindow] = useState(false);
 
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChecked = () => {
+        setChecked(!checked);
+    };
+
     const checkTextInput = (event: any) => {
-        if (!vorName.trim()) {
-            alert("You couldn`t set empty field")
-            return;
-        }
         onEndOrderOk()
-      };
+    };
+
+    const isFieldValid = () => {
+        return (
+            vorName.trim().length > 0 &&
+            lastName.trim().length > 0 &&
+            phone.trim().length > 0 &&
+            town.trim().length > 0 &&
+            post.trim().length > 0 &&
+            department.trim().length > 0 
+        );
+    }
+
     const onEndOrderOk = () =>{
         setOrderWindow(true);
     }
     const handleWindowCancel = () =>{
         setOrderWindow(false);
     }
+    
     return(
         <div className="windowConfirmPosition"> 
         <OutsideAlerter onOutsideClick={onCancel}>
             <div className="windowConfirmStyle">
 
-                <div className="confirmText">To confirm your order please fill all fields</div>
+                <div className="confirmText">{translationService.translate("confirm order|A")}</div>
 
                 <form>
                     <div>
                     <input type="text" 
-                    placeholder="Enter your Vorname" 
+                    placeholder={translationService.translate("vorname|A") + "*"}
                     className="inputStyle" 
                     onChange={(event) => setVorName(event.target.value)}/>
                     </div>
 
                     <div>
                     <input type="text" 
-                    placeholder="Enter your Lastname" 
+                    placeholder={translationService.translate("lastname|A") + "*"}
                     className="inputStyle" 
                     onChange={(event) => setLastName(event.target.value)}/>
                     </div>
 
                     <div>
                     <input type="text" 
-                    placeholder="Enter your Phone Number" 
+                    placeholder={translationService.translate("phone|A") + "*"}
                     className="inputStyle" 
-                    onChange={(event) => setPhone(event.target.valueAsNumber)}/>
+                    onChange={(event) => setPhone(event.target.value)}/>
+                    </div>
+
+                    <div>
+                        <label className="inputStyle" >
+                            {translationService.translate("post|A") + "*"}
+                            <input type="checkbox" 
+                            onChange={handleChecked}
+                            checked = {checked}/>
+                            Нова Пошта
+                        </label>
                     </div>
 
                     <div>
                     <input type="text" 
-                    placeholder="Enter your Post" 
-                    className="inputStyle" 
-                    onChange={(event) => setPost(event.target.value)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Town" 
+                    placeholder={translationService.translate("town|A") + "*"}
                     className="inputStyle" 
                     onChange={(event) => setTown(event.target.value)}/>
                     </div>
 
                     <div>
                     <input type="text" 
-                    placeholder="Enter your Department number" 
+                    placeholder={translationService.translate("department|A") + "*"}
                     className="inputStyle" 
-                    onChange={(event) => setDepartment(event.target.valueAsNumber)}/>
+                    onChange={(event) => setDepartment(event.target.value)}/>
                     </div>
                 </form>
 
                     <div className="btnHomeStylePos">
-                        <button className="btnHomeStyle" onClick={() => {checkTextInput(event); onEndOrderOk()}}>Ok</button>
-                        <button className="btnHomeStyle"onClick={() => onCancel()}>Cancel</button>
+                        <button disabled={!isFieldValid()} className="btnHomeStyle" onClick={() => checkTextInput(event)}>{translationService.translate("ok|A")}</button>
+                        <button className="btnHomeStyle"onClick={() => onCancel()}>{translationService.translate("cancel|A")}</button>
                     </div>
             </div>
-            {orderWindow && <EndOrderWindow handleWindowCancel ={handleWindowCancel} onCancel={onCancel} cancel={cancel}/>}
+            {orderWindow && <EndOrderWindow onPressOk={checkTextInput} handleWindowCancel ={handleWindowCancel} onCancel={onCancel} cancel={cancel}/>}
             </OutsideAlerter>
         </div>
     )

@@ -42,6 +42,10 @@
   }
 }
 
+.cartGlobal{
+  margin: 5px;
+}
+
 .cartComponent {
   width: 500px;
   background-color: white;
@@ -54,6 +58,7 @@
 .cartList {
   overflow-y: scroll;
   max-height: calc(100vh - 150px);
+  margin: 5px;
 }
   
 .imgPosition{
@@ -77,6 +82,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .removePosition{
   display: flex;

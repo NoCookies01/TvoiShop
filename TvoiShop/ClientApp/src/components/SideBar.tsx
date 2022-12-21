@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { NavLink, useNavigate } from "react-router-dom";
-import {ReactComponent as MenuIcon} from '../images/menuWhite.svg';
+import { NavLink} from "react-router-dom";
+import translationService from '../services/translation.service';
 
 interface IProps {
     cancel: () => void;
@@ -22,22 +22,22 @@ export const SideBar = ({cancel, isOpen}: IProps) => {
             </div>
             <div className='navItemsPosition'>
                 <NavLink onClick={cancel} className={className} to={"/watches"}>
-                    watches
+                    {translationService.translate("watches|A")}
                 </NavLink> 
                 <NavLink onClick={cancel} className={className} to={"/bracelets"}>
-                    bracelet
+                    {translationService.translate("bracelet|A")}
                 </NavLink> 
                 <NavLink onClick={cancel} className={className} to={"/necklaces"}>
-                    necklace
+                    {translationService.translate("necklace|A")}
                 </NavLink> 
                 <NavLink onClick={cancel} className={className} to={"/earrings"}>
-                    earrings
+                    {translationService.translate("earrings|A")}
                 </NavLink> 
                 <NavLink onClick={cancel} className={className} to={"/rings"}>
-                    rings
+                    {translationService.translate("rings|A")}
                 </NavLink> 
                 <NavLink onClick={cancel} className={className} to={"/charms"}>
-                    charm
+                    {translationService.translate("charm|A")}
                 </NavLink> 
             </div>
 

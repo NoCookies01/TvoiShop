@@ -19,6 +19,14 @@ body {
   color: white;
 }
 
+.errorMessage{
+  color: red;
+  position: fixed;
+  top: 0;
+  font-size: 15px;
+  font-weight: 900;
+}
+
 .ButtonStyle{
   display: flex;
   align-items: flex-end;
@@ -589,6 +597,11 @@ transform: translateY(-50%);
     width: 100% !important;
   }
 
+  .productIngPgSecondaryImage{
+    height: 30% !important;
+    width: 30% !important;
+  }
+
   .prDesc{
     font-size: 12px !important;
     margin: 0 !important;
@@ -697,9 +710,26 @@ transform: translateY(-50%);
 }
 
 .prImg{
+  background-color: rgb(210, 210, 210);
+  display: flex;
+  flex-direction: row;
+}
+
+.productInfPgImage{
   height: 350px;
   width: 350px;
-  background-color: rgb(210, 210, 210);
+  background-color: transparent;
+}
+
+.productIngPgSecondaryImages{
+  display: flex;
+  flex-direction: column;
+}
+
+.productIngPgSecondaryImage{
+  margin: 5px;
+  height: 80px;
+  width: 80px;
 }
 
 .prRowPos{
@@ -782,20 +812,14 @@ transform: translateY(-50%);
   padding-top: 20px;
   padding-bottom: 5px;
   font-size: 10px;
+  letter-spacing: 1.5px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .descPos{
   display: flex;
   justify-content: center;
-}
-
-.productInfPgImage{
-  height: 350px;
-  width: 350px;
-  background-color: transparent;
 }
 
 .activeLink {
@@ -822,6 +846,10 @@ transform: translateY(-50%);
   outline: none;
 }
 
+.btnHomeStyle:disabled{
+  background-color: #4b4b4b;
+}
+
 .btnHomeStyle:hover{
   background-color: #383838;
   transition: 0.1s;
@@ -831,7 +859,7 @@ transform: translateY(-50%);
   height: 28px;
   width: 100%;
   background-color: rgb(240, 240, 240);
-  color: #000000;
+  color: #373030;
   font-size: 15px;
   font-weight: 900;
   border: none;
@@ -996,11 +1024,13 @@ button.badge {
   color: rgb(0, 0, 0);
   font-size: 15px;
   font-weight: 900;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-align: center;
 }
 
 .inputStyle{
+  letter-spacing: 1.5px;
   font-weight: 900;
   width: 100%;
   border: none;
@@ -1092,11 +1122,13 @@ button.badge {
   left: 50%;
   transform: translateX(-50%);
   background-color: #232323;
-  padding: 5px;
+  margin: 10px;
+  padding: 10px;
   opacity: 60%;
   color: white;
   font-size: 12px;
   text-transform: uppercase;
+  letter-spacing: 2px;
   font-weight: 600;
   z-index: 2000;
 }

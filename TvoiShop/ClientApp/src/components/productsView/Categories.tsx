@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import translationService from '../../services/translation.service';
 
 interface IProps {
     products: IProduct[];
@@ -13,27 +14,27 @@ export const Categories = (props: IProps) => {
   return (
     <div className='categoriesStylePos'> 
         <div className='logoCategory txtCategory' onClick={() => {navigate(`/watches`)}}> 
-            watches
+            {translationService.translate("category watches|A")}
         </div>
 
         <div className='logoCategory txtCategory' onClick={() => {navigate(`/bracelets`)}}> 
-            bracelet
+            {translationService.translate("category bracelet|A")}
         </div>
 
         <div className='logoCategory txtCategory' onClick={() => {navigate(`/necklaces`)}}> 
-            necklace
+            {translationService.translate("category necklace|A")}
         </div>
 
         <div className='logoCategory txtCategory' onClick={() => {navigate(`/earrings`)}}> 
-            earrings
+            {translationService.translate("category earrings|A")}
         </div>
 
         <div className='logoCategory txtCategory' onClick={() => {navigate(`/rings`)}}> 
-            rings
+            {translationService.translate("category rings|A")}
         </div>
 
         <div className='logoCategory txtCategory' onClick={() => {navigate(`/charms`)}}> 
-            charm
+            {translationService.translate("category charm|A")}
         </div>
 
     </div>

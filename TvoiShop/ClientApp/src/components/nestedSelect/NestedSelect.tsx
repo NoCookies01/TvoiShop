@@ -5,15 +5,17 @@ import SingleItem from "./SingleItem";
 import OutsideAlerter from "../helpers/Outside";
 
 import './nestedSelect.css';
+import translationService from "../../services/translation.service";
 
 interface IProps {
     items: IItem[];
+    defaultText: string;
     onSelect: (value: string[]) => void;
     reset: () => void;
 }
 
-export default function NestedSelect({ items, onSelect, reset }: IProps){
-    const [selectedItem, selectItem] = useState(["Filter by"]);
+export default function NestedSelect({ items, defaultText, onSelect, reset }: IProps){
+    const [selectedItem, selectItem] = useState([defaultText]);
     const [isExpand, setExpand] = useState(false);
 
     const select = (value: string[]) => {
@@ -25,7 +27,7 @@ export default function NestedSelect({ items, onSelect, reset }: IProps){
     const resetClick = () => {
         reset();
         setExpand(false);
-        selectItem(["Filter by"]);
+        selectItem([defaultText]);
     }
 
     return (
@@ -35,7 +37,7 @@ export default function NestedSelect({ items, onSelect, reset }: IProps){
                 <MultiItem onSelect={select} item={child} key={key} /> :
                 <SingleItem onSelect={select} item={child} key={key} />
             )}
-            <button className="btnHomeStyleWhite" onClick={resetClick}>Reset</button></div></OutsideAlerter>}
+            <button className="btnHomeStyleWhite" onClick={resetClick}>{translationService.translate("reset|A")}</button></div></OutsideAlerter>}
         </div>
     );
 };

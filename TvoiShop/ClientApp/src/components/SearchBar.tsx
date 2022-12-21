@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Basket from "./Basket";
 import { SideBar } from "./SideBar";
 import OutsideAlerter from "./helpers/Outside";
+import translationService from "../services/translation.service";
 
 interface IProps {
   cart: IProduct[];
@@ -46,8 +47,8 @@ export const SearchBar = (props: IProps) => {
             <input 
             className="searchBar"
             type="search" 
-            aria-label="Search"
-            placeholder = "Search..."
+            aria-label={translationService.translate("search|A")}
+            placeholder={translationService.translate("search|A") + "..."}
             onClick={() => navigate(`/search`)}
            //onKeyDown={enterKey}
             onChange ={handleSearch}
