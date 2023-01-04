@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavLink} from "react-router-dom";
 import translationService from '../services/translation.service';
+import {ReactComponent as LogoIcon} from '../images/logo.svg';
 
 interface IProps {
     cancel: () => void;
@@ -17,7 +18,7 @@ export const SideBar = ({cancel, isOpen}: IProps) => {
         <div className={`sidenav ${!isOpen ? "hiddenNav" : ''}`}>
             <div className='logoSidebarPosition'>
                 <NavLink onClick={cancel} className="logoSidebar" to={"/"}>
-                    tvoi
+                    <LogoIcon className='logoIcon'/>
                 </NavLink> 
             </div>
             <div className='navItemsPosition'>

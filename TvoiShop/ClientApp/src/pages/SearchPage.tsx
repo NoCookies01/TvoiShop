@@ -7,7 +7,6 @@ import { SearchBar } from '../components/SearchBar';
 
 interface IProps {
     products: IProduct[];
-    handleClick: (item: IProduct) => void;
     sortBy: (property: string) => void;
     filterBy: (value: any, property: string) => void;
     filterCriteria: IItem[];
@@ -15,7 +14,7 @@ interface IProps {
 }
 
 export const SearchPage = (props: IProps) => {
-
+    const navigate = useNavigate();
     return(
         <div>
             <br/>
@@ -30,7 +29,7 @@ export const SearchPage = (props: IProps) => {
             </div>
 
             <div className='productView'> 
-                <CardProducts products = {props.products} handleClick={props.handleClick}/>
+                <CardProducts products = {props.products} />
             </div>
         </div>
         

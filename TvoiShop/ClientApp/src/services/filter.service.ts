@@ -1,19 +1,22 @@
 import IItem from "../components/nestedSelect/item";
+import translationService from "./translation.service";
 
 export function getFilterCriteriaBasedOnProducts(products: IProduct[]): IItem[] {
-    const metalItems: IItem = {Title: "metal", Items: []};
-    const colorItems: IItem = {Title: "color", Items: []};
-    const brandItems: IItem = {Title: "brand", Items: []};
+    const metalItems: IItem = {Title: translationService.translate("metal|A"), Value: translationService.translate("metal|A"), Items: []};
+    const colorItems: IItem = {Title: translationService.translate("color|A"), Value: translationService.translate("color|A"), Items: []};
+    const brandItems: IItem = {Title: translationService.translate("brand|A"), Value: translationService.translate("brand|A"), Items: []};
 
     products.forEach(p => {
         if (metalItems.Items!.findIndex(i => i.Title === p.metal) === -1) {
-            metalItems.Items?.push({Title: p.metal});
+            metalItems.Items?.push({Title: p.metal, Value: p.metal});
         }
-        if (colorItems.Items!.findIndex(i => i.Title === p.color) === -1) {
-            colorItems.Items?.push({Title: p.color});
-        }
+        p.colors.forEach(c => {
+            if (colorItems.Items!.findIndex(i => i.Title === c.name) === -1) {
+                colorItems.Items?.push({Title: c.name, Value: c.name});
+            }
+        });
         if (brandItems.Items!.findIndex(i => i.Title === p.brand) === -1) {
-            brandItems.Items?.push({Title: p.brand});
+            brandItems.Items?.push({Title: p.brand, Value: p.brand});
         }
     });
 

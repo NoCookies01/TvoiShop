@@ -8,10 +8,13 @@ import { Price } from '../components/productsView/Price';
 import { OnConfirmOrderWindow } from '../components/windows/OnConfirmOrderWindow';
 import translationService from '../services/translation.service';
 import { ImageBehaviour, Images } from '../components/Images';
+import ElementSelect from '../components/elementSelect/ElementSelect';
+import { SizeInfoWindow } from '../components/windows/SizeInfoWindow';
+import {ReactComponent as InfoIcon} from '../images/infoIcon.svg';
 
 interface IProps {
     products: IProduct[];
-    handleClick: (item: IProduct) => void;
+    handleClick: (item: IProductCart) => void;
 }
 
 export const ProductInfo = (props: IProps) => {
@@ -20,6 +23,9 @@ export const ProductInfo = (props: IProps) => {
     const [popularProducts, setPopularProducts] = React.useState<(IProduct)[]>([]);
     const [offeredProduct, setOfferedProduct] = useState<IProduct[]>([]);
     const [window, setWindow] = React.useState(false)
+    const [sizeInfoWindow, setSizeInfoWindow] = React.useState(false)
+    const [selectedColor, setSelectedColor] = React.useState<string | undefined>(undefined)
+    const [selectedSize, setSelectedSize] = React.useState<number | undefined>(undefined)
     const navigate = useNavigate();
 
     const onBuyNow = () =>{
@@ -30,6 +36,30 @@ export const ProductInfo = (props: IProps) => {
     }
     const handleWindowCancel = () => {
         setWindow(false);
+    }
+    const handleInfoSizeWindowCancel = () => {
+        setSizeInfoWindow(false);
+    }
+    const onSizeInfo = () => {
+        setSizeInfoWindow(true);
+    }
+    const handleSelectedColor = (value: string) => {
+        setSelectedColor(value);
+    }
+    const handleSelectedSize = (value: number) => {
+        setSelectedSize(value);
+    }
+    const isActive = () => {
+        return (
+            selectedColor && selectedColor.length > 0 &&
+            selectedSize && selectedSize > 0 
+        );
+    }
+    const addToCart = () => {
+        props.handleClick({...productItem, count: 1, color: selectedColor!, size: selectedSize!}); 
+        toastrService.callToastr(translationService.translate("added to cart|A"));
+        toastrService.callToastr(translationService.translate("added to cart|A"));
+        toastrService.callToastr(translationService.translate("added to cart|A"));
     }
 
     useEffect(() => {
@@ -69,38 +99,52 @@ export const ProductInfo = (props: IProps) => {
                                 <p className="hrLine"></p>
                             </div>
 
-                            <div>
-                                {translationService.translate("color|A")}
-                                {productItem.colors.map(c => (
-                                    <p><div className="prTextMain">{c.name}</div></p>
-                                ))}
+                            <div className='size-color-margin'>
+                                {translationService.translate("color|A") + "*"}
+                                <div className='rowStyle prTextMain'>
+                                    <ElementSelect 
+                                        type="single"
+                                        checkbox={true}
+                                        options={productItem.colors.map(c => {return {Value: c.name, Title: c.name}})}
+                                        onSelectValues={(values: string[]) => handleSelectedColor(values[0])}
+                                    />
+                                </div>
                             </div>
 
-                            <div>
-                                {translationService.translate("size|A")}
-                                {productItem.sizes.map(s => (
-                                    <p><div className="prTextMain">{s.value} cm</div></p>
-                                ))}
-                                <p className="hrLine"></p>
+                            <div className='size-color-margin'>
+                                {translationService.translate("size|A") + "*"}
+                                <div className='rowStyle prTextMain'>
+                                    <ElementSelect 
+                                        type="single"
+                                        checkbox={true}
+                                        options={productItem.sizes.map(c => {return {Value: c.value.toString(), Title: `${c.value}CM`}})}
+                                        onSelectValues={(values: string[]) => handleSelectedSize(Number(values[0]))}
+                                    />
+                                </div>
+                                <div className='infoText' onClick={onSizeInfo}>{translationService.translate("choose size|A") + "?"}</div>
                             </div>
+                            <p className="hrLine"></p>
 
                             <div>
                                 {translationService.translate("price|A")}
                                 <p><Price product={productItem}/></p>
                             </div>
+                            <small className="txtStyle">{"*" + translationService.translate("required field|A")}</small>
+                            
                         </div>
                         <div className="prDesc">
-                            <p>{productItem.description}</p>
+                            {translationService.translate("collection|A")}
                             <div>
                                 <p><div className="prTextMain">{productItem.collection}</div></p>
                             </div>
                             <div onClick={() => {navigate(`/${productItem.category}`)}} className="hyperLinkStyle">{translationService.translate("more|A")} {productItem.category}</div>
                         </div>
+                        
                     </div>
                         
                     <div className="btnInfoPgStylePos">
-                        <button className="btnInfoPgStyle"onClick={onBuyNow}> {translationService.translate("buy now|A")} </button>
-                        <button className="btnInfoPgStyle" onClick={() => {props.handleClick(productItem); toastrService.callToastr("Added to Cart")}}> {translationService.translate("add to cart|A")}</button>
+                        <button disabled={!isActive()} className="btnInfoPgStyle" onClick={onBuyNow}> {translationService.translate("buy now|A")} </button>
+                        <button disabled={!isActive()} className="btnInfoPgStyle" onClick={addToCart}> {translationService.translate("add to cart|A")}</button>
                     </div>
                 </div>
             </div>
@@ -109,11 +153,12 @@ export const ProductInfo = (props: IProps) => {
                 <div className="simItemStyle">
                     {translationService.translate("you may also like|A")}
                 </div>
-                <div><CarouselGallery products ={popularProducts} handleClick={props.handleClick}/></div>
+                <div><CarouselGallery products ={popularProducts} /></div>
             </div>
             <br/>
             <br/>
-            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel} cancel={handleWindowCancel}/>}
+            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel={handleWindowCancel} cancel={handleWindowCancel} products={[]} />}
+            {sizeInfoWindow && <SizeInfoWindow onCancel={handleInfoSizeWindowCancel} />}
         </div>
         
     );

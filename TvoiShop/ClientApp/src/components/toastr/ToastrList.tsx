@@ -7,9 +7,9 @@ interface IToastr {
     type: string;
 }
 
-export function ToastrList(){
+export function ToastrList() {
     const [toastrs, setToastrs] = useState<IToastr[]>([]);
-    
+
     const sliceToastr = () => {
         setToastrs(toastrs.slice(1));
     }
@@ -20,7 +20,7 @@ export function ToastrList(){
         setToastrs(newToastrs);
     }
 
-    const addToastr = (message: string, type: string = "Info") => {
+    const addToastr = (message: string, type: string = "info") => {
         push(message, type);
         setTimeout(() => {
             sliceToastr();
@@ -28,7 +28,7 @@ export function ToastrList(){
     }
 
     useEffect(() => {
-        toastrService.subscribe(addToastr);
+        toastrService.subscribe((message: string, type: string = "info") => addToastr(message, type));
     }, []);
 
     return(

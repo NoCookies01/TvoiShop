@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ProceedOrder } from "../../api/endpoints/order";
+import toastrService from "../../services/toastr.service";
 import translationService from "../../services/translation.service";
 import OutsideAlerter from "../helpers/Outside";
 import { EndOrderWindow } from "./EndOrderWindow";
@@ -7,37 +9,52 @@ interface IProps {
     onCancel: () => void;
     cancel: () => void;
     onOk: () => void;
+    products: IProductCart[];
 }
 
-export const OnConfirmOrderWindow = ({onCancel, cancel}:IProps) => {
-
-    const[vorName, setVorName] = useState("");
-    const[lastName, setLastName] = useState("");
+export const OnConfirmOrderWindow = ({onCancel, cancel, products}:IProps) => {
     const[phone, setPhone] = useState("");
-    const[town, setTown] = useState("");
-    const[post, setPost] = useState("");
-    const[department, setDepartment] = useState("");
 
     const[orderWindow, setOrderWindow] = useState(false);
 
-    const [checked, setChecked] = React.useState(false);
+    const [checkedPhone, setPhoneChecked] = React.useState(false);
+    const [checkedViber, setCheckedViber] = React.useState(false);
+    const [checkedTelegram, setCheckedTelegram] = React.useState(false);
 
-    const handleChecked = () => {
-        setChecked(!checked);
+    const handleCheckedPhone = () => {
+        setPhoneChecked(!checkedPhone);
+    };
+    const handleCheckedViber = () => {
+        setCheckedViber(!checkedViber);
+    };
+    const handleCheckedTelegram = () => {
+        setCheckedTelegram(!checkedTelegram);
     };
 
     const checkTextInput = (event: any) => {
-        onEndOrderOk()
+        var contactType = "";
+        if (checkedPhone) {
+            contactType += " Phone";
+        }
+        if (checkedViber) {
+            contactType += " Viber";
+        }
+        if (checkedTelegram) {
+            contactType += " Telegram";
+        }
+
+        ProceedOrder({
+            contactType: contactType,
+            phone: phone,
+            products: products
+        })
+        .then(a => onEndOrderOk())
+        .catch(e => toastrService.callToastr("Error on sending", "error"));
     };
 
     const isFieldValid = () => {
         return (
-            vorName.trim().length > 0 &&
-            lastName.trim().length > 0 &&
-            phone.trim().length > 0 &&
-            town.trim().length > 0 &&
-            post.trim().length > 0 &&
-            department.trim().length > 0 
+            phone.trim().length > 9 && (checkedPhone || checkedViber || checkedTelegram)
         );
     }
 
@@ -47,6 +64,17 @@ export const OnConfirmOrderWindow = ({onCancel, cancel}:IProps) => {
     const handleWindowCancel = () =>{
         setOrderWindow(false);
     }
+
+    const onCalcSymbolsOnlyChange = (event: any) => {
+        const keyCode = event.keyCode || event.which;
+        const keyValue = String.fromCharCode(keyCode);
+        const isValidNumber = new RegExp("[0-9]").test(keyValue);
+
+            if (!isValidNumber) {
+                event.preventDefault();
+                return;
+            }
+    };
     
     return(
         <div className="windowConfirmPosition"> 
@@ -54,53 +82,45 @@ export const OnConfirmOrderWindow = ({onCancel, cancel}:IProps) => {
             <div className="windowConfirmStyle">
 
                 <div className="confirmText">{translationService.translate("confirm order|A")}</div>
+                <br/>
 
-                <form>
-                    <div>
-                    <input type="text" 
-                    placeholder={translationService.translate("vorname|A") + "*"}
-                    className="inputStyle" 
-                    onChange={(event) => setVorName(event.target.value)}/>
+                    <div className="positionCenter">
+                        <div>
+                        <input type="text"
+                        placeholder={translationService.translate("phone|A") + "*"}
+                        className="inputNameStyle" 
+                        onKeyPress={onCalcSymbolsOnlyChange}
+                        onChange={(event) => setPhone(event.target.value)}/>
+                        </div>
                     </div>
 
-                    <div>
-                    <input type="text" 
-                    placeholder={translationService.translate("lastname|A") + "*"}
-                    className="inputStyle" 
-                    onChange={(event) => setLastName(event.target.value)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder={translationService.translate("phone|A") + "*"}
-                    className="inputStyle" 
-                    onChange={(event) => setPhone(event.target.value)}/>
-                    </div>
-
-                    <div>
-                        <label className="inputStyle" >
+                    <div className="orderWindowPos">
+                        <div className="inputStyle" >
                             {translationService.translate("post|A") + "*"}
-                            <input type="checkbox" 
-                            onChange={handleChecked}
-                            checked = {checked}/>
-                            Нова Пошта
-                        </label>
+                            <p>
+                                <div className="checkboxStyle">
+                                    <input type="checkbox" 
+                                    onChange={handleCheckedPhone}
+                                    checked = {checkedPhone}/>
+                                    <div> &nbsp;Зателефонувати мені</div>
+                                </div>
+                                <div className="checkboxStyle">
+                                    <input type="checkbox" 
+                                    onChange={handleCheckedViber}
+                                    checked = {checkedViber}/>
+                                    <div> &nbsp;Написати у Viber</div>
+                                </div>
+                                <div className="checkboxStyle">
+                                    <input type="checkbox" 
+                                    onChange={handleCheckedTelegram}
+                                    checked = {checkedTelegram}/>
+                                    <div> &nbsp;Написати у Telegram</div>
+                                </div>
+                            </p>
+                        </div>
                     </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder={translationService.translate("town|A") + "*"}
-                    className="inputStyle" 
-                    onChange={(event) => setTown(event.target.value)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder={translationService.translate("department|A") + "*"}
-                    className="inputStyle" 
-                    onChange={(event) => setDepartment(event.target.value)}/>
-                    </div>
-                </form>
+                    <small className="txtStyle">{"*" + translationService.translate("required field|A")}</small>
+                
 
                     <div className="btnHomeStylePos">
                         <button disabled={!isFieldValid()} className="btnHomeStyle" onClick={() => checkTextInput(event)}>{translationService.translate("ok|A")}</button>

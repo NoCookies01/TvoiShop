@@ -36,3 +36,14 @@ interface ISize
 	id: string;
 	value: number;
 }
+interface IOrder
+{
+	products: IOrderedProduct[];
+	phone: string;
+	contactType: string;
+}
+interface IOrderedProduct extends IProduct
+{
+	size: number;
+	color: string;
+}

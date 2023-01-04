@@ -5,7 +5,7 @@ class ToastrService {
         this.subscriptions.push(func);
     }
 
-    public callToastr = (message: string, type: string = "Info") => {
+    public callToastr = (message: string, type: string = "info") => {
         this.subscriptions.forEach(s => s(message, type));
     }
 }

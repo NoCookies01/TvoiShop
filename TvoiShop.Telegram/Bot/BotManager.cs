@@ -5,17 +5,23 @@ using TLSharp;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 //using Telegram.Bot.Extensions.Polling;
-using Telegram.Bot.Types;
+using T = Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using System.Threading;
 using System.Threading.Tasks;
 using TelegramClient = TLSharp.Core.TelegramClient;
+using WTelegram;
+using Telegram.Bot.Polling;
+using TL;
 
 namespace TvoiShop.Telegram.Bot
 {
     public class BotManager
     {
-        private TelegramClient _client;
+        private TelegramBotClient _botClient;
+        private Client _client;
+        private string _code = "";
+        private Task<string> _codeTask;
 
         static string Config(string what)
         {
@@ -34,52 +40,64 @@ namespace TvoiShop.Telegram.Bot
             }
         }
 
-        public async void Connect(int apiId, string apiHash)
+        async Task DoLogin(string loginInfo, Client client) // (add this method to your code)
         {
-            /*_client = new TelegramClient(apiId, apiHash);
-            await _client.ConnectAsync();
-            var hash = await _client.SendCodeRequestAsync("380977903314");
+            while (client.User == null)
+            {
+                var reason = await client.Login(loginInfo);
+                switch (reason) // returns which config is needed to continue login
+                {
+                    case "verification_code":
+                        await Task.Delay(10000);
+                        loginInfo = _code;
+                        break;
+                    default: loginInfo = null; break;
+                }
+            }
+        }
 
-            var code = "<code_from_telegram>";
+        public async Task Connect(int apiId, string apiHash)
+        {
+            
 
-            var user = await _client.MakeAuthAsync("380977903314", hash, code);
+        }
 
-            var users = await _client.GetContactsAsync();
+        public async Task SendMessage(string message)
+        {
+            /*_botClient = new TelegramBotClient("5377841386:AAEs9bs462z4R29IZI73hRej2jPFCmTUeDo");
 
-            int chatId = 449703652;
 
-            await _client.SendMessageAsync(new TLInputPeerUser() { UserId = chatId }, "Hello baybe!");*/
-
-            using var client = new WTelegram.Client(Config);
-            var myself = await client.LoginUserIfNeeded();
-            var a = myself;
-            /*TelegramBotClient client = new TelegramBotClient("5377841386:AAEs9bs462z4R29IZI73hRej2jPFCmTUeDo");
-
-            var currentUser = await client.GetMeAsync();
+            var currentUser = await _botClient.GetMeAsync();
 
             using var cts = new CancellationTokenSource();
+
 
             // StartReceiving does not block the caller thread. Receiving is done on the ThreadPool.
             var receiverOptions = new ReceiverOptions
             {
                 AllowedUpdates = { } // receive all update types
             };
-            client.StartReceiving(
+            _botClient.StartReceiving(
                 HandleUpdateAsync,
                 HandleErrorAsync,
                 receiverOptions,
                 cancellationToken: cts.Token);
 
-            var me = await client.GetMeAsync();
+            var me = await _botClient.GetMeAsync();
 
             Console.WriteLine($"Start listening for @{me.Username}");
-            Console.ReadLine();
 
             // Send cancellation request to stop bot
             cts.Cancel();*/
-
+            using var client = new WTelegram.Client(20790770, "b71211aa7cf9d79bf41d1b8623c668a6");
+            //var myself = await _client.LoginUserIfNeeded();
+            await DoLogin("+380977903314", client);
+            var chats = await client.Messages_GetAllDialogs();
+            var text2 = message;
+            await client.SendMessageAsync(chats.users.Values.First(v => v.username == "demyanzv").ToInputPeer(), text2);
         }
-        async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+
+        async Task HandleUpdateAsync(ITelegramBotClient botClient, T.Update update, CancellationToken cancellationToken)
         {
             // Only process Message updates: https://core.telegram.org/bots/api#message
             if (update.Type != UpdateType.Message)
@@ -90,13 +108,22 @@ namespace TvoiShop.Telegram.Bot
 
             var chatId = update.Message.Chat.Id;
             var messageText = update.Message.Text;
+            _code = messageText;
 
             Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
 
-            // Echo received message text
-            Message sentMessage = await botClient.SendTextMessageAsync(
+            if (_client.UserId == 0)
+            {
+                await botClient.SendTextMessageAsync(
+                    chatId: chatId,
+                    text: "I shlould be logged",
+                    cancellationToken: cancellationToken);
+                return;
+            }
+
+            await botClient.SendTextMessageAsync(
                 chatId: chatId,
-                text: "You said:\n" + messageText,
+                text: "I am logged",
                 cancellationToken: cancellationToken);
         }
 

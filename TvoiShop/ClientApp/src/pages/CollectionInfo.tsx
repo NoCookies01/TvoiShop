@@ -3,14 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { CardProducts } from '../components/productsView/CardProduct';
 import {ReactComponent as CollectionPhotoOne} from '../images/collection1.svg';
 import {ReactComponent as CollectionPhotoTwo} from '../images/collection2.svg';
-import {ReactComponent as CollectionPhotoThree} from '../images/collection3.svg';
 import {ReactComponent as CollectionPhotoFour} from '../images/collection4.svg';
-import {ReactComponent as CollectionPhotoFive} from '../images/collection5.svg';
 import translationService from '../services/translation.service';
 
 interface IProps {
     products: IProduct[];
-    handleClick: (item: IProduct) => void;
 }
 
 export const CollectionInfo = (props: IProps) => {
@@ -20,7 +17,7 @@ export const CollectionInfo = (props: IProps) => {
 
 
     useEffect(() => {
-        const collctn = [...items].filter((p) => p.collection === "autumn `22").sort((a, b) => a.labelName.localeCompare(b.labelName));
+        const collctn = [...items].filter((p) => p.collection === "winter`23").sort((a, b) => a.labelName.localeCompare(b.labelName));
         setCollection(collctn);
       },[JSON.stringify(items), props]);
 
@@ -36,7 +33,7 @@ export const CollectionInfo = (props: IProps) => {
                 <div className='bannerCarousel'>
                     <div>
                         <div className='photoBannerCardPos'>
-                            <CollectionPhotoFour className="photoBannerStyle"/>
+                            <CollectionPhotoOne className="photoBannerStyle"/>
                             <div className='bannerCardText'>
                                 tvoi
                             </div>
@@ -45,7 +42,7 @@ export const CollectionInfo = (props: IProps) => {
 
                     <div>
                         <div className='photoBannerCardPos'>
-                            <CollectionPhotoOne className="photoBannerStyle"/>
+                            <CollectionPhotoFour className="photoBannerStyle"/>
                             <div className='bannerCardText'>
                                 tvoi
                             </div>
@@ -63,7 +60,7 @@ export const CollectionInfo = (props: IProps) => {
                 </div>
 
                 <div className="productInfoView">
-                    <CardProducts products={collection} handleClick={props.handleClick}/>
+                    <CardProducts products={collection} />
                 </div>
 
             </div>

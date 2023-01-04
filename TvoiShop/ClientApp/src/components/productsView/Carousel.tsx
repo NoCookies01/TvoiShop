@@ -7,7 +7,6 @@ import { ImageBehaviour, Images } from '../Images';
 
 interface IProps {
     products: IProduct[];
-    handleClick: (item: IProduct) => void;
 }
 
 export const CarouselGallery = (props: IProps) => {

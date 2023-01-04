@@ -12,6 +12,7 @@ using TvoiShop.Infrastructure.Services;
 using TvoiShop.Infrastructure.Services.Implementations;
 using TvoiShop.ApplicationCofiguration;
 using System.Text.Json.Serialization;
+using TvoiShop.Telegram.Bot;
 
 namespace TvoiShop
 {
@@ -37,6 +38,10 @@ namespace TvoiShop
             services.AddTransient<IProductsRepository, ProductsRepository>();
 
             services.AddTransient<IProductsService, ProductsService>();
+
+            services.AddTransient<BotManager>();
+
+            services.AddTransient<OrderService>();
 
             services.AddSwaggerGen();
 

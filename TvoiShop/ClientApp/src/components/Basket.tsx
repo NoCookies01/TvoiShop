@@ -9,14 +9,13 @@ import translationService from '../services/translation.service';
 import { ImageBehaviour, Images } from './Images';
 
 interface IProps {
-    cart: IProduct[];
-    setCart: (fn: (items: IProduct[]) => IProduct[]) => void;
-    handleChange: (id: string, count: number) => void;
+    cart: IProductCart[];
+    setCart: (fn: (items: IProductCart[]) => IProductCart[]) => void;
+    handleChange: (product: IProductCart, count: number) => void;
     cancel: () => void;
 }
 
 export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
-
     const [window, setWindow] = React.useState(false)
 
     const navigate = useNavigate();
@@ -30,8 +29,8 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
     const handleWindowCancel = () => {
         setWindow(false);
     }
-    const handleRemove = (productId: string) => {
-        setCart((cart: IProduct[]) => cart.filter(item => item.id !== productId));
+    const handleRemove = (product: IProductCart) => {
+        setCart((cart: IProductCart[]) => cart.filter(item => !(item.id === product.id && item.color === product.color && item.size === product.size)));
     };
 
     const isSalePrice = (item:IProduct) => {
@@ -40,34 +39,28 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
     
     const price = cart.reduce((total:number, item:IProduct) => total + item.count * (isSalePrice(item) ?  item.salePrice : item.price), 0);
     
-    const viewProducts = cart.map((item:IProduct) => {
+    const viewProducts = cart.map((item:IProductCart, id: number) => {
         return(
-            <div className='cartGlobal' key={item.id}>
+            <div className='cartGlobal' key={id}>
                 <div className='rowStyle'> 
 
                     <div className='imgPosition'>
                         <Images images={item.images} behaviour={ImageBehaviour.Single} />
-
                         <div className='rowStyle'>
                             <div className='btnPosition'>
-                            <button className='btnCart'onClick={() => handleChange(item.id, 1)}>+</button>
-
-                            <div className='txtCartCount'>{translationService.translate("count|A")}: {item.count}</div>
-
-                            <button className='btnCart'onClick={() => handleChange(item.id, -1)}>-</button>
-
-                            <DeleteIcon className='removeIcon' onClick={() => handleRemove(item.id)}/>
-
+                                <button className='btnCart'onClick={() => handleChange(item, 1)}>+</button>
+                                <div className='txtCartCount'>{translationService.translate("count|A")}: {item.count}</div>
+                                <button className='btnCart'onClick={() => handleChange(item, -1)}>-</button>
+                                <DeleteIcon className='removeIcon' onClick={() => handleRemove(item)}/>
                             </div>
                         </div>
-
                     </div>
                     
                     <div className='infoPosition'> 
                         <div className='txtCartLabel'>{item.labelName}</div>
                         <div className='txtCartDesc'>{item.category}</div>
-                        <div className='txtCartDesc'>{item.sizes.length} CM /// CHANGE TO SELECT SIZE</div>
-                        <div className='txtCartDesc'>{item.colors.length} /// CHANGE TO SELECT COLOR</div>
+                        <div className='txtCartDesc'>{item.color}</div>
+                        <div className='txtCartDesc'>{item.size}CM</div>
                         <div className='txtCartPrice'><Price product={item}/></div>
                     </div>
 
@@ -100,7 +93,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
                         <button className="btnHomeStyle" onClick={cancel}> {translationService.translate("cancel|A")} </button>
                     </div>
                     <div className="btnHomeStylePos">
-                        <button className="btnHomeStyle" onClick={() => {navigate(`/`); cancel()}}>
+                        <button className="btnHomeStyle" onClick={() => {navigate(`/search`); cancel()}}>
                             {translationService.translate("shop more|A")}
                         </button>
                     </div>
@@ -108,7 +101,7 @@ export default function Basket({cart, setCart, handleChange, cancel }: IProps) {
 
                 </div>
 
-            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel} cancel={cancel}/>}
+            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel ={handleWindowCancel} cancel={cancel} products={cart} />}
             </OutsideAlerter>
         </div>
   );

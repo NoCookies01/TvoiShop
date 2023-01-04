@@ -21,8 +21,8 @@ export const Images = (props: IProps) => {
     const selectMain = (id: number) => {
         setImages([images[id], ...images.slice(0, id), ...images.slice(id + 1)]);
     }
-
-    if (props.images.length === 0 || props.behaviour === ImageBehaviour.Unknown) return <div></div>;
+    
+    if (!props.images || props.images.length === 0 || props.behaviour === ImageBehaviour.Unknown) return <div></div>;
 
     if (props.behaviour === ImageBehaviour.Multiple) {
         return MultipleImages(images, selectMain);

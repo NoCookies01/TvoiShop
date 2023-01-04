@@ -39,11 +39,11 @@
     "town|A": "Geben Sie Ihre Stadt ein",
     "post|A": "Wählen Sie die passende Post",
     "department|A": "Geben Sie Ihr Postamt ein",
-    "added to cart|A": "In den Warenkorb gelegt",
+    "added to cart|A": "Hinzugefügt",
     "sort by|A": "Sortieren nach",
     "filter by|A": "Filtern nach",
-    "sort price|A": "Price",
-    "sort popularity|A": "Beliebtheit",
+    "sort price|A": "Billigste",
+    "sort popularity|A": "Beliebt",
     "filter brand|A": "Marke",
     "filter color|A": "Farbe",
     "filter size|A": "Größe",
@@ -54,5 +54,11 @@
     "category earrings|A": "Ohrringe",
     "category rings|A": "Ringe",
     "category charm|A": "Charme",
-    "more|A": "Mehr"
+    "more|A": "Mehr",
+    "required field|A" : "Erforderliches Feld",
+    "collection|A": "Kollection",
+    "choose size|A": "Die Größe wählen",
+    "right size|A": "Wie man die richtige Größe wählt?",
+    "insctruction bracelet|A": "So wählen Sie die richtige Größe für das Armband, das Sie benötigen: Fügen Sie 1-2 cm zum Volumen Ihres Handgelenks hinzu. Zum Beispiel, wenn Sie eine Hand Volumen von 15 cm - Sie passen die Größe 17 Armband.",
+    "dimensional grid|A": "Dimensionelles Raster:"
 }

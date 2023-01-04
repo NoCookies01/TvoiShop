@@ -5,7 +5,5 @@ export function get<T>(url: string) {
 }
 
 export function post<T>(url: string, data: any) {
-    return axios.get<T>(url, {
-        data
-    });
+    return axios.post<T>(url, data);
 }

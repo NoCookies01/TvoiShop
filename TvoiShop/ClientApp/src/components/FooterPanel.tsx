@@ -8,7 +8,7 @@ export const FooterPanel = () => {
   return(
     <div className="footerStylePos">
       <div className="footerStyle">
-        <a href="https://instagram.com/tvoii.ua?igshid=YmMyMTA2M2Y=" target="_blank"><InstaIcon className="icon" /></a>
+        <a href="https://www.instagram.com/love.tvoi/?igshid=YmMyMTA2M2Y%3D" target="_blank"><InstaIcon className="icon" /></a>
         <a href="https://telegram.me/tvoiwatch" target="_blank"><TelegramIcon className="icon" /></a>
         <a href="tel:380977903314" target="_blank"><PhoneIcon className="icon" /></a>
       </div>

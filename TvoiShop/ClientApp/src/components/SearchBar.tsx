@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import {ReactComponent as CartIcon} from '../images/cart.svg';
 import {ReactComponent as MenuIcon} from '../images/menu.svg';
-import {ReactComponent as MainLogo} from '../images/mainlogo.svg';
+import {ReactComponent as CartFullIcon} from '../images/circle.svg';
 import { useNavigate } from "react-router-dom";
 import Basket from "./Basket";
 import { SideBar } from "./SideBar";
@@ -9,9 +9,9 @@ import OutsideAlerter from "./helpers/Outside";
 import translationService from "../services/translation.service";
 
 interface IProps {
-  cart: IProduct[];
-  setCart: (fn: (items: IProduct[]) => IProduct[]) => void;
-  handleChange: (id: string, count: number) => void;
+  cart: IProductCart[];
+  setCart: (fn: (items: IProductCart[]) => IProductCart[]) => void;
+  handleChange: (product: IProductCart, count: number) => void;
   search: (querry: string) => void;
 }
 
@@ -56,6 +56,7 @@ export const SearchBar = (props: IProps) => {
         </form>
         <div className="searchBarIconPos" >
           <CartIcon className="icon" onClick={() => setOpenBasket(!openBasket)}/>
+          <CartFullIcon/>
           {openBasket && <Basket {...props} cancel={cancelBasket} />}
         </div>
     </div>

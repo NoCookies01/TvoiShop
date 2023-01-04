@@ -10,7 +10,6 @@ import translationService from '../services/translation.service';
 
 interface IProps {
   products: IProduct[];
-  handleClick: (item: IProduct) => void;
 }
 
 export const Home = (props: IProps) => {
@@ -39,10 +38,13 @@ export const Home = (props: IProps) => {
       <div className='break'/>
       <div className="simItemPos">
 
-        <div className="simItemStyle">
+        <div className="simItemStyle" onClick={() => navigate(`/search`)}>
         {translationService.translate("catalog|A")}
         </div>
-        <div className='btnHomeStylePos'><button className='btnHomeStyleShort' onClick={() => navigate(`/search`)} >{translationService.translate("view all products|A")}</button></div>
+        <div className='btnHomeStylePos'>
+          <button className='btnHomeStyleShort' onClick={() => navigate(`/search`)} >{translationService.translate("view all products|A")}</button>
+        </div>
+
         <div className="simItemStyle">
         {translationService.translate("collection winter`22|A")}
         </div>
@@ -57,14 +59,14 @@ export const Home = (props: IProps) => {
         <div className="simItemStyle">
         {translationService.translate("best sellers|A")}
         </div>
-        <div><CarouselGallery products ={popularProducts} handleClick={props.handleClick}/> </div>
+        <div><CarouselGallery products ={popularProducts} /> </div>
         <div className="simItemStyle">
         {translationService.translate("hot sales|A")}
         </div>
         <div className='photoBannerPos'>
             <PhotoWatches className="photoBannerStyle"/>
         </div>
-        <div><CarouselGallery products ={watches} handleClick={props.handleClick}/></div>
+        <div><CarouselGallery products ={watches} /></div>
         <button className="btnHomeStyle" onClick={() => navigate(`/watches`)}>
         {translationService.translate("explore more|A")}
         </button>

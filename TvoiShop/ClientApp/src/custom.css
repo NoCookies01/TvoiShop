@@ -9,6 +9,10 @@ code {
   color: #E01A76;
 }
 
+p{
+  margin-right: 5px;
+}
+
 body {
   background-color: rgb(242, 242, 242);
   font-family: Montserrat;
@@ -164,6 +168,7 @@ transform: translateY(-50%);
 }
 
 .searchBar{
+  width: 100%;
   padding-left: 20px;
   background-color: white;
   border: transparent;
@@ -183,6 +188,18 @@ transform: translateY(-50%);
   cursor: pointer;
 }
 
+.searchBarIconPos{
+  position: relative;
+}
+
+.infoIcon{
+  background-color: transparent;
+  width: 16px;
+  margin-left: 2px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
 .iconsimple{
   background-color: transparent;
   width: 24px;
@@ -191,10 +208,30 @@ transform: translateY(-50%);
   transition: 0.4s;
 }
 
+.cartFullIcon{
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  width: 14px;
+}
+
+.logoIcon{
+  background-color: transparent;
+  width: 150px;
+  cursor: pointer;
+}
+
 .likeIcon{
   position: absolute;
 }
 
+.infoText{
+  padding: 5px;
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: 900;
+  cursor: pointer;
+}
 
 /* CUSTOM SCROLLBAR */
 
@@ -270,6 +307,46 @@ transform: translateY(-50%);
 
 .watchBanner{
   position: absolute;
+}
+
+.buttonProductInfoSelect{
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 5px;
+  border: rgb(227, 227, 227);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.buttonProductInfoSelect:active{
+  background-color: rgb(227, 227, 227);
+  transition: 0.1s;
+}
+
+.borderStyle{
+  padding: 5px;
+  border: rgb(227, 227, 227);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+.txtStyle{
+  color: rgb(92, 92, 92);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.txtStyleImportant{
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .txtBanner{
@@ -405,7 +482,6 @@ transform: translateY(-50%);
 }
 
 .productImage{
-  height: 100%;
   width: 100%;
   background-color: transparent;
 }
@@ -413,8 +489,7 @@ transform: translateY(-50%);
 .productLabel{
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
-  padding-top: 5px;
+  padding: 5px;
   font-size: 14px;
   font-weight: 900;
   text-transform: uppercase;
@@ -436,16 +511,28 @@ transform: translateY(-50%);
   font-weight: 900;
 }
 
+.size-color-margin{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .oldPrice {
+  color: #a8a8a8;
   text-decoration: line-through;
+}
+
+.checkboxSize{
+  font-size: 20px;
+}
+input.checkboxSize {
+  width: 20px;
+  height: 20px;
 }
 
 .productSalePrice{
   font-size: 18px;
   display: flex;
-  color: red;
-  justify-content: left;
-  padding-right: 10px;
+  color: #000000;
   font-weight: 900;
 }
 
@@ -495,6 +582,15 @@ transform: translateY(-50%);
 /* Product Info Page Style*/
 
 @media(max-width: 850px) {
+
+  .sizeInfoStyle{
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .sidenav{
+    opacity: 99% !important;
+  }
 
   .instrPanel{
     margin-top: 5px !important;
@@ -549,7 +645,7 @@ transform: translateY(-50%);
   }
 
   .productLabel{
-    font-size: 13px;
+    font-size: 10px;
   }
 
   .productPrice{
@@ -588,18 +684,35 @@ transform: translateY(-50%);
   }
 
   .prImg{
-    height: 100% !important;
-    width: 100% !important;
-  }
-
-  .productInfPgImage{
+    position: relative;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
     height: 100% !important;
     width: 100% !important;
   }
 
   .productIngPgSecondaryImage{
-    height: 30% !important;
-    width: 30% !important;
+
+    height: 400px !important;
+    width: 400px !important;
+  }
+
+  .productInfPgImage{
+    height: 400px !important;
+    width: 400px !important;
+  }
+
+  .productIngPgSecondaryImages{
+    flex-direction: row !important;
+  }
+
+  .prImg::-webkit-scrollbar {
+    background-color: transparent;
+    height: 6px;
+  }
+
+  .prImg::-webkit-scrollbar-track{
+    background-color: transparent;
   }
 
   .prDesc{
@@ -680,6 +793,19 @@ transform: translateY(-50%);
   .windowConfirmStyle{
     width: 100vw !important;
     height: auto !important;
+    position: relative !important;
+  }
+
+  .inputNameStyle{
+    width: 350px !important;
+    letter-spacing: 0px !important;
+    margin-right: 0px !important;
+  }
+  
+  .inputStyle{
+    width: 350px !important;
+    letter-spacing: 0px !important;
+    margin-right: 0px !important;
   }
 }
 
@@ -710,26 +836,28 @@ transform: translateY(-50%);
 }
 
 .prImg{
-  background-color: rgb(210, 210, 210);
   display: flex;
   flex-direction: row;
 }
 
 .productInfPgImage{
-  height: 350px;
-  width: 350px;
+  height: 500px;
+  width: 500px;
   background-color: transparent;
+  margin-bottom: 5px;
 }
 
 .productIngPgSecondaryImages{
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .productIngPgSecondaryImage{
-  margin: 5px;
-  height: 80px;
-  width: 80px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  height: 120px;
+  width: 120px;
 }
 
 .prRowPos{
@@ -741,7 +869,7 @@ transform: translateY(-50%);
   width: 400px;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding-left: 20px;
   text-transform: uppercase;
   font-weight: 900;
@@ -774,8 +902,11 @@ transform: translateY(-50%);
 }
 
 .prTextMain{
-  font-size: 16px;
+  font-size: 16px !important;
   color:black;
+  font-weight: 900;
+  margin-right: 5px;
+  text-transform: uppercase;
 }
 
 .prPrice{
@@ -906,16 +1037,23 @@ transform: translateY(-50%);
 }
 
 select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: '';
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
 }
 
 .filterByStyle{
   background-color: transparent;
   color: white;
   text-transform: uppercase;
+  text-align: center;
   font-size: 15px;
   letter-spacing: 1px;
   font-weight: 900;
@@ -947,6 +1085,80 @@ select {
 .rangeStyle{
   width: 100%;
 }
+
+/* Custom Select */
+
+/* The container must be positioned relative: */
+span.msg,
+span.choose {
+  color: #555;
+  padding: 5px 0 10px;
+  display: inherit
+}
+.container {
+  width: 500px;
+  margin: 50px auto 0;
+  text-align: center
+}
+
+/*Styling Selectbox*/
+.dropdown {
+  display: inline-block;
+  background-color: #232323;
+  transition: all .5s ease;
+  position: relative;
+  font-size: 14px;
+  color: #ffffff;
+}
+.dropdown .select {
+    cursor: pointer;
+    display: block;
+}
+.dropdown .select > i {
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px
+}
+.dropdown:active {
+    background-color: #f8f8f8
+}
+.dropdown.active:hover,
+.dropdown.active {
+    background-color: #f8f8f8
+}
+.dropdown.active .select > i {
+    transform: rotate(-90deg)
+}
+.dropdown .dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    overflow: hidden;
+    display: none;
+    overflow-y: auto;
+    z-index: 9
+}
+.dropdown .dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer
+} 
+.dropdown .dropdown-menu {
+    padding: 0;
+    list-style: none
+}
+.dropdown .dropdown-menu li:hover {
+    background-color: #f2f2f2
+}
+.dropdown .dropdown-menu li:active {
+    background-color: #e2e2e2
+}
+/* Custom Select */
 
 /* Instrument Panel Style*/
 
@@ -995,10 +1207,41 @@ button.badge {
 }
 
 /* cart page confirm style*/ 
+.sizeInfoPosition{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 10000000;
+  top: 0;
+  left:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sizeInfoStyle{
+  position: fixed;
+  height: 100vh;
+  width: 500px;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background-color: #232323;
+}
+
+.sizeInfoText{
+  color: white;
+  font-weight: 900;
+}
+
 .windowConfirmPosition{
   width: 100vw;
   height: 100vh;
-  background-color: rgb(0, 0, 0, 0.4);;
+  background-color: rgb(0, 0, 0, 0.4);
   position: fixed;
   z-index: 1000000;
   top: 0;
@@ -1011,13 +1254,27 @@ button.badge {
   justify-content: center;
 }
 
+.orderWindowPos{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
 .windowConfirmStyle{
+  position: fixed;
+  height: 100vh;
+  width: 500px;
+  right: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 550px;
   padding: 20px;
   background-color: white;
+}
+
+.hiddenWindow {
+  right: -200px !important;
 }
 
 .confirmText{
@@ -1029,16 +1286,28 @@ button.badge {
   text-align: center;
 }
 
+.inputNameStyle{
+  width: 275px;
+  letter-spacing: 1.5px;
+  font-weight: 900;
+  text-align: center;
+  border-color: rgb(235, 235, 235);
+  border-style: solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  color: rgb(0, 0, 0);
+}
+
 .inputStyle{
   letter-spacing: 1.5px;
   font-weight: 900;
-  width: 100%;
-  border: none;
-  background-color: transparent;
-  border-bottom: ridge;
-  border-width: 1px;
   padding: 5px;
   color: rgb(0, 0, 0);
+  border-color: rgb(235, 235, 235);
+  border-style: solid;
+  border-radius: 5px;
 }
 
 .inputStyle:focus{
@@ -1093,7 +1362,6 @@ button.badge {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
 }
 
 .columnStyle{
@@ -1117,8 +1385,10 @@ button.badge {
   justify-content: left;
 }
 
-.confirmStyle{
+.toastrStyle{
   position: fixed;
+  display: flex;
+  justify-content: center;
   left: 50%;
   transform: translateX(-50%);
   background-color: #232323;
@@ -1131,6 +1401,13 @@ button.badge {
   letter-spacing: 2px;
   font-weight: 600;
   z-index: 2000;
+}
+.toastrStyle--info {
+  background-color: #232323;
+}
+
+.toastrStyle--error {
+  background-color: red;
 }
 
 .addToStyle{
@@ -1224,4 +1501,9 @@ button.badge {
 .hyperLinkStyle:hover{
   color: rgb(170, 170, 170);
   transition: 0.2s;
+}
+
+.checkboxStyle{
+  display: flex;
+  margin: 5px;
 }

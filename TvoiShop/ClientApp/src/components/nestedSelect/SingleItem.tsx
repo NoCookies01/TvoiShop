@@ -8,7 +8,7 @@ interface IProps {
 export default function SingleItem(props: IProps) {
 
     return (
-        <div className="multiItem" onClick={() => props.onSelect([props.item.Title])}>
+        <div className="multiItem" onClick={() => props.onSelect([props.item.Value])}>
             {props.item.Title}
         </div>
     )
