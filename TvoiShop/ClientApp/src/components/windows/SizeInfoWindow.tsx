@@ -1,7 +1,7 @@
 import React from "react";
 import translationService from "../../services/translation.service";
 import OutsideAlerter from "../helpers/Outside";
-
+import {ReactComponent as CloseIcon} from '../../images/close.svg';
 
 interface IProps {
     onCancel: () => void;
@@ -29,6 +29,7 @@ export const SizeInfoWindow = ({onCancel}:IProps) => {
                             <li><h6>58 = 18</h6></li>
                         </ul>
                 </div>
+                <CloseIcon onClick={onCancel}/>
             </div>
             </OutsideAlerter>
         </div>

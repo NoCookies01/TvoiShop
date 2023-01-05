@@ -807,6 +807,12 @@ input.checkboxSize {
     letter-spacing: 0px !important;
     margin-right: 0px !important;
   }
+
+  .closeIcon{
+    width: 45px !important;
+    bottom: 0 !important;
+    top: auto !important;
+  }
 }
 
 
@@ -1342,6 +1348,14 @@ button.badge {
 
 .ProductIconPos{
   position: relative;
+}
+
+.closeIcon{
+  position: absolute;
+  width: 45px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
 }
 
 .ProductIcon{
