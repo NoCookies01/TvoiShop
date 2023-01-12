@@ -32,7 +32,7 @@ export default function NestedSelect({ items, defaultText, onSelect, reset }: IP
 
     return (
         <div className="nestedList">
-            <div onClick={() => setExpand(!isExpand)}>{selectedItem[selectedItem.length-1]}</div>
+            <div className="multiItem" onClick={() => setExpand(!isExpand)}>{selectedItem[selectedItem.length-1]}</div>
             {isExpand && <OutsideAlerter onOutsideClick={() => setExpand(false)}><div className="nestedItems">{items.map((child, key) => child.Items && child.Items.length > 0 ?
                 <MultiItem onSelect={select} item={child} key={key} /> :
                 <SingleItem onSelect={select} item={child} key={key} />

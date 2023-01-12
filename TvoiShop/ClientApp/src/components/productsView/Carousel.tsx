@@ -4,6 +4,7 @@ import {ReactComponent as RightIcon} from "../../images/rightIcon.svg";
 import {ReactComponent as LeftIcon} from "../../images/leftIcon.svg";
 import { Price } from './Price';
 import { ImageBehaviour, Images } from '../Images';
+import { getRoute } from '../../services/routes.service';
 
 interface IProps {
     products: IProduct[];
@@ -25,7 +26,7 @@ export const CarouselGallery = (props: IProps) => {
 
     const viewCarousel = productItems.map((p, index) => {
       return(
-        <div className='productCard' key={index} onClick={() => navigate(`/productInfo/${p.id}`)}>
+        <div className='productCard' key={index} onClick={() => navigate(getRoute(`productInfo/${p.id}`))}>
           <div className="productImagePos">
             <div className='ProductIconPos'></div>
             <Images images={p.images} behaviour={ImageBehaviour.Single} />

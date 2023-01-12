@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace TvoiShop.Infrastructure.Services.Implementations
             return _productsRepository.GetAll();
         }
 
+        [Authorize]
         public void AddProduct(Product item)
         {
             _productsRepository.AddProduct(item);

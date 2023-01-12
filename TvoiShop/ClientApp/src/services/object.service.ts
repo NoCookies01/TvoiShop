@@ -12,6 +12,6 @@ export function getPropertyFromObject(object: object, path: string): any {
             return undefined;
         }
     }
-
+    
     return pObject;
 }

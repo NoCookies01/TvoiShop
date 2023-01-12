@@ -60,5 +60,6 @@
     "choose size|A": "Die Größe wählen",
     "right size|A": "Wie man die richtige Größe wählt?",
     "insctruction bracelet|A": "So wählen Sie die richtige Größe für das Armband, das Sie benötigen: Fügen Sie 1-2 cm zum Volumen Ihres Handgelenks hinzu. Zum Beispiel, wenn Sie eine Hand Volumen von 15 cm - Sie passen die Größe 17 Armband.",
-    "dimensional grid|A": "Dimensionelles Raster:"
+    "dimensional grid|A": "Dimensionelles Raster:",
+    "error order|A": "Wählen Sie bitte Farbe und Größe"
 }

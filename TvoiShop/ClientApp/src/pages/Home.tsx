@@ -7,6 +7,7 @@ import {ReactComponent as PhotoTwo} from '../images/6.svg';
 import {ReactComponent as PhotoWatches} from '../images/7.svg';
 import { Categories } from '../components/productsView/Categories';
 import translationService from '../services/translation.service';
+import { getRoute } from '../services/routes.service';
 
 interface IProps {
   products: IProduct[];
@@ -38,11 +39,11 @@ export const Home = (props: IProps) => {
       <div className='break'/>
       <div className="simItemPos">
 
-        <div className="simItemStyle" onClick={() => navigate(`/search`)}>
+        <div className="simItemStyle" onClick={() => navigate(getRoute(`search`))}>
         {translationService.translate("catalog|A")}
         </div>
         <div className='btnHomeStylePos'>
-          <button className='btnHomeStyleShort' onClick={() => navigate(`/search`)} >{translationService.translate("view all products|A")}</button>
+          <button className='btnHomeStyleShort' onClick={() => navigate(getRoute(`search`))} >{translationService.translate("view all products|A")}</button>
         </div>
 
         <div className="simItemStyle">
@@ -51,8 +52,8 @@ export const Home = (props: IProps) => {
       
         <div className='columnStyle positionCenter'>
           <div className='photoBannerPos' ><PhotoTwo className="photoBannerStyle"/></div>
-          <div className='txtBanner' onClick={() => navigate(`/collection`)}> elegance is tvoi</div>
-          <button className="btnHomeStyle" onClick={() => navigate(`/collection`)}>
+          <div className='txtBanner' onClick={() => navigate(getRoute(`collection`))}> elegance is tvoi</div>
+          <button className="btnHomeStyle" onClick={() => navigate(getRoute(`collection`))}>
           {translationService.translate("explore more|A")}
           </button>
         </div>
@@ -67,7 +68,7 @@ export const Home = (props: IProps) => {
             <PhotoWatches className="photoBannerStyle"/>
         </div>
         <div><CarouselGallery products ={watches} /></div>
-        <button className="btnHomeStyle" onClick={() => navigate(`/watches`)}>
+        <button className="btnHomeStyle" onClick={() => navigate(getRoute(`watches`))}>
         {translationService.translate("explore more|A")}
         </button>
 

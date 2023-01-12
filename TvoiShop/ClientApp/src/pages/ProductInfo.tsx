@@ -11,6 +11,7 @@ import { ImageBehaviour, Images } from '../components/Images';
 import ElementSelect from '../components/elementSelect/ElementSelect';
 import { SizeInfoWindow } from '../components/windows/SizeInfoWindow';
 import {ReactComponent as InfoIcon} from '../images/infoIcon.svg';
+import { getRoute } from '../services/routes.service';
 
 interface IProps {
     products: IProduct[];
@@ -29,7 +30,14 @@ export const ProductInfo = (props: IProps) => {
     const navigate = useNavigate();
 
     const onBuyNow = () =>{
-        setWindow(true);
+        if(!selectedColor || selectedColor.length === 0 ||
+            !selectedSize || selectedSize === 0 ){
+            toastrService.callToastr(translationService.translate("error order|A"));
+        }
+        else{
+            setWindow(true);
+        }
+  
     }
     const handleWindowOk = () => {
         setWindow(false);
@@ -56,10 +64,14 @@ export const ProductInfo = (props: IProps) => {
         );
     }
     const addToCart = () => {
-        props.handleClick({...productItem, count: 1, color: selectedColor!, size: selectedSize!}); 
-        toastrService.callToastr(translationService.translate("added to cart|A"));
-        toastrService.callToastr(translationService.translate("added to cart|A"));
-        toastrService.callToastr(translationService.translate("added to cart|A"));
+        if(!selectedColor || selectedColor.length === 0 ||
+            !selectedSize || selectedSize === 0 ){
+            toastrService.callToastr(translationService.translate("error order|A"));
+        }
+        else{
+            props.handleClick({...productItem, count: 1, color: selectedColor!, size: selectedSize!}); 
+            toastrService.callToastr(translationService.translate("added to cart|A"));
+        }
     }
 
     useEffect(() => {
@@ -117,7 +129,7 @@ export const ProductInfo = (props: IProps) => {
                                     <ElementSelect 
                                         type="single"
                                         checkbox={true}
-                                        options={productItem.sizes.map(c => {return {Value: c.value.toString(), Title: `${c.value}CM`}})}
+                                        options={productItem.sizes.map(c => {return {Value: c.value.toString(), Title: `${c.value}`}})}
                                         onSelectValues={(values: string[]) => handleSelectedSize(Number(values[0]))}
                                     />
                                 </div>
@@ -137,14 +149,14 @@ export const ProductInfo = (props: IProps) => {
                             <div>
                                 <p><div className="prTextMain">{productItem.collection}</div></p>
                             </div>
-                            <div onClick={() => {navigate(`/${productItem.category}`)}} className="hyperLinkStyle">{translationService.translate("more|A")} {productItem.category}</div>
+                            <div onClick={() => {navigate(getRoute(`${productItem.category}`))}} className="hyperLinkStyle">{translationService.translate("more|A")} {productItem.category}</div>
                         </div>
                         
                     </div>
                         
                     <div className="btnInfoPgStylePos">
-                        <button disabled={!isActive()} className="btnInfoPgStyle" onClick={onBuyNow}> {translationService.translate("buy now|A")} </button>
-                        <button disabled={!isActive()} className="btnInfoPgStyle" onClick={addToCart}> {translationService.translate("add to cart|A")}</button>
+                        <button className="btnInfoPgStyle" onClick={onBuyNow}> {translationService.translate("buy now|A")} </button>
+                        <button className="btnInfoPgStyle" onClick={addToCart}> {translationService.translate("add to cart|A")}</button>
                     </div>
                 </div>
             </div>
@@ -157,7 +169,7 @@ export const ProductInfo = (props: IProps) => {
             </div>
             <br/>
             <br/>
-            {window && <OnConfirmOrderWindow onOk={handleWindowOk} onCancel={handleWindowCancel} cancel={handleWindowCancel} products={[]} />}
+            {window && <OnConfirmOrderWindow clearBasket={() => {}} onOk={handleWindowOk} onCancel={handleWindowCancel} cancel={handleWindowCancel} products={[{...productItem, count: 1, color: selectedColor!, size: selectedSize!}]} />}
             {sizeInfoWindow && <SizeInfoWindow onCancel={handleInfoSizeWindowCancel} />}
         </div>
         

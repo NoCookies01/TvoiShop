@@ -7,6 +7,10 @@ class TranslationService {
     private _availableLangulages = ["ua", "de", "en"];
     private _langCode: string = "ua";
 
+    public get lang() { 
+        return this._langCode; 
+    }
+
     constructor() {
         this.load();
     }

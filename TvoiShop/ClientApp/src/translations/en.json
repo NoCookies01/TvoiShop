@@ -60,5 +60,6 @@
     "choose size|A": "How to choose the Size?",
     "right size|A": "How to choose the right size?",
     "insctruction bracelet|A": "In order to choose the right size for the bracelet you need: Add 1-2 cm to the volume of your wrist. For example, if you have a hand volume of 15 cm - you will fit the size 17 bracelet.",
-    "dimensional grid A": "Dimensional grid:"
+    "dimensional grid|A": "Dimensional grid:",
+    "error order|A": "Please enter color and size"
 }

@@ -38,6 +38,10 @@ namespace TvoiShop.Infrastructure.Services.Implementations
                     $"******************** \n";
             });
 
+            if (order.Products.Count > 0) {
+                message += $"Total price: {order.Products.Sum(p => p.SalePrice > 0 ? p.SalePrice : p.Price)} UAH\n";
+            }
+
             return message;
         }
     }

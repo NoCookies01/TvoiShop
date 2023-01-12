@@ -16,6 +16,14 @@ export default function MultiItem({ item, onSelect }: IProps){
     const handleClick = () => {
       setOpen((prev) => !prev);
     };
+
+    const select = (values: string[]) => {
+      var value = [item.Value];
+      if (item.Path) {
+        value = [item.Path, item.Value]
+      }
+      onSelect([...value, ...values]);
+    }
   
     return (
       <React.Fragment>
@@ -26,8 +34,8 @@ export default function MultiItem({ item, onSelect }: IProps){
           </div>
           {open && <div className="multiSubMenu nestedItems">
             {item.Items!.map((child, key) => child.Items && child.Items.length > 0 ?
-              <MultiItem onSelect={(value) => onSelect([item.Value, ...value])} item={child} key={key}/> :
-              <SingleItem onSelect={(value) => onSelect([item.Value, ...value])} item={child} key={key} />
+              <MultiItem onSelect={select} item={child} key={key}/> :
+              <SingleItem onSelect={select} item={child} key={key} />
             )}
           </div>}
         </OutsideAlerter>

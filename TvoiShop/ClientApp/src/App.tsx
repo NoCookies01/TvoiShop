@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigation } from 'react-router-dom';
 import {Home} from './pages/Home';
 import {SideBar} from './components/SideBar';
 import './custom.css'
@@ -13,8 +13,9 @@ import { ToastrList } from './components/toastr/ToastrList';
 import { getPropertyFromObject, isPrimitive } from './services/object.service';
 import { SearchPage } from './pages/SearchPage';
 import IItem from './components/nestedSelect/item';
-import { getFilterCriteriaBasedOnProducts } from './services/filter.service';
+import { comparePorductsPropertyToValue, getFilterCriteriaBasedOnProducts } from './services/filter.service';
 import localstorageService from './services/localstorage.service';
+import ServiceLayer from './components/ServiceLayer';
 
 export default function App() {
   const [products, setProducts] = React.useState<IProduct[]>([]);
@@ -75,6 +76,11 @@ export default function App() {
     });
   };
 
+  const clearBasket = () => {
+    localstorageService.setSaveProducts([]);
+    setCart({data: [], loadedFromStorage: true});
+  }
+
   const handleChange = (product:IProductCart, d:number) => {
     setCart((cart) => {
       const newCart = cart.data.flatMap((cartItem) =>
@@ -122,7 +128,7 @@ export default function App() {
   }
 
   const filterBy = (value: any, property: string) => {
-    setFilteredProducts(products.filter(o => getPropertyFromObject(o, property) === value));
+    setFilteredProducts(products.filter(o => comparePorductsPropertyToValue(o, value, property)));
   }
 
   const resetFilter = () => {
@@ -139,31 +145,35 @@ export default function App() {
     <div className='App'>
       <ToastrList/>
         <BrowserRouter>
-        <SearchBar cart={cart.data} setCart={handleSetCart} handleChange={handleChange} search={search}/>
+        <SearchBar cart={cart.data} setCart={handleSetCart} handleChange={handleChange} search={search} clearBasket={clearBasket} />
           <Routes>
-            <Route path='/' element={<Home products={products} /> } />
-            <Route path='/productInfo/:id' element={<ProductInfo products={products} handleClick={handleClick}/>} />
-            <Route path='/collection' element={<CollectionInfo products={products} />} />
-            <Route path='/search' element={
-                <SearchPage 
-                  products={searchedProducts} 
-                  resetFilter={resetFilter}
-                  sortBy={sortBy}
-                  filterCriteria={filterCriteria}
-                  filterBy={filterBy}/>} />
-            {productCategoryRoutes.map((pcr, index) => (
-              <Route key={index} path={pcr.path} element={
-                <ProductList 
-                  products={filteredProducts} 
-                  title={pcr.title} 
-                  category={pcr.category} 
-                  resetFilter={resetFilter}
-                  sortBy={sortBy}
-                  filterCriteria={filterCriteria}
-                  filterBy={filterBy}
-                />} 
-              />
-            ))}
+            <Route path='/:lang'>
+                <Route path='' element={<Home products={products} />}/>
+                <Route path='productInfo/:id' element={<ProductInfo products={products} handleClick={handleClick}/>} />
+                <Route path='collection' element={<CollectionInfo products={products} />} />
+                <Route path='search' element={
+                    <SearchPage 
+                      products={searchedProducts} 
+                      resetFilter={resetFilter}
+                      sortBy={sortBy}
+                      filterCriteria={filterCriteria}
+                      filterBy={filterBy}/>} 
+                    />
+                {productCategoryRoutes.map((pcr, index) => (
+                  <Route key={index} path={pcr.path} element={
+                    <ProductList 
+                      products={filteredProducts} 
+                      title={pcr.title} 
+                      category={pcr.category} 
+                      resetFilter={resetFilter}
+                      sortBy={sortBy}
+                      filterCriteria={filterCriteria}
+                      filterBy={filterBy}
+                    />} 
+                  />
+                ))}
+            </Route>
+            <Route path='*' element={<Navigate to="/ua" />}/>
           </Routes>
         </BrowserRouter>
     </div>

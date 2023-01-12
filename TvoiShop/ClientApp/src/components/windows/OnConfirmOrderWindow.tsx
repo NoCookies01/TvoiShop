@@ -9,10 +9,11 @@ interface IProps {
     onCancel: () => void;
     cancel: () => void;
     onOk: () => void;
+    clearBasket: () => void;
     products: IProductCart[];
 }
 
-export const OnConfirmOrderWindow = ({onCancel, cancel, products}:IProps) => {
+export const OnConfirmOrderWindow = ({onCancel, cancel, products, clearBasket}:IProps) => {
     const[phone, setPhone] = useState("");
 
     const[orderWindow, setOrderWindow] = useState(false);
@@ -54,11 +55,12 @@ export const OnConfirmOrderWindow = ({onCancel, cancel, products}:IProps) => {
 
     const isFieldValid = () => {
         return (
-            phone.trim().length > 9 && (checkedPhone || checkedViber || checkedTelegram)
+            phone.trim().length > 9 && phone.trim().length < 15 && (checkedPhone || checkedViber || checkedTelegram)
         );
     }
 
     const onEndOrderOk = () =>{
+        clearBasket();
         setOrderWindow(true);
     }
     const handleWindowCancel = () =>{
@@ -127,7 +129,7 @@ export const OnConfirmOrderWindow = ({onCancel, cancel, products}:IProps) => {
                         <button className="btnHomeStyle"onClick={() => onCancel()}>{translationService.translate("cancel|A")}</button>
                     </div>
             </div>
-            {orderWindow && <EndOrderWindow onPressOk={checkTextInput} handleWindowCancel ={handleWindowCancel} onCancel={onCancel} cancel={cancel}/>}
+            {orderWindow && <EndOrderWindow handleWindowCancel ={handleWindowCancel} onCancel={onCancel} cancel={cancel}/>}
             </OutsideAlerter>
         </div>
     )

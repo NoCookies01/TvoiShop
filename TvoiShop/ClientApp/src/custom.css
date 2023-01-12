@@ -97,12 +97,9 @@ body {
 }
 
 .logoStyle{
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 20px;
-  font-weight: 900;
+  letter-spacing: 1px;
+  font-weight: 600;
   color: black;
   text-transform: uppercase;
   cursor: pointer;
@@ -119,7 +116,7 @@ body {
   line-height: 1.6;
   font-size: 18px;
   font-weight: 600;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 
 a {
@@ -128,7 +125,7 @@ a {
 
 .navItem:hover{
   color: rgb(200, 200, 200);
-  transition: 0.2s;
+  transition: 0.1s;
   text-decoration: none;
 }
 
@@ -157,25 +154,46 @@ transform: translateY(-50%);
   padding: 10px;
   top: 0;
   transition: 0.2s;
+  -webkit-box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
+  -moz-box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
+  box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
+}
+
+.logoPos{
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .searchBarPos{
-  flex: 1;
-
+  position: fixed;
+  right: 0px;
+  top: 40px;
 }
 .searchBarPos:focus{
   outline: none !important;
 }
 
 .searchBar{
-  width: 100%;
-  padding-left: 20px;
+  width: 35vw;
+  height: 48px;
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: white;
   border: transparent;
-  color: rgb(150, 150, 150);
+  color: #232323;
   font-size: 17px;
   font-weight: 900;
   border-color: rgb(179, 179, 179);
+  -webkit-box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
+  -moz-box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
+  box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
+  backdrop-filter: blur(10px);
 }
 .searchBar:focus{
   outline: none !important;
@@ -189,7 +207,14 @@ transform: translateY(-50%);
 }
 
 .searchBarIconPos{
-  position: relative;
+  position: absolute;
+  right: 10px;
+}
+
+.menuIconPos{
+  position: absolute;
+  left: 10px;
+  z-index: 1;
 }
 
 .infoIcon{
@@ -212,7 +237,7 @@ transform: translateY(-50%);
   background-color: transparent;
   position: absolute;
   right: 0;
-  width: 14px;
+  width: 20px;
 }
 
 .logoIcon{
@@ -228,9 +253,11 @@ transform: translateY(-50%);
 .infoText{
   padding: 5px;
   margin-left: 5px;
+  margin-top: 5px;
   font-size: 10px;
   font-weight: 900;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 /* CUSTOM SCROLLBAR */
@@ -582,7 +609,17 @@ input.checkboxSize {
 /* Product Info Page Style*/
 
 @media(max-width: 850px) {
-
+  .searchBarPos{
+    position: fixed;
+    right: 0px;
+    top: 50px;
+  }
+  .searchBar{
+    width: 100vw !important;
+    height: 45px !important;
+    padding: 10px !important;
+    font-size: 20px !important;
+  }
   .sizeInfoStyle{
     width: auto !important;
     height: auto !important;
@@ -608,13 +645,9 @@ input.checkboxSize {
     font-size: 20px !important;
     margin-top: 8px !important;
   }
-
-  .searchBar{
-    font-size: 20px !important;
-  }
-
+  
   .icon{
-    width: 28px !important;
+    width: 30px !important;
   }
   .sticky{
     height: 50px !important;
@@ -778,10 +811,6 @@ input.checkboxSize {
     font-size: 13px !important;
   }
 
-  .logoStyle{
-    width: 50px;
-  }
-
   .categoryImagePos{
     margin-left: 5px !important;
     margin-right: 5px !important;
@@ -812,6 +841,10 @@ input.checkboxSize {
     width: 45px !important;
     bottom: 0 !important;
     top: auto !important;
+  }
+  .cartFullIconCount{
+    margin-top: 6px !important;
+    left: 40px !important;
   }
 }
 
@@ -906,6 +939,9 @@ input.checkboxSize {
   background-color: #2e2e2e;
   transition: 0.1s;
 }
+.btnInfoPgStyle:disabled{
+  background-color: #2d2d2d;
+}
 
 .prTextMain{
   font-size: 16px !important;
@@ -984,7 +1020,7 @@ input.checkboxSize {
 }
 
 .btnHomeStyle:disabled{
-  background-color: #4b4b4b;
+  background-color: #2d2d2d;
 }
 
 .btnHomeStyle:hover{
@@ -1017,18 +1053,19 @@ input.checkboxSize {
   width: auto;
   padding: 20px;
   background-color: rgb(255, 255, 255);
+  border-color: #232323;
   color: #000000;
   font-size: 12px;
   letter-spacing: 5px;
   font-weight: 900;
   text-transform: uppercase;
-  transition: 0.8s
+  transition: 0.2s
 }
 
 .btnHomeStyleShort:hover{
   background-color: #232323;
   color: white;
-  transition: 0.8s;
+  transition: 0.2s;
 }
 
 /* Instrument Panel Style*/
@@ -1399,14 +1436,14 @@ button.badge {
   justify-content: left;
 }
 
-.toastrStyle{
+.toastrStyle--info {
+  background-color: #232323;
   position: fixed;
   display: flex;
   justify-content: center;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #232323;
-  margin: 10px;
+  margin-top: 50px;
   padding: 10px;
   opacity: 60%;
   color: white;
@@ -1416,12 +1453,39 @@ button.badge {
   font-weight: 600;
   z-index: 2000;
 }
-.toastrStyle--info {
-  background-color: #232323;
-}
 
 .toastrStyle--error {
   background-color: red;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 50px;
+  padding: 10px;
+  opacity: 60%;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  z-index: 2000;
+}
+
+.cartFullIconCount {
+  margin-top: 5px;
+  display: flex;
+  color: white;
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 35px;
+  bottom: 0;
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .addToStyle{
@@ -1520,4 +1584,29 @@ button.badge {
 .checkboxStyle{
   display: flex;
   margin: 5px;
+}
+
+.langPos{
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+}
+
+.langStyle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.langStyle:hover{
+  color: rgb(200, 200, 200);
+  transition: 0.1s;
 }
