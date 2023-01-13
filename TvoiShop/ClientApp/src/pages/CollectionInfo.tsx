@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CardProducts } from '../components/productsView/CardProduct';
-import {ReactComponent as PhotoBanner} from '../images/8.svg';
+import {ReactComponent as CollectionPhotoOne} from '../images/collection1.svg';
+import {ReactComponent as CollectionPhotoTwo} from '../images/collection2.svg';
+import {ReactComponent as CollectionPhotoFour} from '../images/collection4.svg';
+import translationService from '../services/translation.service';
 
 interface IProps {
     products: IProduct[];
-    handleClick: (item: IProduct) => void;
 }
 
 export const CollectionInfo = (props: IProps) => {
@@ -15,7 +17,7 @@ export const CollectionInfo = (props: IProps) => {
 
 
     useEffect(() => {
-        const collctn = [...items].filter((p) => p.collection === "autumn `22").sort((a, b) => a.labelName.localeCompare(b.labelName));
+        const collctn = [...items].filter((p) => p.collection === "winter`23").sort((a, b) => a.labelName.localeCompare(b.labelName));
         setCollection(collctn);
       },[JSON.stringify(items), props]);
 
@@ -23,22 +25,42 @@ export const CollectionInfo = (props: IProps) => {
         <div>
             <br/>
             <br/>
-            <div className='simItemPos'>
-
+            <div className='simItemPos'> 
                 <div className="simItemStyle">
-                    winter `22
+                    {translationService.translate("winter`23|A")}
                 </div>
 
-                <div className='photoBannerPos'>
-                    <PhotoBanner className="photoBannerStyle"/>
-                </div>
+                <div className='bannerCarousel'>
+                    <div>
+                        <div className='photoBannerCardPos'>
+                            <CollectionPhotoOne className="photoBannerStyle"/>
+                            <div className='bannerCardText'>
+                                tvoi
+                            </div>
+                        </div>
+                    </div>
 
-                <div className="simItemStyle">
-                    Everything is falling into place as it`s meant to be
+                    <div>
+                        <div className='photoBannerCardPos'>
+                            <CollectionPhotoFour className="photoBannerStyle"/>
+                            <div className='bannerCardText'>
+                                tvoi
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className='photoBannerCardPos'>
+                            <CollectionPhotoTwo className="photoBannerStyle"/>
+                            <div className='bannerCardText'>
+                                tvoi
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="productInfoView">
-                    <CardProducts products={collection} handleClick={props.handleClick}/>
+                    <CardProducts products={collection} />
                 </div>
 
             </div>

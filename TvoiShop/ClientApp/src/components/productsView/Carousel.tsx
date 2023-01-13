@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import {ReactComponent as RightIcon} from "../../images/rightIcon.svg";
 import {ReactComponent as LeftIcon} from "../../images/leftIcon.svg";
 import { Price } from './Price';
+import { ImageBehaviour, Images } from '../Images';
+import { getRoute } from '../../services/routes.service';
 
 interface IProps {
     products: IProduct[];
-    handleClick: (item: IProduct) => void;
 }
 
 export const CarouselGallery = (props: IProps) => {
@@ -25,10 +26,10 @@ export const CarouselGallery = (props: IProps) => {
 
     const viewCarousel = productItems.map((p, index) => {
       return(
-        <div className='productCard' key={index} onClick={() => navigate(`/productInfo/${p.id}`)}>
+        <div className='productCard' key={index} onClick={() => navigate(getRoute(`productInfo/${p.id}`))}>
           <div className="productImagePos">
             <div className='ProductIconPos'></div>
-            <img className='productImage' src={p.image}/>
+            <Images images={p.images} behaviour={ImageBehaviour.Single} />
           </div>
           <div className='productLabel'>
             <div>{p.labelName}</div>

@@ -13,7 +13,6 @@ interface IProps {
   filterBy: (value: any, property: string) => void;
   filterCriteria: IItem[];
   resetFilter: () => void;
-  handleClick: (item: IProduct) => void;
 }
 
 export const ProductList = (props: IProps) => {
@@ -42,7 +41,7 @@ export const ProductList = (props: IProps) => {
       </div>
 
       <div className='productView'> 
-        <CardProducts products = {products} handleClick={props.handleClick}/>
+        <CardProducts products = {products} />
       </div>
     </div>
   )

@@ -8,6 +8,12 @@ class LocalstorageService {
         localStorage.setItem(itemKey, JSON.stringify(obj));
     }
 
+    public getItem(key: string, prefix: string | null = null) {
+        var itemKey = key;
+        if (prefix) itemKey = prefix + itemKey;
+        return localStorage.getItem(itemKey);
+    }
+
     public getObject<T>(key: string, prefix: string | null = null, defaultObj: T | null = null): T | null {
         var itemKey = key;
         if (prefix) itemKey = prefix + itemKey;

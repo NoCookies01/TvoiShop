@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { useNavigate } from "react-router-dom";
+import { getRoute } from '../../services/routes.service';
 import toastrService from "../../services/toastr.service";
+import translationService from '../../services/translation.service';
+import { ImageBehaviour, Images } from '../Images';
 import { Price } from './Price';
 
 interface IProps {
   products: IProduct[];
-  handleClick: (item: IProduct) => void;
 }
 
 export const CardProducts = (props: IProps) => {
@@ -17,17 +19,14 @@ export const CardProducts = (props: IProps) => {
     return(
       <div className='productCard'>
 
-        <div className="productImagePos">
-          <img className='productImage' src={p.image} onClick={() => navigate(`/productInfo/${p.id}`)} />
+        <div className="productImagePos" onClick={() => navigate(getRoute(`productInfo/${p.id}`))} >
+          <div className='ProductIconPos'></div>
+          <Images images={p.images} behaviour={ImageBehaviour.Single} />
         </div>
         
-        <div className='productLabel' key={index} onClick={() => navigate(`/productInfo/${p.id}`)}>
+        <div className='productLabel' key={index} onClick={() => navigate(getRoute(`productInfo/${p.id}`))}>
           <div>{p.labelName}</div>
           <Price product={p} />
-        </div>
-
-        <div className='positionCenter addToStyle'onClick={() => {props.handleClick(productItems[index]); toastrService.callToastr("Added to Cart")}}> 
-          add to cart
         </div>
 
       </div>

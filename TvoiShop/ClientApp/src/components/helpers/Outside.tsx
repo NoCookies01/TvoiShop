@@ -21,8 +21,8 @@ function useOutsideAlerter(ref: React.MutableRefObject<HTMLDivElement | undefine
 }
 
 interface IProps{
-    children: React.ReactNode[] | React.ReactNode;
-    onOutsideClick: (event?: any) => void;
+  children: React.ReactNode[] | React.ReactNode;
+  onOutsideClick: (event?: any) => void;
 }
 
 export default function OutsideAlerter({children, onOutsideClick}:IProps) {

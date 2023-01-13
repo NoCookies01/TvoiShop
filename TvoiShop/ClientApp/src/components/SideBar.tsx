@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { NavLink, useNavigate } from "react-router-dom";
-import {ReactComponent as MenuIcon} from '../images/menuWhite.svg';
+import { NavLink} from "react-router-dom";
+import translationService from '../services/translation.service';
+import {ReactComponent as LogoIcon} from '../images/logo.svg';
+import { getRoute } from '../services/routes.service';
 
 interface IProps {
     cancel: () => void;
@@ -17,28 +19,33 @@ export const SideBar = ({cancel, isOpen}: IProps) => {
         <div className={`sidenav ${!isOpen ? "hiddenNav" : ''}`}>
             <div className='logoSidebarPosition'>
                 <NavLink onClick={cancel} className="logoSidebar" to={"/"}>
-                    tvoi
+                    <LogoIcon className='logoIcon'/>
                 </NavLink> 
             </div>
             <div className='navItemsPosition'>
-                <NavLink onClick={cancel} className={className} to={"/watches"}>
-                    watches
+                <NavLink onClick={cancel} className={className} to={getRoute("watches")}>
+                    {translationService.translate("watches|A")}
                 </NavLink> 
-                <NavLink onClick={cancel} className={className} to={"/bracelets"}>
-                    bracelet
+                <NavLink onClick={cancel} className={className} to={getRoute("bracelets")}>
+                    {translationService.translate("bracelet|A")}
                 </NavLink> 
-                <NavLink onClick={cancel} className={className} to={"/necklaces"}>
-                    necklace
+                <NavLink onClick={cancel} className={className} to={getRoute("necklaces")}>
+                    {translationService.translate("necklace|A")}
                 </NavLink> 
-                <NavLink onClick={cancel} className={className} to={"/earrings"}>
-                    earrings
+                <NavLink onClick={cancel} className={className} to={getRoute("earrings")}>
+                    {translationService.translate("earrings|A")}
                 </NavLink> 
-                <NavLink onClick={cancel} className={className} to={"/rings"}>
-                    rings
+                <NavLink onClick={cancel} className={className} to={getRoute("rings")}>
+                    {translationService.translate("rings|A")}
                 </NavLink> 
-                <NavLink onClick={cancel} className={className} to={"/charms"}>
-                    charm
+                <NavLink onClick={cancel} className={className} to={getRoute("charms")}>
+                    {translationService.translate("charm|A")}
                 </NavLink> 
+            </div>
+            <div className='langPos'>
+                <div className='langStyle'>
+                    ua 
+                </div>
             </div>
 
         </div>

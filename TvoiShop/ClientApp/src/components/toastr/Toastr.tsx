@@ -8,6 +8,6 @@ interface IProps {
 
 export const Toastr = ({message, type}: IProps) => {
     return(
-        <div className="confirmStyle">{message}</div>
+        <div className={`toastrStyle--${type}`}>{message}</div>
     )
 }

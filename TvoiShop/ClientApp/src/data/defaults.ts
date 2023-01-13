@@ -1,6 +1,20 @@
 export const defaultNumber = 0;
 export const defaultText = "...";
-export const defaultImage = "https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg";
+
+export const defaultImage: IImage = {
+    id: defaultText,
+    url: "https://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg"
+}
+
+export const defaultColor: IColor = {
+    id: defaultText,
+    name: defaultText
+}
+
+export const defaultSize: ISize = {
+    id: defaultText,
+    value: defaultNumber
+}
 
 export const defaultProduct: IProduct = {
     id: defaultText,
@@ -11,11 +25,11 @@ export const defaultProduct: IProduct = {
     brand: defaultText,
     price: defaultNumber,
     salePrice: defaultNumber,
-    image: defaultImage,
+    images: [defaultImage],
     weight: defaultNumber,
-    color: defaultText,
+    colors: [defaultColor],
     metal: defaultText,
-    size: defaultNumber,
+    sizes: [defaultSize],
     description: defaultText,
     popularity: defaultNumber,
     customPopularity: defaultNumber

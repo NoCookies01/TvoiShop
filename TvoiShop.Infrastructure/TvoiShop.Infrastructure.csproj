@@ -28,5 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TvoiShop.Models\TvoiShop.Models.csproj" />
+    <ProjectReference Include="..\TvoiShop.Telegram\TvoiShop.Telegram.csproj" />
   </ItemGroup>
 </Project>

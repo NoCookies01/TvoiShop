@@ -7,25 +7,25 @@ export interface IProductCategoryRoute {
 export const productCategoryRoutes: IProductCategoryRoute[] = [{
     title: "Bracelets",
     category: "bracelets",
-    path: "/bracelets"
+    path: "bracelets"
 },{
     title: "Watches",
     category: "watches",
-    path: "/watches"
+    path: "watches"
 },{
     title: "Necklaces",
     category: "necklaces",
-    path: "/necklaces"
+    path: "necklaces"
 },{
     title: "Earrings",
     category: "earrings",
-    path: "/earrings"
+    path: "earrings"
 },{
     title: "Rings",
     category: "rings",
-    path: "/rings"
+    path: "rings"
 },{
     title: "Charms",
     category: "charms",
-    path: "/charms"
+    path: "charms"
 }];

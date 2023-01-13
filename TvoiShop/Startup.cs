@@ -12,6 +12,12 @@ using TvoiShop.Infrastructure.Services;
 using TvoiShop.Infrastructure.Services.Implementations;
 using TvoiShop.ApplicationCofiguration;
 using System.Text.Json.Serialization;
+using TvoiShop.Telegram.Bot;
+using Microsoft.OpenApi.Models;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System;
 
 namespace TvoiShop
 {
@@ -38,14 +44,49 @@ namespace TvoiShop
 
             services.AddTransient<IProductsService, ProductsService>();
 
-            services.AddSwaggerGen();
+            services.AddTransient<BotManager>();
+
+            services.AddTransient<OrderService>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
+                      Enter 'Bearer' [space] and then your token in the text input below.
+                      \r\n\r\nExample: 'Bearer 12345abcdef'",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                    {
+                        {
+                            new OpenApiSecurityScheme
+                                {
+                                    Reference = new OpenApiReference
+                                        {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                      },
+                      Scheme = "oauth2",
+                      Name = "Bearer",
+                      In = ParameterLocation.Header,
+
+                    },
+                    new List<string>()
+                  }
+                });
+            });
 
             _authConfiguration.ConfigureAuth(services);
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "ClientApp/build"; 
             });
         }
 
@@ -63,7 +104,18 @@ namespace TvoiShop
                 app.UseHsts();
             }
 
-            app.UseSwagger();
+            app.UseSwagger(options =>
+            {
+                /*options.AddSecurityDefinition("oauth2", new ApiKeyScheme
+                {
+                    Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                    In = "header",
+                    Name = "Authorization",
+                    Type = "apiKey"
+                });
+
+                options.OperationFilter<SecurityRequirementsOperationFilter>();*/
+            });
             app.UseSwaggerUI();
 
             app.UseHttpsRedirection();

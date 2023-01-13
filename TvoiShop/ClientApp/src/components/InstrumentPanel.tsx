@@ -1,4 +1,6 @@
 import React, { SyntheticEvent } from "react";
+import getSortCriteria from "../data/sortCriteria";
+import translationService from "../services/translation.service";
 import IItem from "./nestedSelect/item";
 import NestedSelect from "./nestedSelect/NestedSelect";
 
@@ -22,25 +24,26 @@ export const InstrumentPanel = (props:IProps) => {
     props.filterBy(value, property);
   };
 
+  const sortBy = (values: string[]) => props.sortBy(values[0]);
+
   return(
     <div className="instrPanel">
-
       <div className="column">
-      <NestedSelect 
-        onSelect={filterBy} 
-        items={props.filterCriteria}
-        reset={props.resetFilter}
-      />
+        <NestedSelect 
+          onSelect={filterBy} 
+          defaultText={translationService.translate("filter by|A")}
+          items={props.filterCriteria}
+          reset={props.resetFilter}
+        />
       </div>
-
       <div className="column"> 
-        <select onChange={(e: SyntheticEvent<HTMLSelectElement, Event>) => props.sortBy(e.currentTarget.value)} className="filterByStyle">
-          <option value="" className="filterByItemStyle">Sort by</option>
-          <option value="price" className="filterByItemStyle">Price</option>
-          <option value="popularity" className="filterByItemStyle">Popularity</option>
-        </select>
+        <NestedSelect 
+          onSelect={sortBy}
+          defaultText={translationService.translate("sort by|A")}
+          items={getSortCriteria()}
+          reset={props.resetFilter}
+        />
       </div>
-
     </div>
   );
 }
