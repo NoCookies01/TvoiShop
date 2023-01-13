@@ -1,34 +1,46 @@
 import * as React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import {ReactComponent as MenuIcon} from '../images/menuWhite.svg';
 
-export const SideBar = () => {
+interface IProps {
+    cancel: () => void;
+    isOpen: boolean;
+}
+
+export const SideBar = ({cancel, isOpen}: IProps) => {
+
+    const className = (state:{isActive: boolean, isPending: boolean}) => {
+        return "navItem " + (state.isActive ? "activeLink" : "");
+    }
+
     return (
-        <div className="sidenav">
+        <div className={`sidenav ${!isOpen ? "hiddenNav" : ''}`}>
             <div className='logoSidebarPosition'>
-                <NavLink className="logoSidebar" to={"/"}>
+                <NavLink onClick={cancel} className="logoSidebar" to={"/"}>
                     tvoi
                 </NavLink> 
             </div>
             <div className='navItemsPosition'>
-                <NavLink className="navItem" to={"/watches"}>
+                <NavLink onClick={cancel} className={className} to={"/watches"}>
                     watches
                 </NavLink> 
-                <NavLink className="navItem" to={"/bracelet"}>
+                <NavLink onClick={cancel} className={className} to={"/bracelets"}>
                     bracelet
                 </NavLink> 
-                <NavLink className="navItem" to={"/necklace"}>
+                <NavLink onClick={cancel} className={className} to={"/necklaces"}>
                     necklace
                 </NavLink> 
-                <NavLink className="navItem" to={"/earrings"}>
+                <NavLink onClick={cancel} className={className} to={"/earrings"}>
                     earrings
                 </NavLink> 
-                <NavLink className="navItem" to={"/rings"}>
+                <NavLink onClick={cancel} className={className} to={"/rings"}>
                     rings
                 </NavLink> 
-                <NavLink className="navItem" to={"/charm"}>
+                <NavLink onClick={cancel} className={className} to={"/charms"}>
                     charm
                 </NavLink> 
             </div>
+
         </div>
     );
 };

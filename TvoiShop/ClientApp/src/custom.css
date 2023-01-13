@@ -1,5 +1,6 @@
 /* Provide sufficient contrast against white background */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap');
 a {
   color: #0366d6;
 }
@@ -11,8 +12,11 @@ code {
 body {
   background-color: rgb(242, 242, 242);
   font-family: Montserrat;
-  margin-left: 13%;
-  margin-top: 10vh;
+}
+
+.bgMainTheme{
+  background-color: #232323;
+  color: white;
 }
 
 .ButtonStyle{
@@ -38,26 +42,38 @@ body {
   border-color: #1861ac;
 }
 
+.column{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+
 .sidenav{
   height: 100%;  
-  width: 13%;  
+  width: 200px;  
   position: fixed; 
-  z-index: 1; 
+  z-index: 1500; 
   top: 0; 
   left: 0; 
   background-color:#232323; 
-  transition: .5s ease; 
+  transition: 0.75s cubic-bezier(0, 0.84, 0.25, 1);
   overflow-x: hidden; 
-  padding-top: 50px;
+  padding: 10px;
   display: flex; 
   flex-direction: column; 
+}
+
+.hiddenNav {
+  left: -200px !important;
 }
 
 .logoSidebar{
   color: white;
   text-transform: uppercase;
   font-size: 35px;
-  letter-spacing: 5px;
   font-weight: 100;
   align-items: center;
   transition: 0.2s;
@@ -66,6 +82,18 @@ body {
   color: rgb(200, 200, 200);
   transition: 0.2s;
   text-decoration: none;
+}
+
+.logoStyle{
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .navItem{
@@ -93,7 +121,7 @@ a {
 }
 
 .navItemsPosition{
-padding-left: 25px;
+padding-left: 10px;
 margin: 0;
 position: absolute;
 top: 50%;
@@ -111,29 +139,54 @@ transform: translateY(-50%);
   align-items: center;
   background-color: white;
   width: 100%;
-  height: auto;
+  z-index: 1000;
+  height: 40px;
   position: fixed;
-  padding: 5px;
+  padding: 10px;
   top: 0;
-  width: 100%;
+  transition: 0.2s;
+}
+
+.searchBarPos{
+  flex: 1;
+
+}
+.searchBarPos:focus{
+  outline: none !important;
 }
 
 .searchBar{
-  width: 80vw;
-  height: 5.5vh;
   padding-left: 20px;
-  padding-right: 20px;
   background-color: white;
-  border-radius: 100px;
   border: transparent;
   color: rgb(150, 150, 150);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 900;
   border-color: rgb(179, 179, 179);
 }
 .searchBar:focus{
   outline: none !important;
 }
+
+.icon{
+  background-color: transparent;
+  width: 24px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.iconsimple{
+  background-color: transparent;
+  width: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.likeIcon{
+  position: absolute;
+}
+
 
 /* CUSTOM SCROLLBAR */
 
@@ -161,29 +214,56 @@ transform: translateY(-50%);
 
 /* CUSTOM SCROLLBAR */
 
-.phtBannerPos{
+.photoBannerStyle{
+  width: 100%;
+  height: 100%;
+}
+
+.photoBannerPos{
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-.phtBanSize{
-  margin: 10px;
+  position: relative;
 }
 
-.txtBan{
-  font-size: 30px;
-  font-weight: 400;
-  text-transform: uppercase;
-  text-align: left;
-  margin-left: 10px;
+.watchBanner{
+  position: absolute;
 }
 
-.txtBanTvoi{
-  font-size: 50px;
+.txtBanner{
+  color: #e9e9e9;
+  font-size: 20px;
   font-weight: 900;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
+  letter-spacing: 1px;
+  position: absolute;
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+.txtBanner:hover{
+  letter-spacing: 10px;
+  transition: 0.8s;
+}
+
+.btnBanner{
+  position: absolute;
+  height: auto;
+  width: 13vw;
+  background-color: white;
+  color: #232323;
+  font-size: 0.8vw;
+  font-weight: 900;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.1s;
+}
+
+.btnBanner{
+  color: #000000;
+  transition: 0.1s;
 }
 
 .productView{
@@ -194,34 +274,92 @@ transform: translateY(-50%);
   align-items: top;
 }
 
+/* CAROUSEL */
+
+.productViewCarouselParent{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel{
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+}
+.productViewCarouselChild{
+  display: flex;
+  justify-content: center;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.btnCarouselLeft{
+  background-color: transparent;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  left: 0px;
+  z-index: 1;
+  width: 100px;
+  height: 337px;
+  border: none;
+  opacity: 7%;
+  transition: 0.5s;
+}
+
+.btnCarouselLeft:hover{
+  opacity: 45%;
+  transition: 0.5s;
+}
+
+.btnCarouselRight{
+  background-color: transparent;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  right: 0px;
+  z-index: 1;
+  width: 100px;
+  height: 337px;
+  border: none;
+  opacity: 7%;
+  transition: 0.5s;
+}
+
+.btnCarouselRight:hover{
+  opacity: 45%;
+  transition: 0.5s;
+}
+
+/* CAROUSEL */
+
 .productCard{
-  width: 18vw;
+  display: inline-block;
+  width: 250px;
+  height: 250px;
   height:auto;
   background-color: white;
   color: black;
-  margin: 15px;
-  padding-bottom: 5px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-.productCard:hover{
-  background-color: rgb(230, 230, 230);
-  transition: 0.2s;
-}
-
-.productName{
-  font-size: 25px;
-  font-weight: 900;
-  padding-left: 10px;
-  padding-top: 5px;
-  text-transform: uppercase;
+  margin: 20px;
 }
 
 .productImagePos{
   display: flex;
-  justify-content: center;
-  width: 18vw;
+  justify-content: right;
+  width: 250px;
+  height: 250px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .productImage{
@@ -231,18 +369,40 @@ transform: translateY(-50%);
 }
 
 .productLabel{
+  display: flex;
+  flex-direction: column;
   padding-left: 10px;
   padding-top: 5px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
   text-transform: uppercase;
   display: flex;
   justify-content: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.productLabel:hover{
+  background-color: rgb(230, 230, 230);
+  transition: 0.2s;
 }
 
 .productPrice{
+  font-size: 18px;
   display: flex;
   justify-content: right;
+  padding-right: 10px;
+  font-weight: 900;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.productSalePrice{
+  font-size: 18px;
+  display: flex;
+  color: red;
+  justify-content: left;
   padding-right: 10px;
   font-weight: 900;
 }
@@ -292,14 +452,187 @@ transform: translateY(-50%);
 
 /* Product Info Page Style*/
 
+@media(max-width: 850px) {
+
+  .navItem{
+    font-size: 20px !important;
+    margin-top: 8px !important;
+  }
+
+  .searchBar{
+    font-size: 20px !important;
+  }
+
+  .icon{
+    width: 28px !important;
+  }
+  .sticky{
+    height: 50px !important;
+    margin-bottom: 5px !important;
+  }
+  .productViewCarouselParent{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+  .productViewCarouselParent::-webkit-scrollbar {
+    display: none;
+  }
+
+  .btnCarouselLeft{
+    display: none;
+  }
+
+  .btnCarouselRight{
+    display: none;
+  }
+
+  .productCard {
+    width: 175px;
+    margin: 10px;
+  }
+
+  .productLabel{
+    font-size: 13px;
+  }
+
+  .productPrice{
+    font-size: 14px;
+  }
+  
+  .productSalePrice{
+    font-size: 14px;
+  }
+
+  .productImagePos{
+    width: 175px;
+    height: 175px;
+  }
+
+  .productInfoView{
+    display: flex;
+    flex-direction: column !important;
+    margin: 0 !important;
+  }
+
+  .infoViewCard{
+    padding: 0 !important;
+  }
+
+  .prLblName{
+    font-size: 20px !important;
+    padding: 10px !important;
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .prRowPos{
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  .prImg{
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .productInfPgImage{
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .prDesc{
+    font-size: 12px !important;
+    margin: 0 !important;
+    padding: 20px 20px 0px 20px !important; 
+    width: 100% !important;
+    background-color: rgb(242, 242, 242) !important;
+  }
+
+  .prColumnPos{
+    display: flex;
+    width: 350px !important;
+    justify-content: left !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  .btnInfoPgStylePos{
+    position: fixed !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 500 !important;
+  }
+
+  .simItemPos{
+    margin: 0px !important;
+  }
+
+  .categoriesStylePos{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: scroll;
+  }
+
+  .hyperLinkStyle{
+    background-color: #232323;
+    color:white;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+  }
+
+  .photoBannerPos{
+    height: auto;
+  }
+
+  .photoBannerStyle{
+    width: 100%;
+  }
+
+  .txtBanner{
+    font-size: 10px;
+  }
+
+  .txtCategory{
+    font-size: 13px !important;
+  }
+
+  .logoStyle{
+    width: 50px;
+  }
+
+  .categoryImagePos{
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    margin-top: 10px !important;
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .windowConfirmStyle{
+    width: 100vw !important;
+    height: auto !important;
+  }
+}
+
+
 .productInfoView{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: top;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .infoViewCard{
@@ -329,11 +662,11 @@ transform: translateY(-50%);
 
 .prColumnPos{
   display: flex;
+  width: 400px;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   padding-left: 20px;
-  margin-left: 50px;
   text-transform: uppercase;
   font-weight: 900;
   color: #2a2929;
@@ -379,8 +712,7 @@ transform: translateY(-50%);
   flex-direction: column;
   text-transform: uppercase;
   text-align: justify;
-  width: 35%;
-  margin-left: 225px;
+  width: 400px;
   font-size: 15px;
   font-weight: 900;
   color: #2a2929;
@@ -388,9 +720,8 @@ transform: translateY(-50%);
 
 .simItemPos{
   background-color: white;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .simItemStyle{
@@ -416,11 +747,14 @@ transform: translateY(-50%);
 }
 
 .productInfPgImage{
-  height: 100%;
-  width: 100%;
+  height: 350px;
+  width: 350px;
   background-color: transparent;
 }
 
+.activeLink {
+  color: #9e9b9b !important;
+}
 
 /* Product Info Page Style*/
 .btnHomeStylePos{
@@ -429,7 +763,7 @@ transform: translateY(-50%);
 }
 
 .btnHomeStyle{
-  height: 35px;
+  height: 28px;
   width: 100%;
   background-color: #232323;
   color: white;
@@ -439,6 +773,7 @@ transform: translateY(-50%);
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: 0.1s;
+  outline: none;
 }
 
 .btnHomeStyle:hover{
@@ -446,17 +781,61 @@ transform: translateY(-50%);
   transition: 0.1s;
 }
 
+.btnHomeStyleWhite{
+  height: 28px;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  color: #000000;
+  font-size: 15px;
+  font-weight: 900;
+  border: none;
+  text-transform: uppercase;
+  transition: 0.1s;
+  outline: none;
+}
+
+.btnHomeStyleWhite:hover{
+  background-color: #b8b8b8;
+  transition: 0.1s;
+}
+
+.btnHomeStyleShort{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: 0.8s
+}
+
+.btnHomeStyleShort:hover{
+  background-color: #232323;
+  color: white;
+  transition: 0.8s;
+}
+
 /* Instrument Panel Style*/
 
 .instrPanel{
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding-left: 20px;
   height: 40px;
   width: 100%;
   background-color: #232323;
   color: white;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
 
 .filterByStyle{
@@ -468,6 +847,9 @@ transform: translateY(-50%);
   font-weight: 900;
   border: none;
   padding-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  cursor: pointer;
 }
 .filterByStyle:focus{
   outline: none;
@@ -477,7 +859,7 @@ transform: translateY(-50%);
   background-color: #232323;
   color: white;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 12px;
   letter-spacing: 1px;
   font-weight: 900;
   border: none;
@@ -488,6 +870,9 @@ transform: translateY(-50%);
   outline: none;
 }
 
+.rangeStyle{
+  width: 100%;
+}
 
 /* Instrument Panel Style*/
 
@@ -535,102 +920,13 @@ button.badge {
   width: 1.5rem;
 }
 
-/* cart page style*/ 
-
-.cartPagePos{
-  display: flex;
-  justify-content: right;
-  width: 100%;
-}
-
-.productCardShopCart{
-  width: 35vw;
-  height:auto;
-  background-color: white;
-  color: black;
-  padding-bottom: 5px;
-  display: flex;
-  flex-direction: row;
-}
-
-.productImagePosShopCart{
-  display: flex;
-  justify-content: center;
-  width: 8vw;
-  background-color: transparent;
-}
-
-.productImageShopCart{
-  height: 100%;
-  width: 100%;
-  background-color: transparent;
-}
-
-.productInfoShopCart{
-  padding-left: 10px;
-  padding-top: 5px;
-  font-size: 13px;
-  font-weight: 900;
-  text-transform: uppercase;
-  display: flex;
-  flex-direction: column;
-}
-
-.productViewShopCart{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: top;
-}
-
-.removeBntCart{
-  background-color: #232323;
-  color: rgb(255, 255, 255);
-  width: 6vw;
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
-  border: none;
-  transition: 0.2s;
-}
-.removeBntCart:hover{
-  color: rgb(200, 200, 200);
-  transition: 0.2s;
-}
-
-.removeBntCartPos{
-  display: flex;
-  justify-content: left;
-  align-items: bottom;
-}
-
-.removeBntCartsymbol{
-  background-color: #232323;
-  color: rgb(255, 255, 255);
-  width: 2vw;
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
-  border: none;
-  transition: 0.2s;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
-.removeBntCartsymbol:hover{
-  color: rgb(200, 200, 200);
-  transition: 0.2s;
-}
-
-/* cart page style*/ 
-
 /* cart page confirm style*/ 
 .windowConfirmPosition{
   width: 100vw;
   height: 100vh;
   background-color: rgb(0, 0, 0, 0.4);;
   position: fixed;
+  z-index: 1000000;
   top: 0;
   bottom: 0;
   right:0;
@@ -645,7 +941,7 @@ button.badge {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50vw;
+  width: 550px;
   padding: 20px;
   background-color: white;
 }
@@ -674,5 +970,180 @@ button.badge {
 }
 /* cart page confirm style*/ 
 
+.cartCountShowWindowStyle{
+  font-size: 200px;
+  font-weight: 900;
+  color: rgb(255, 0, 0);
+  display: flex;
+  justify-content: center;
+}
 
+/* footer */
 
+.footerStylePos{
+  background-color: transparent;
+  width: 100%;
+  height: 5.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* footer */
+
+.ProductIconPos{
+  position: relative;
+}
+
+.ProductIcon{
+  position: absolute;
+  left: 14em;
+  background-color: transparent;
+  width: 1.8vw;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.ProductIcon:hover{
+  width: 2vw;
+  transition: 0.4s;
+}
+
+.rowStyle{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.columnStyle{
+  display: flex;
+  flex-direction: column;
+}
+
+.positionCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.positionRight{
+  display: flex;
+  justify-content: right;
+}
+
+.positionLeft{
+  display: flex;
+  justify-content: left;
+}
+
+.confirmStyle{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #232323;
+  padding: 5px;
+  opacity: 60%;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  z-index: 2000;
+}
+
+.addToStyle{
+  background-color: #232323;
+  width: 100%;
+  color: white;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.addToStyle:hover{
+  background-color: #333333;
+  transition: 0.2s;
+}
+
+.fixedPos{
+  position: sticky;
+}
+
+.relativePos{
+  position: static;
+}
+
+.logoCategory{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  color: #232323;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.logoCategory:hover{
+  transition: 0.2s;
+  text-decoration: underline;
+  text-decoration-color: #232323;
+}
+
+.categoriesStylePos::-webkit-scrollbar {
+  display: none;
+}
+
+.categoriesStylePos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.txtCategory{
+  font-family: 'Bodoni Moda', serif;
+  font-size: 16px;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+.categoryImagePos{
+  position: relative;
+  background-color: rgb(231, 231, 231);
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.hyperLinkStyle{
+  background-color: #232323;
+  color:white;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+}
+.hyperLinkStyle:hover{
+  color: rgb(170, 170, 170);
+  transition: 0.2s;
+}

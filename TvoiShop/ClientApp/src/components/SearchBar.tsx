@@ -1,28 +1,62 @@
-import React, { ChangeEvent } from "react";
-import { BackButton } from "./buttons/BackButton";
+import React, { ChangeEvent, useState } from "react";
+import {ReactComponent as CartIcon} from '../images/cart.svg';
+import {ReactComponent as MenuIcon} from '../images/menu.svg';
+import {ReactComponent as MainLogo} from '../images/mainlogo.svg';
+import { useNavigate } from "react-router-dom";
+import Basket from "./Basket";
+import { SideBar } from "./SideBar";
+import OutsideAlerter from "./helpers/Outside";
 
 interface IProps {
-  sort: (querry: string) => void;
+  cart: IProduct[];
+  setCart: (fn: (items: IProduct[]) => IProduct[]) => void;
+  handleChange: (id: string, count: number) => void;
+  search: (querry: string) => void;
 }
 
 export const SearchBar = (props: IProps) => {
+  const [openBasket, setOpenBasket] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(false);
+  const navigate = useNavigate();
 
+  const cancelBasket = () => {
+    setOpenBasket(false);
+  }
+  const cancelSidebar = () => {
+    setOpenSidebar(false);
+  }
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    props.sort(event.target.value);
+    props.search(event.target.value);
   };
-  
+
+  /*const enterKey = (event: any) =>{
+    if(event.key === 'Enter'){
+      navigate(`/search`)
+    }      
+  }*/
+
   return(
     <div className="sticky">
-        <form role="search">
+      <div>
+        <MenuIcon className="icon" onClick={() => setOpenSidebar(!openSidebar)} />
+        <OutsideAlerter onOutsideClick={cancelSidebar}><SideBar isOpen={openSidebar} {...props} cancel={cancelSidebar} /> </OutsideAlerter>
+      </div>
+
+        <form role="search" className="searchBarPos" >
             <input 
-            className="searchBar" 
+            className="searchBar"
             type="search" 
             aria-label="Search"
             placeholder = "Search..."
-            onChange={handleSearch}
+            onClick={() => navigate(`/search`)}
+           //onKeyDown={enterKey}
+            onChange ={handleSearch}
             />
         </form>
-        <BackButton/>
+        <div className="searchBarIconPos" >
+          <CartIcon className="icon" onClick={() => setOpenBasket(!openBasket)}/>
+          {openBasket && <Basket {...props} cancel={cancelBasket} />}
+        </div>
     </div>
  
   );
