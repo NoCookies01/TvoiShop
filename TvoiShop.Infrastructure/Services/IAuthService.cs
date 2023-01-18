@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TvoiShop.Infrastructure.DTO;
+using TvoiShop.Models;
 
 namespace TvoiShop.Infrastructure.Services
 {
@@ -12,5 +13,7 @@ namespace TvoiShop.Infrastructure.Services
     {
         public Task<IdentityResult> RegisterAsync(UserModel newUser);
         public Task<SignInResult> LoginAsync(UserModel user, bool rememberMe = false);
+        public ApplicationUser? GetUserOrNULL(string email);
+        public string GetTokenOrEmpty(UserModel userModel);
     }
 }

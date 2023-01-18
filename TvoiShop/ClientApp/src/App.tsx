@@ -17,6 +17,7 @@ import { comparePorductsPropertyToValue, getFilterCriteriaBasedOnProducts } from
 import localstorageService from './services/localstorage.service';
 import ServiceLayer from './components/ServiceLayer';
 import { SortOrder } from './data/sortCriteria';
+import { get } from './api/axios';
 
 export default function App() {
   const [products, setProducts] = React.useState<IProduct[]>([]);
@@ -24,7 +25,7 @@ export default function App() {
   const [filterCriteria, setFilterCriteria] = React.useState<IItem[]>([]);
   const [searchedProducts, setSearchedProducts] = React.useState<IProduct[]>([]);
   const [cart, setCart] = useState<{data: IProductCart[], loadedFromStorage: boolean}>({data: [], loadedFromStorage: false});
-
+  get("token").then(a => console.log(a))
   useEffect(() => {
     GetAll().then(responce => {
       var data = responce.data.sort((a, b) => a.labelName.localeCompare(b.labelName));
