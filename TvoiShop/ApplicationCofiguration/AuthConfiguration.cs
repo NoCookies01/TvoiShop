@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
@@ -19,7 +23,7 @@ namespace TvoiShop.ApplicationCofiguration
 {
     public class AuthConfiguration
     {
-        public IServiceCollection ConfigureAuth(IServiceCollection services)
+        public IServiceCollection ConfigureAuth(IServiceCollection services, IConfiguration Configuration)
         {
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<TvoiShopDBContext>();
@@ -28,8 +32,19 @@ namespace TvoiShop.ApplicationCofiguration
                 .AddDeveloperSigningCredential()
                 .AddApiAuthorization<ApplicationUser, TvoiShopDBContext>();
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["Jwt:Audience"],
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                };
+            }).AddIdentityServerJwt(); ;
 
             services.AddTransient<UserManager<ApplicationUser>>();
             services.AddTransient<SignInManager<ApplicationUser>>();
@@ -37,6 +52,8 @@ namespace TvoiShop.ApplicationCofiguration
 
             services.Configure<IdentityOptions>(options =>
             {
+                options.SignIn.RequireConfirmedAccount = false;
+
                 // Password settings.
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
@@ -80,6 +97,13 @@ namespace TvoiShop.ApplicationCofiguration
                 Provider = new OAuthAuthorizationServerProvider()
             });
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+        }
+
+        public void ConfigureAuth(IApplicationBuilder app)
+        {
+            app.UseAuthentication();
+            app.UseIdentityServer();
+            app.UseAuthorization();
         }
     }
 }

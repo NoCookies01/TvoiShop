@@ -11,6 +11,10 @@ using System.Net.Http;
 using System.Threading;
 using TvoiShop.Infrastructure.DTO;
 using TvoiShop.Infrastructure.Services;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace TvoiShop.Controllers
 {
@@ -19,10 +23,12 @@ namespace TvoiShop.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly IConfiguration _configuration;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IConfiguration configuration)
         {
             _authService = authService;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -32,9 +38,9 @@ namespace TvoiShop.Controllers
         }
 
         [HttpPost]
-        public Task<Microsoft.AspNetCore.Identity.SignInResult> Login(UserModel user)
+        public async Task</*Microsoft.AspNetCore.Identity.SignInResult*/ object> Login(UserModel userModel)
         {
-            return _authService.LoginAsync(user);
+            return new { Result = await _authService.LoginAsync(userModel), token = _authService .GetTokenOrEmpty(userModel)};
         }
     }
 }

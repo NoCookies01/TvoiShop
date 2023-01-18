@@ -23,7 +23,7 @@ namespace TvoiShop
 {
     public class Startup
     {
-        private readonly AuthConfiguration _authConfiguration = new AuthConfiguration();
+        private readonly AuthConfiguration _authConfiguration = new();
 
         public Startup(IConfiguration configuration)
         {
@@ -61,8 +61,7 @@ namespace TvoiShop
                     Scheme = "Bearer"
                 });
 
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                    {
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement() {
                         {
                             new OpenApiSecurityScheme
                                 {
@@ -81,7 +80,7 @@ namespace TvoiShop
                 });
             });
 
-            _authConfiguration.ConfigureAuth(services);
+            _authConfiguration.ConfigureAuth(services, Configuration);
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -104,19 +103,23 @@ namespace TvoiShop
                 app.UseHsts();
             }
 
-            app.UseSwagger(options =>
+            if (env.IsDevelopment())
             {
-                /*options.AddSecurityDefinition("oauth2", new ApiKeyScheme
-                {
-                    Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
-                    In = "header",
-                    Name = "Authorization",
-                    Type = "apiKey"
-                });
 
-                options.OperationFilter<SecurityRequirementsOperationFilter>();*/
-            });
-            app.UseSwaggerUI();
+                app.UseSwagger(options =>
+                {
+                    /*options.AddSecurityDefinition("oauth2", new ApiKeyScheme
+                    {
+                        Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                        In = "header",
+                        Name = "Authorization",
+                        Type = "apiKey"
+                    });
+
+                    options.OperationFilter<SecurityRequirementsOperationFilter>();*/
+                });
+                app.UseSwaggerUI();
+            }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -124,9 +127,7 @@ namespace TvoiShop
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseIdentityServer();
-            app.UseAuthorization();
+            _authConfiguration.ConfigureAuth(app);
 
             app.UseEndpoints(endpoints =>
             {
