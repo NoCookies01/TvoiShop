@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { InstrumentPanel } from '../components/InstrumentPanel';
 import IItem from '../components/nestedSelect/item';
 import { CardProducts } from '../components/productsView/CardProduct';
-import { SearchBar } from '../components/SearchBar';
+import { SortOrder } from '../data/sortCriteria';
 
 interface IProps {
     products: IProduct[];
-    sortBy: (property: string) => void;
+    sortBy: (property: string, sortOrder: SortOrder) => void;
     filterBy: (value: any, property: string) => void;
     filterCriteria: IItem[];
     resetFilter: () => void;
 }
 
 export const SearchPage = (props: IProps) => {
-    const navigate = useNavigate();
     return(
         <div>
             <br/>

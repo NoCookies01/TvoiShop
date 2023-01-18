@@ -14,14 +14,15 @@
     height: auto;
     position: absolute;
     background-color: #232323;
-    padding: 5px;
+    padding: 10px;
 }
 
 .multiItem {
+    height: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1px;
     font-weight: 900;
     padding: 5px;

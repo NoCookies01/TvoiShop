@@ -13,7 +13,6 @@ interface IProps {
 export const CollectionInfo = (props: IProps) => {
     const [collection, setCollection] = useState<IProduct[]>([]);
     const items = props.products;
-    const navigate = useNavigate();
 
 
     useEffect(() => {

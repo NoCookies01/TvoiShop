@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CarouselGallery } from '../components/productsView/Carousel';
 import { FooterPanel } from '../components/FooterPanel';
-import { CollectionInfo } from './CollectionInfo';
 import {ReactComponent as PhotoTwo} from '../images/6.svg';
 import {ReactComponent as PhotoWatches} from '../images/7.svg';
-import { Categories } from '../components/productsView/Categories';
 import translationService from '../services/translation.service';
 import { getRoute } from '../services/routes.service';
 

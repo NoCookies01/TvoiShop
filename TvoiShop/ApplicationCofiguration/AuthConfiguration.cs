@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -28,7 +29,7 @@ namespace TvoiShop.ApplicationCofiguration
                 .AddDeveloperSigningCredential()
                 .AddApiAuthorization<ApplicationUser, TvoiShopDBContext>();
 
-            services.AddAuthentication()
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddIdentityServerJwt();
 
             services.AddTransient<UserManager<ApplicationUser>>();

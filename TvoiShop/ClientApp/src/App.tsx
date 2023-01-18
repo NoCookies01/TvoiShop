@@ -16,6 +16,7 @@ import IItem from './components/nestedSelect/item';
 import { comparePorductsPropertyToValue, getFilterCriteriaBasedOnProducts } from './services/filter.service';
 import localstorageService from './services/localstorage.service';
 import ServiceLayer from './components/ServiceLayer';
+import { SortOrder } from './data/sortCriteria';
 
 export default function App() {
   const [products, setProducts] = React.useState<IProduct[]>([]);
@@ -108,22 +109,29 @@ export default function App() {
     setCart({data: localCart, loadedFromStorage: true});
   }
 
-  const sortBy = (property: string) => {
+  const sortBy = (property: string, sortOrder: SortOrder) => {
     if (products.length === 0) return;
 
     if (!isPrimitive(products[0][property])) {
       // TO DO make for objects
       return;
     }
-
-    setFilteredProducts([...products].sort((a, b) => {
-      if (a[property] < b[property]) {
+    
+    const sortFn = (a: any, b: any) => {
+      if (a[property] > b[property]) {
         return -1;
       }
-      if (a[property] > b[property]) {
+      if (b[property] > a[property]) {
         return 1;
       }
       return 0;
+    };
+
+    setFilteredProducts([...products].sort((a: any, b: any) => {
+      if (sortOrder === SortOrder.Ascending) {
+        return sortFn(a, b);
+      }
+      return sortFn(a, b) * -1;
     }));
   }
 

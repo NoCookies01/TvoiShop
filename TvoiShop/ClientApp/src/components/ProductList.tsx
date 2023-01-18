@@ -3,13 +3,13 @@ import { useEffect } from 'react';
 import { CardProducts } from './productsView/CardProduct';
 import { InstrumentPanel } from './InstrumentPanel';
 import IItem from './nestedSelect/item';
-import { getFilterCriteriaBasedOnProducts } from '../services/filter.service';
+import { SortOrder } from '../data/sortCriteria';
 
 interface IProps {
   products: IProduct[];
   category: string;
   title: string;
-  sortBy: (property: string) => void;
+  sortBy: (property: string, sortOrder: SortOrder) => void;
   filterBy: (value: any, property: string) => void;
   filterCriteria: IItem[];
   resetFilter: () => void;

@@ -10,15 +10,15 @@ import translationService from "../../services/translation.service";
 interface IProps {
     items: IItem[];
     defaultText: string;
-    onSelect: (value: string[]) => void;
+    onSelect: (value: IItem[]) => void;
     reset: () => void;
 }
 
 export default function NestedSelect({ items, defaultText, onSelect, reset }: IProps){
-    const [selectedItem, selectItem] = useState([defaultText]);
+    const [selectedItem, selectItem] = useState<IItem[]>([{Value: defaultText, Title: defaultText}]);
     const [isExpand, setExpand] = useState(false);
 
-    const select = (value: string[]) => {
+    const select = (value: IItem[]) => {
         onSelect(value);
         selectItem(value);
         setExpand(false);
@@ -27,12 +27,12 @@ export default function NestedSelect({ items, defaultText, onSelect, reset }: IP
     const resetClick = () => {
         reset();
         setExpand(false);
-        selectItem([defaultText]);
+        selectItem([{Value: defaultText, Title: defaultText}]);
     }
 
     return (
         <div className="nestedList">
-            <div className="multiItem" onClick={() => setExpand(!isExpand)}>{selectedItem[selectedItem.length-1]}</div>
+            <div className="multiItem" onClick={() => setExpand(!isExpand)}>{selectedItem[selectedItem.length-1].Title}</div>
             {isExpand && <OutsideAlerter onOutsideClick={() => setExpand(false)}><div className="nestedItems">{items.map((child, key) => child.Items && child.Items.length > 0 ?
                 <MultiItem onSelect={select} item={child} key={key} /> :
                 <SingleItem onSelect={select} item={child} key={key} />

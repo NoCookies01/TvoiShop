@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import {ReactComponent as CartIcon} from '../images/cart.svg';
 import {ReactComponent as MenuIcon} from '../images/menu.svg';
 import {ReactComponent as SearchIcon} from '../images/search.svg';
+import {ReactComponent as CancelIcon} from '../images/cancel.svg';
 import { useNavigate } from "react-router-dom";
 import Basket from "./Basket";
 import { SideBar } from "./SideBar";
@@ -57,15 +58,17 @@ export const SearchBar = (props: IProps) => {
         {openSearch && <form role="search" className="searchBarPos" >
         <input 
         className="searchBar"
-        type="search" 
+        type="text" 
         aria-label={translationService.translate("search|A")}
         placeholder={translationService.translate("search|A") + "..."}
         onChange ={handleSearch} 
-        onClick ={() => {navigate(getRoute(`search`))}}/></form>}
+        onClick ={() => {navigate(getRoute(`search`))}}/>
+        <CancelIcon className="icon" onClick={cancelSearch}/> 
+        </form>}
       </OutsideAlerter>
 
-      <div className="logoPos" onClick ={() => {navigate(getRoute(``))}}>
-        <div className="logoStyle">
+      <div className="logoPos">
+        <div className="logoStyle" onClick ={() => {navigate(getRoute(``))}}>
           tvoi
         </div>
       </div>

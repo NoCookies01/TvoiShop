@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { defaultProduct } from '../data/defaults';
-import { CardProducts } from '../components/productsView/CardProduct';
 import toastrService from "../services/toastr.service";
 import { CarouselGallery } from '../components/productsView/Carousel';
 import { Price } from '../components/productsView/Price';
@@ -10,7 +9,6 @@ import translationService from '../services/translation.service';
 import { ImageBehaviour, Images } from '../components/Images';
 import ElementSelect from '../components/elementSelect/ElementSelect';
 import { SizeInfoWindow } from '../components/windows/SizeInfoWindow';
-import {ReactComponent as InfoIcon} from '../images/infoIcon.svg';
 import { getRoute } from '../services/routes.service';
 
 interface IProps {
@@ -78,7 +76,7 @@ export const ProductInfo = (props: IProps) => {
         var prod = props.products.find(Element => Element.id === id) ?? defaultProduct;
         setProductItem(prod);
         const offeredItems = [...props.products].sort((a, b) => b.customPopularity - a.customPopularity);
-        setOfferedProduct(offeredItems.splice(0,3));
+        setOfferedProduct(offeredItems.splice(0,6));
         const popularItems = [...props.products].sort((a, b) => a.popularity - b.popularity);
         setPopularProducts(popularItems);
     }, [id, props.products]);
@@ -141,7 +139,6 @@ export const ProductInfo = (props: IProps) => {
                                 {translationService.translate("price|A")}
                                 <p><Price product={productItem}/></p>
                             </div>
-                            <small className="txtStyle">{"*" + translationService.translate("required field|A")}</small>
                             
                         </div>
                         <div className="prDesc">
@@ -165,7 +162,7 @@ export const ProductInfo = (props: IProps) => {
                 <div className="simItemStyle">
                     {translationService.translate("you may also like|A")}
                 </div>
-                <div><CarouselGallery products ={popularProducts} /></div>
+                <div><CarouselGallery products ={offeredProduct} /></div>
             </div>
             <br/>
             <br/>

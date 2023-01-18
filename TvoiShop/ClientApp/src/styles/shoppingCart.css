@@ -51,6 +51,7 @@
   background-color: white;
   position: absolute;
   z-index: 500000;
+  transition: 0.75s cubic-bezier(0, 0.84, 0.25, 1);
   right: 0;
   bottom: 0;
 }

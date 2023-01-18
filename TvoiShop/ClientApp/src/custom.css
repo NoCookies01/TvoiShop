@@ -171,17 +171,27 @@ transform: translateY(-50%);
 }
 
 .searchBarPos{
-  position: fixed;
-  right: 0px;
-  top: 40px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  right: 100px;
+  top: 0;
+  z-index: 1;
 }
 .searchBarPos:focus{
   outline: none !important;
 }
 
+.searchBarCancelBtn{
+  border: none;
+  outline: none;
+  font-weight: 900;
+  background-color: transparent;
+  width: auto;
+}
+
 .searchBar{
-  width: 35vw;
-  height: 48px;
   padding-left: 15px;
   padding-right: 15px;
   background-color: white;
@@ -189,11 +199,6 @@ transform: translateY(-50%);
   color: #232323;
   font-size: 17px;
   font-weight: 900;
-  border-color: rgb(179, 179, 179);
-  -webkit-box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
-  -moz-box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
-  box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.06);
-  backdrop-filter: blur(10px);
 }
 .searchBar:focus{
   outline: none !important;
@@ -417,7 +422,8 @@ transform: translateY(-50%);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: top;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 /* CAROUSEL */
@@ -491,19 +497,18 @@ transform: translateY(-50%);
 
 .productCard{
   display: inline-block;
-  width: 250px;
-  height: 250px;
+  width: 300px;
   height:auto;
   background-color: white;
   color: black;
-  margin: 20px;
+  margin: 1.5px;
 }
 
 .productImagePos{
   display: flex;
   justify-content: right;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   background-color: transparent;
   cursor: pointer;
 }
@@ -609,16 +614,32 @@ input.checkboxSize {
 /* Product Info Page Style*/
 
 @media(max-width: 850px) {
+  .searchBarCancelBtn{
+    border: none !important;
+    outline: none !important;
+    color: #232323 !important;
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    padding: 10px !important;
+    padding-right: 20px !important;
+  }
   .searchBarPos{
-    position: fixed;
-    right: 0px;
-    top: 50px;
+    background-color: white !important;
+    height: auto !important;
+    width: 100vw !important;
+    display: flex !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 50px !important;
   }
   .searchBar{
     width: 100vw !important;
     height: 45px !important;
     padding: 10px !important;
-    font-size: 20px !important;
+    padding-left: 20px !important;
+    font-size: 15px !important;
+    text-transform: uppercase !important;
   }
   .sizeInfoStyle{
     width: auto !important;
@@ -673,10 +694,12 @@ input.checkboxSize {
   }
 
   .productCard {
-    width: 175px;
-    margin: 10px;
+    width: auto;
   }
 
+  .productView{
+    padding: 0;
+  }
   .productLabel{
     font-size: 10px;
   }
@@ -690,8 +713,8 @@ input.checkboxSize {
   }
 
   .productImagePos{
-    width: 175px;
-    height: 175px;
+    width: 192px;
+    height: 192px;
   }
 
   .productInfoView{
@@ -845,6 +868,12 @@ input.checkboxSize {
   .cartFullIconCount{
     margin-top: 6px !important;
     left: 40px !important;
+  }
+  .toastrStyle--info {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -1029,11 +1058,10 @@ input.checkboxSize {
 }
 
 .btnHomeStyleWhite{
-  height: 28px;
   width: 100%;
   background-color: rgb(240, 240, 240);
-  color: #373030;
-  font-size: 15px;
+  color: #232323;
+  font-size: 12px;
   font-weight: 900;
   border: none;
   text-transform: uppercase;
@@ -1445,7 +1473,6 @@ button.badge {
   transform: translateX(-50%);
   margin-top: 50px;
   padding: 10px;
-  opacity: 60%;
   color: white;
   font-size: 12px;
   text-transform: uppercase;
@@ -1463,7 +1490,6 @@ button.badge {
   transform: translateX(-50%);
   margin: 50px;
   padding: 10px;
-  opacity: 60%;
   color: white;
   font-size: 12px;
   text-transform: uppercase;

@@ -7,7 +7,7 @@ import OutsideAlerter from "../helpers/Outside";
 
 interface IProps {
   item: IItem;
-  onSelect: (value: string[]) => void;
+  onSelect: (value: IItem[]) => void;
 }
 
 export default function MultiItem({ item, onSelect }: IProps){
@@ -17,10 +17,10 @@ export default function MultiItem({ item, onSelect }: IProps){
       setOpen((prev) => !prev);
     };
 
-    const select = (values: string[]) => {
-      var value = [item.Value];
+    const select = (values: IItem[]) => {
+      var value = [item];
       if (item.Path) {
-        value = [item.Path, item.Value]
+        value = [{Title: item.Title, Value: item.Path}, {Title: item.Title, Value: item.Value}];
       }
       onSelect([...value, ...values]);
     }

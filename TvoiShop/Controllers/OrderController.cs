@@ -9,7 +9,7 @@ using TvoiShop.Models.Extended;
 
 namespace TvoiShop.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class OrderController : ControllerBase
     {

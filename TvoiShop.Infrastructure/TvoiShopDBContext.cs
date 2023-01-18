@@ -59,7 +59,7 @@ namespace TvoiShop.Infrastructure
 
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
             });
-
+            
             modelBuilder.Entity<Size>(entity =>
             {
                 entity.ToTable("Sizes");
