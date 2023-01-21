@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
@@ -11,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TvoiShop.Infrastructure;
+using TvoiShop.Infrastructure.Auth;
 using TvoiShop.Infrastructure.Services;
 using TvoiShop.Infrastructure.Services.Implementations;
 using TvoiShop.Models;
@@ -19,7 +24,7 @@ namespace TvoiShop.ApplicationCofiguration
 {
     public class AuthConfiguration
     {
-        public IServiceCollection ConfigureAuth(IServiceCollection services)
+        public IServiceCollection ConfigureAuth(IServiceCollection services, IConfiguration Configuration)
         {
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<TvoiShopDBContext>();
@@ -28,8 +33,42 @@ namespace TvoiShop.ApplicationCofiguration
                 .AddDeveloperSigningCredential()
                 .AddApiAuthorization<ApplicationUser, TvoiShopDBContext>();
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
+            var bindJwtSettings = new JwtSettings();
+            Configuration.Bind("JsonWebTokenKeys", bindJwtSettings);
+            services.AddSingleton(bindJwtSettings);
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                {
+                    ValidateIssuerSigningKey = bindJwtSettings.ValidateIssuerSigningKey,
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(bindJwtSettings.IssuerSigningKey)),
+                    ValidateIssuer = bindJwtSettings.ValidateIssuer,
+                    ValidIssuer = bindJwtSettings.ValidIssuer,
+                    ValidateAudience = bindJwtSettings.ValidateAudience,
+                    ValidAudience = bindJwtSettings.ValidAudience,
+                    RequireExpirationTime = bindJwtSettings.RequireExpirationTime,
+                    ValidateLifetime = bindJwtSettings.RequireExpirationTime,
+                    ClockSkew = TimeSpan.FromDays(1),
+                };
+            }).AddIdentityServerJwt();
+
+            /*services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["Jwt:Audience"],
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                };
+            }).AddIdentityServerJwt();*/
 
             services.AddTransient<UserManager<ApplicationUser>>();
             services.AddTransient<SignInManager<ApplicationUser>>();
@@ -37,6 +76,8 @@ namespace TvoiShop.ApplicationCofiguration
 
             services.Configure<IdentityOptions>(options =>
             {
+                options.SignIn.RequireConfirmedAccount = false;
+
                 // Password settings.
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
@@ -80,6 +121,13 @@ namespace TvoiShop.ApplicationCofiguration
                 Provider = new OAuthAuthorizationServerProvider()
             });
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+        }
+
+        public void ConfigureAuth(IApplicationBuilder app)
+        {
+            app.UseAuthentication();
+            app.UseIdentityServer();
+            app.UseAuthorization();
         }
     }
 }

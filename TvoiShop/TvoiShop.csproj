@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -38,6 +38,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TvoiShop.Infrastructure\TvoiShop.Infrastructure.csproj" />
     <ProjectReference Include="..\TvoiShop.Models\TvoiShop.Models.csproj" />
+    <ProjectReference Include="..\TvoiShop.Telegram\TvoiShop.Telegram.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

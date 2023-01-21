@@ -1,0 +1,45 @@
+.nestedList{
+    background-color: #232323;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.nestedItems {
+    width: auto;
+    height: auto;
+    position: absolute;
+    background-color: #232323;
+    padding: 10px;
+}
+
+.multiItem {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    padding: 5px;
+}
+.multiItem:hover{
+    color: rgb(200, 200, 200);
+    transition: 0.1s;
+}
+
+.multiSubMenu {
+    width: 150px;
+    height: auto;
+    padding: 5px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    position: absolute;
+    left: 100%;
+    top: 0;
+}

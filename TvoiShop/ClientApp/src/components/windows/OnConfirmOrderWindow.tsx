@@ -1,86 +1,136 @@
 import React, { useState } from "react";
+import { ProceedOrder } from "../../api/endpoints/order";
+import toastrService from "../../services/toastr.service";
+import translationService from "../../services/translation.service";
+import OutsideAlerter from "../helpers/Outside";
+import { EndOrderWindow } from "./EndOrderWindow";
 
-export const OnConfirmOrderWindow = ({onOk, onCancel}:any) => {
+interface IProps {
+    onCancel: () => void;
+    cancel: () => void;
+    onOk: () => void;
+    clearBasket: () => void;
+    products: IProductCart[];
+}
 
-    const[vorName, setVorName] = useState("");
-    const[lastName, setLastName] = useState("");
-    const[phone, setPhone] = useState(0);
-    const[email, setEmail] = useState("");
-    const[town, setTown] = useState("");
-    const[post, setPost] = useState("");
-    const[department, setDepartment] = useState(0);
+export const OnConfirmOrderWindow = ({onCancel, cancel, products, clearBasket}:IProps) => {
+    const[phone, setPhone] = useState("");
 
+    const[orderWindow, setOrderWindow] = useState(false);
+
+    const [checkedPhone, setPhoneChecked] = React.useState(false);
+    const [checkedViber, setCheckedViber] = React.useState(false);
+    const [checkedTelegram, setCheckedTelegram] = React.useState(false);
+
+    const handleCheckedPhone = () => {
+        setPhoneChecked(!checkedPhone);
+    };
+    const handleCheckedViber = () => {
+        setCheckedViber(!checkedViber);
+    };
+    const handleCheckedTelegram = () => {
+        setCheckedTelegram(!checkedTelegram);
+    };
 
     const checkTextInput = (event: any) => {
-        if (!vorName.trim()) {
-            alert("You couldn`t set empty field")
-            return;
+        var contactType = "";
+        if (checkedPhone) {
+            contactType += " Phone";
         }
-        onOk()
-      };
+        if (checkedViber) {
+            contactType += " Viber";
+        }
+        if (checkedTelegram) {
+            contactType += " Telegram";
+        }
 
+        ProceedOrder({
+            contactType: contactType,
+            phone: phone,
+            products: products
+        })
+        .then(a => onEndOrderOk())
+        .catch(e => toastrService.callToastr("Error on sending", "error"));
+    };
+
+    const isFieldValid = () => {
+        return (
+            phone.trim().length > 9 && phone.trim().length < 15 && (checkedPhone || checkedViber || checkedTelegram)
+        );
+    }
+
+    const onEndOrderOk = () =>{
+        clearBasket();
+        setOrderWindow(true);
+    }
+    const handleWindowCancel = () =>{
+        setOrderWindow(false);
+    }
+
+    const onCalcSymbolsOnlyChange = (event: any) => {
+        const keyCode = event.keyCode || event.which;
+        const keyValue = String.fromCharCode(keyCode);
+        const isValidNumber = new RegExp("[0-9]").test(keyValue);
+
+            if (!isValidNumber) {
+                event.preventDefault();
+                return;
+            }
+    };
+    
     return(
         <div className="windowConfirmPosition"> 
+        <OutsideAlerter onOutsideClick={onCancel}>
             <div className="windowConfirmStyle">
 
-                <div className="confirmText">To confirm your order please fill all fields</div>
+                <div className="confirmText">{translationService.translate("confirm order|A")}</div>
+                <br/>
 
-                <form>
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Vorname" 
-                    className="inputStyle" 
-                    onChange={(event) => setVorName(event.target.value)}/>
+                    <div className="positionCenter">
+                        <div>
+                        <input type="text"
+                        placeholder={translationService.translate("phone|A") + "*"}
+                        className="inputNameStyle" 
+                        onKeyPress={onCalcSymbolsOnlyChange}
+                        onChange={(event) => setPhone(event.target.value)}/>
+                        </div>
                     </div>
 
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Lastname" 
-                    className="inputStyle" 
-                    onChange={(event) => setLastName(event.target.value)}/>
+                    <div className="orderWindowPos">
+                        <div className="inputStyle" >
+                            {translationService.translate("post|A") + "*"}
+                            <p>
+                                <div className="checkboxStyle">
+                                    <input type="checkbox" 
+                                    onChange={handleCheckedPhone}
+                                    checked = {checkedPhone}/>
+                                    <div> &nbsp;Зателефонувати мені</div>
+                                </div>
+                                <div className="checkboxStyle">
+                                    <input type="checkbox" 
+                                    onChange={handleCheckedViber}
+                                    checked = {checkedViber}/>
+                                    <div> &nbsp;Написати у Viber</div>
+                                </div>
+                                <div className="checkboxStyle">
+                                    <input type="checkbox" 
+                                    onChange={handleCheckedTelegram}
+                                    checked = {checkedTelegram}/>
+                                    <div> &nbsp;Написати у Telegram</div>
+                                </div>
+                            </p>
+                        </div>
                     </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Phone Number" 
-                    className="inputStyle" 
-                    onChange={(event) => setPhone(event.target.valueAsNumber)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your E-mail" 
-                    className="inputStyle" 
-                    onChange={(event) => setEmail(event.target.value)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Town" 
-                    className="inputStyle" 
-                    onChange={(event) => setTown(event.target.value)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Post" 
-                    className="inputStyle" 
-                    onChange={(event) => setPost(event.target.value)}/>
-                    </div>
-
-                    <div>
-                    <input type="text" 
-                    placeholder="Enter your Department number" 
-                    className="inputStyle" 
-                    onChange={(event) => setDepartment(event.target.valueAsNumber)}/>
-                    </div>
-                </form>
+                    <small className="txtStyle">{"*" + translationService.translate("required field|A")}</small>
+                
 
                     <div className="btnHomeStylePos">
-                        <button className="btnHomeStyle" onClick={() => checkTextInput(event)}>Ok</button>
-                        <button className="btnHomeStyle"onClick={() => onCancel()}>Cancel</button>
+                        <button disabled={!isFieldValid()} className="btnHomeStyle" onClick={() => checkTextInput(event)}>{translationService.translate("ok|A")}</button>
+                        <button className="btnHomeStyle"onClick={() => onCancel()}>{translationService.translate("cancel|A")}</button>
                     </div>
             </div>
+            {orderWindow && <EndOrderWindow handleWindowCancel ={handleWindowCancel} onCancel={onCancel} cancel={cancel}/>}
+            </OutsideAlerter>
         </div>
     )
 }

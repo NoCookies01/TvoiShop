@@ -12,12 +12,19 @@ using TvoiShop.Infrastructure.Services;
 using TvoiShop.Infrastructure.Services.Implementations;
 using TvoiShop.ApplicationCofiguration;
 using System.Text.Json.Serialization;
+using TvoiShop.Telegram.Bot;
+using Microsoft.OpenApi.Models;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TvoiShop
 {
     public class Startup
     {
-        private readonly AuthConfiguration _authConfiguration = new AuthConfiguration();
+        private readonly AuthConfiguration _authConfiguration = new();
 
         public Startup(IConfiguration configuration)
         {
@@ -31,21 +38,59 @@ namespace TvoiShop
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<TvoiShopDBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ProductsDataBase")));
+            /*services.AddDbContext<TvoiShopDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("ProductsDataBase")));*/
+            services.AddDbContext<TvoiShopDBContext>(options => 
+                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL"),
+                    x => x.MigrationsHistoryTable("__efmigrationshistory", "public"))
+                    /*.ReplaceService<IHistoryRepository, LoweredCaseMigrationHistoryRepository>()*/);
 
             services.AddTransient<IProductsRepository, ProductsRepository>();
 
             services.AddTransient<IProductsService, ProductsService>();
 
-            services.AddSwaggerGen();
+            services.AddTransient<BotManager>();
 
-            _authConfiguration.ConfigureAuth(services);
+            services.AddTransient<OrderService>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = @"JWT Authorization header using the Bearer scheme.
+                      Enter 'Bearer' [space] and then your token in the text input below.
+                      Example: 'Bearer 12345abcdef'",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement() {
+                        {
+                            new OpenApiSecurityScheme
+                                {
+                                    Reference = new OpenApiReference
+                                        {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                      },    
+                      Scheme = "oauth2",
+                      Name = "Bearer",
+                      In = ParameterLocation.Header,
+
+                    },
+                    new List<string>()
+                  }
+                });
+            });
+
+            _authConfiguration.ConfigureAuth(services, Configuration);
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "ClientApp/build"; 
             });
         }
 
@@ -62,9 +107,24 @@ namespace TvoiShop
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            // TODO Remove
+            if (env.IsDevelopment() || true)
+            {
 
-            app.UseSwagger();
-            app.UseSwaggerUI();
+                app.UseSwagger(options =>
+                {
+                    /*options.AddSecurityDefinition("oauth2", new ApiKeyScheme
+                    {
+                        Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                        In = "header",
+                        Name = "Authorization",
+                        Type = "apiKey"
+                    });
+
+                    options.OperationFilter<SecurityRequirementsOperationFilter>();*/
+                });
+                app.UseSwaggerUI();
+            }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -72,9 +132,7 @@ namespace TvoiShop
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseIdentityServer();
-            app.UseAuthorization();
+            _authConfiguration.ConfigureAuth(app);
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,102 @@
+.txtCartLabel{ font-size: 20px; font-weight: 900; color: black; text-transform: uppercase;}
+.txtCartPrice{ font-size: 18px; font-weight: 900; color: black;}
+.txtCartCount{ font-size: 12px; font-weight: 900; color: rgb(115, 115, 115); width: 75px; display: flex; justify-content: center;}
+.txtCartDesc{ font-size: 12px; font-weight: 900; color: rgb(115, 115, 115); width: 75px; display: flex; justify-content: left;}
+
+.btnCart{
+    width: 25px;
+    height: 25px;
+    background-color: #6a6a6a;
+    color: white;
+    font-weight: 900;
+    font: 15px;
+    border: none;
+    transition: 0.2s;
+}
+.btnCart:hover{
+    background-color: #767676;
+    transition: 0.2s;
+}
+
+.cartPosFixed{
+  background-color: white;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: #23232391;
+}
+
+.cartPos {
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #23232391;
+}
+
+@media(max-width: 850px) {
+  .cartComponent {
+    width: 100vw !important;
+  }
+}
+
+.cartGlobal{
+  margin: 5px;
+}
+
+.cartComponent {
+  width: 500px;
+  background-color: white;
+  position: absolute;
+  z-index: 500000;
+  transition: 0.75s cubic-bezier(0, 0.84, 0.25, 1);
+  right: 0;
+  bottom: 0;
+}
+
+.cartList {
+  overflow-y: scroll;
+  max-height: calc(100vh - 150px);
+  margin: 5px;
+}
+  
+.imgPosition{
+  width: 150px;
+  background-color: transparent;
+}
+
+.imgStyle{
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+}
+
+.infoPosition{
+  padding-left: 10px;
+  padding-top: 5px;
+  width: 200px;
+}
+.btnPosition{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.removePosition{
+  display: flex;
+  padding-left: 150px;
+  padding-top: 5px;
+}
+.removeIcon{
+  display: flex;
+  background-color: transparent;
+  width: 26px;
+  cursor: pointer;
+}
+
+
+  

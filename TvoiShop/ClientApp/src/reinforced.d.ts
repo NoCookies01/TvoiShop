@@ -36,3 +36,25 @@ interface ISize
 	id: string;
 	value: number;
 }
+interface IUserTokens
+{
+	guidId: string;
+	token: string;
+	userName: string;
+	validaty: any;
+	refreshToken: string;
+	id: string;
+	emailId: string;
+	expiredTime: any;
+}
+interface IOrder
+{
+	products: IOrderedProduct[];
+	phone: string;
+	contactType: string;
+}
+interface IOrderedProduct extends IProduct
+{
+	size: number;
+	color: string;
+}
