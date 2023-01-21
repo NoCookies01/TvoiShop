@@ -15,6 +15,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using TvoiShop.Infrastructure.Auth;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TvoiShop.Controllers
 {
@@ -31,6 +33,7 @@ namespace TvoiShop.Controllers
             _configuration = configuration;
         }
 
+        [Authorize]
         [HttpPost]
         public Task<IdentityResult> Register(UserModel newUser)
         {
@@ -38,9 +41,27 @@ namespace TvoiShop.Controllers
         }
 
         [HttpPost]
-        public async Task</*Microsoft.AspNetCore.Identity.SignInResult*/ object> Login(UserModel userModel)
+        public async Task<object> Login(UserModel userModel)
         {
-            return new { Result = await _authService.LoginAsync(userModel), token = _authService .GetTokenOrEmpty(userModel)};
+            var result = await _authService.LoginAsync(userModel);
+            object token = null;
+            if (result.Succeeded)
+            {
+                token = _authService.GetTokenOrEmpty(userModel);
+            }
+            var ans = new { Result = result, Token = token };
+            return ans;
+        }
+
+        [HttpPost]
+        public Task<IdentityResult> RegisterFirstAdmin()
+        {
+            UserModel newUser = new UserModel()
+            {
+                Name = _configuration["Admin:Name"],
+                Password = _configuration["Admin:Password"]
+            };
+            return _authService.RegisterAsync(newUser);
         }
     }
 }

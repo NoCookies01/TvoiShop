@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TvoiShop
 {
@@ -37,8 +38,12 @@ namespace TvoiShop
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<TvoiShopDBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ProductsDataBase")));
+            /*services.AddDbContext<TvoiShopDBContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("ProductsDataBase")));*/
+            services.AddDbContext<TvoiShopDBContext>(options => 
+                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL"),
+                    x => x.MigrationsHistoryTable("__efmigrationshistory", "public"))
+                    /*.ReplaceService<IHistoryRepository, LoweredCaseMigrationHistoryRepository>()*/);
 
             services.AddTransient<IProductsRepository, ProductsRepository>();
 
@@ -52,9 +57,9 @@ namespace TvoiShop
             {
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
+                    Description = @"JWT Authorization header using the Bearer scheme.
                       Enter 'Bearer' [space] and then your token in the text input below.
-                      \r\n\r\nExample: 'Bearer 12345abcdef'",
+                      Example: 'Bearer 12345abcdef'",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey,
@@ -69,7 +74,7 @@ namespace TvoiShop
                                         {
                         Type = ReferenceType.SecurityScheme,
                         Id = "Bearer"
-                      },
+                      },    
                       Scheme = "oauth2",
                       Name = "Bearer",
                       In = ParameterLocation.Header,
@@ -102,8 +107,8 @@ namespace TvoiShop
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            if (env.IsDevelopment())
+            // TODO Remove
+            if (env.IsDevelopment() || true)
             {
 
                 app.UseSwagger(options =>

@@ -25,12 +25,5 @@ namespace TvoiShop.Controllers
         {
             return await _botManager.LoginWith(code);
         }
-
-        [Authorize]
-        [HttpPost]
-        public void Do()
-        {
-
-        }
     }
 }

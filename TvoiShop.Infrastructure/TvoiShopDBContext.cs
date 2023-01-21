@@ -23,6 +23,7 @@ namespace TvoiShop.Infrastructure
             IOptions<OperationalStoreOptions> operationalStoreOptions)
             : base(options, operationalStoreOptions)
         {
+            Database.EnsureCreated();
         }
 
         public virtual DbSet<Product> Products { get; set; }
@@ -66,7 +67,6 @@ namespace TvoiShop.Infrastructure
 
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
             });
-
 
             OnModelCreatingPartial(modelBuilder);
         }

@@ -1,4 +1,5 @@
 ﻿using Duende.IdentityServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -30,18 +31,21 @@ namespace TvoiShop.Controllers
             return _productsService.GetAll();
         }
 
+        [Authorize]
         [HttpPost]
         public void AddProduct(Product item)
         {
             _productsService.AddProduct(item);
         }
 
+        [Authorize]
         [HttpDelete]
         public void DeleteProductById(Guid id)
         {
             _productsService.DeleteProductById(id);
         }
 
+        [Authorize]
         [HttpPatch]
         public void UpdateProduct(Product item)
         {

@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TvoiShop.Infrastructure;
+using TvoiShop.Infrastructure.Auth;
 using TvoiShop.Infrastructure.Services;
 using TvoiShop.Infrastructure.Services.Implementations;
 using TvoiShop.Models;
@@ -32,7 +33,30 @@ namespace TvoiShop.ApplicationCofiguration
                 .AddDeveloperSigningCredential()
                 .AddApiAuthorization<ApplicationUser, TvoiShopDBContext>();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            var bindJwtSettings = new JwtSettings();
+            Configuration.Bind("JsonWebTokenKeys", bindJwtSettings);
+            services.AddSingleton(bindJwtSettings);
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                {
+                    ValidateIssuerSigningKey = bindJwtSettings.ValidateIssuerSigningKey,
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(bindJwtSettings.IssuerSigningKey)),
+                    ValidateIssuer = bindJwtSettings.ValidateIssuer,
+                    ValidIssuer = bindJwtSettings.ValidIssuer,
+                    ValidateAudience = bindJwtSettings.ValidateAudience,
+                    ValidAudience = bindJwtSettings.ValidAudience,
+                    RequireExpirationTime = bindJwtSettings.RequireExpirationTime,
+                    ValidateLifetime = bindJwtSettings.RequireExpirationTime,
+                    ClockSkew = TimeSpan.FromDays(1),
+                };
+            }).AddIdentityServerJwt();
+
+            /*services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
                 options.SaveToken = true;
@@ -44,7 +68,7 @@ namespace TvoiShop.ApplicationCofiguration
                     ValidIssuer = Configuration["Jwt:Issuer"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
-            }).AddIdentityServerJwt(); ;
+            }).AddIdentityServerJwt();*/
 
             services.AddTransient<UserManager<ApplicationUser>>();
             services.AddTransient<SignInManager<ApplicationUser>>();
