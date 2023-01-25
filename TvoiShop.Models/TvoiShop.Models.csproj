@@ -15,6 +15,9 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+	<PropertyGroup>
+		<RtForceTargetFramework>net6.0</RtForceTargetFramework>
+	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
