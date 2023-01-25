@@ -7,9 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.Owin;
-using Microsoft.Owin.Security.OAuth;
-using Owin;
 using System;
 using System.Linq;
 using System.Text;
@@ -109,18 +106,6 @@ namespace TvoiShop.ApplicationCofiguration
             });
 
             return services;
-        }
-
-        public void ConfigureAuth(IAppBuilder app)
-        {
-            app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions()
-            {
-                AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new OAuthAuthorizationServerProvider()
-            });
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
 
         public void ConfigureAuth(IApplicationBuilder app)

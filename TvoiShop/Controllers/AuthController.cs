@@ -6,7 +6,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System;
 using TvoiShop.Models;
-using Microsoft.Owin.Security;
 using System.Net.Http;
 using System.Threading;
 using TvoiShop.Infrastructure.DTO;
