@@ -18,7 +18,6 @@
 			Important! Do not forget to include generated file to solution.
 		-->
     <RtTargetFile>$(SolutionDir)TvoiShop\ClientApp\src\reinforced.d.ts</RtTargetFile>
-	<RtForceTargetFramework>net6.0</RtForceTargetFramework>
 
 		<!--
 			This property sets RT configuration method for fluent configuration.
@@ -79,7 +78,7 @@
 			Available values: 
 				net45, net461, netcoreapp1.0, netcoreapp1.1, netcoreapp2.0, netcoreapp2.1, netcoreapp2.2
 		-->
-		<!-- <RtForceTargetFramework>netcoreapp2.2</RtForceTargetFramework>	-->	
+		<RtForceTargetFramework>net6.0</RtForceTargetFramework>
 		
 	</PropertyGroup>
 	
