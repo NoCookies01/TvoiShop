@@ -1,7 +1,4 @@
 ﻿using System;
-using TeleSharp.TL;
-using TLSharp.Core;
-using TLSharp;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 //using Telegram.Bot.Extensions.Polling;
@@ -9,7 +6,6 @@ using T = Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using System.Threading;
 using System.Threading.Tasks;
-using TelegramClient = TLSharp.Core.TelegramClient;
 using WTelegram;
 using Telegram.Bot.Polling;
 using TL;
