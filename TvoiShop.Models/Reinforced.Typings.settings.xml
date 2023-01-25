@@ -18,7 +18,8 @@
 			Important! Do not forget to include generated file to solution.
 		-->
     <RtTargetFile>$(SolutionDir)TvoiShop\ClientApp\src\reinforced.d.ts</RtTargetFile>
-		
+	<RtForceTargetFramework>net6.0</RtForceTargetFramework>
+
 		<!--
 			This property sets RT configuration method for fluent configuration.
 			If you don't want to use attributes for some reason then here you can
