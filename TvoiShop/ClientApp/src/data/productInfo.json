@@ -1,0 +1,31 @@
+[{
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "count": 0,
+    "collection": "string",
+    "category": "string",
+    "labelName": "string",
+    "brand": "string",
+    "price": 0,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "string"
+      }
+    ],
+    "weight": 0,
+    "colors": [
+      {
+        "name": "string"
+      }
+    ],
+    "metal": "string",
+    "sizes": [
+      {
+        "value": 0
+      }
+    ],
+    "description": "string",
+    "popularity": 0,
+    "customPopularity": 0
+  }
+]

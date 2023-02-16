@@ -26,11 +26,14 @@ namespace TvoiShop.Telegram.Bot
 
                 switch (reason) // returns which config is needed to continue login
                 {
+                    case "email":
+                    case "email_verification_code":
+                    case "password":
                     case "verification_code":
                         loginInfo = code;
                         if (verificationCodeCount > 0) return reason;
                         verificationCodeCount++;
-                        break; 
+                        break;
                     default: loginInfo = null; break;
                 }
             }

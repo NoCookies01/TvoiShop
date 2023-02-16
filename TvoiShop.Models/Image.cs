@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 namespace TvoiShop.Models
 {
     [TsInterface(IncludeNamespace = false)]
-    public class Image
+    public class Image : Identifier
     {
-        [TsProperty(Type = "string")]
-        public Guid Id { get; set; }
         public string Url { get; set; }
     }
 }

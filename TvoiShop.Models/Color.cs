@@ -10,10 +10,8 @@ using System.Text;
 namespace TvoiShop.Models
 {
     [TsInterface(IncludeNamespace = false)]
-    public class Color
+    public class Color: Identifier
     {
-        [TsProperty(Type = "string")]
-        public Guid Id { get; set; }
         public string Name { get; set; }
     }
 }

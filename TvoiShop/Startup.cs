@@ -15,10 +15,12 @@ using System.Text.Json.Serialization;
 using TvoiShop.Telegram.Bot;
 using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.HttpOverrides;
 using System.IO;
 using System.Reflection;
 using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.Net;
 
 namespace TvoiShop
 {
@@ -92,6 +94,11 @@ namespace TvoiShop
             {
                 configuration.RootPath = "ClientApp/build"; 
             });
+
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -131,6 +138,11 @@ namespace TvoiShop
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             _authConfiguration.ConfigureAuth(app);
 

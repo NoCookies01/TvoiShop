@@ -19,7 +19,7 @@ export const SideBar = ({cancel, isOpen}: IProps) => {
         <div className={`sidenav ${!isOpen ? "hiddenNav" : ''}`}>
             <div className='logoSidebarPosition'>
                 <NavLink onClick={cancel} className="logoSidebar" to={"/"}>
-                    <LogoIcon className='logoIcon'/>
+                    <img src='https://live.staticflickr.com/65535/52644337846_6a70023182_z.jpg' className='logoIcon'/>
                 </NavLink> 
             </div>
             <div className='navItemsPosition'>

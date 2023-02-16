@@ -34,7 +34,7 @@ export const CollectionInfo = (props: IProps) => {
                         <div className='photoBannerCardPos'>
                             <CollectionPhotoOne className="photoBannerStyle"/>
                             <div className='bannerCardText'>
-                                tvoi
+                                <img src='https://live.staticflickr.com/65535/52646464775_6046ab08df_z.jpg' />
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ export const CollectionInfo = (props: IProps) => {
                         <div className='photoBannerCardPos'>
                             <CollectionPhotoFour className="photoBannerStyle"/>
                             <div className='bannerCardText'>
-                                tvoi
+                                <img src='https://live.staticflickr.com/65535/52646464775_6046ab08df_z.jpg' />
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ export const CollectionInfo = (props: IProps) => {
                         <div className='photoBannerCardPos'>
                             <CollectionPhotoTwo className="photoBannerStyle"/>
                             <div className='bannerCardText'>
-                                tvoi
+                                <img src='https://live.staticflickr.com/65535/52646464775_6046ab08df_z.jpg' />
                             </div>
                         </div>
                     </div>

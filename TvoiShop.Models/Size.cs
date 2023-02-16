@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 namespace TvoiShop.Models
 {
     [TsInterface(IncludeNamespace = false)]
-    public class Size
+    public class Size : Identifier
     {
-        [TsProperty(Type = "string")]
-        public Guid Id { get; set; }
-        public float Value { get; set; }
+        public string Value { get; set; }
     }
 }

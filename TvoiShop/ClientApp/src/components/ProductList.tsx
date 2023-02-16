@@ -22,6 +22,10 @@ export const ProductList = (props: IProps) => {
     const prod = [...props.products].filter((p) => p.category === props.category);
     
     setProducts(prod);
+
+    return () => {
+      props.resetFilter();
+    };
   }, [props.products, props]);
 
   return(

@@ -2,19 +2,20 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 
-interface IColor
+interface IColor extends IIdentifier
 {
-	id: string;
 	name: string;
 }
-interface IImage
+interface IIdentifier
 {
 	id: string;
+}
+interface IImage extends IIdentifier
+{
 	url: string;
 }
-interface IProduct
+interface IProduct extends IIdentifier
 {
-	id: string;
 	count: number;
 	collection: string;
 	category: string;
@@ -31,10 +32,9 @@ interface IProduct
 	popularity: number;
 	customPopularity: number;
 }
-interface ISize
+interface ISize extends IIdentifier
 {
-	id: string;
-	value: number;
+	value: string;
 }
 interface IUserTokens
 {

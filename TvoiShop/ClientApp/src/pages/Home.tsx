@@ -49,8 +49,10 @@ export const Home = (props: IProps) => {
         </div>
       
         <div className='columnStyle positionCenter'>
-          <div className='photoBannerPos' ><PhotoTwo className="photoBannerStyle"/></div>
-          <div className='txtBanner' onClick={() => navigate(getRoute(`collection`))}> elegance is tvoi</div>
+          <div className='photoBannerPos' >
+            <img src='https://live.staticflickr.com/65535/52644560059_1f10d3f810_h.jpg' className="photoBannerStyle"/>
+            <div className='txtBanner' onClick={() => navigate(getRoute(`collection`))}> elegance is tvoi</div>
+          </div>
           <button className="btnHomeStyle" onClick={() => navigate(getRoute(`collection`))}>
           {translationService.translate("explore more|A")}
           </button>
@@ -63,7 +65,8 @@ export const Home = (props: IProps) => {
         {translationService.translate("hot sales|A")}
         </div>
         <div className='photoBannerPos'>
-            <PhotoWatches className="photoBannerStyle"/>
+          <img src='https://live.staticflickr.com/65535/52691589812_b8452584ab_h.jpg' className="photoBannerStyle"/>
+          <div className='txtBanner topSpace' onClick={() => navigate(getRoute(`collection`))}> до -50% на годинники</div>
         </div>
         <div><CarouselGallery products ={watches} /></div>
         <button className="btnHomeStyle" onClick={() => navigate(getRoute(`watches`))}>

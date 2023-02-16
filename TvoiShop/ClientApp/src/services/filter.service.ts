@@ -26,7 +26,7 @@ export function getFilterCriteriaBasedOnProducts(products: IProduct[]): IItem[] 
 
 export function comparePorductsPropertyToValue(product: IProduct, value: any, propertyPath: string) {
     var property = getPropertyFromObject(product, propertyPath);
-    console.log(propertyPath,property,value)
+    
     if (Array.isArray(property)) {
         return property.some(p => p === value);
     }

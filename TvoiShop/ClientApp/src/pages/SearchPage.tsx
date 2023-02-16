@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { InstrumentPanel } from '../components/InstrumentPanel';
 import IItem from '../components/nestedSelect/item';
 import { CardProducts } from '../components/productsView/CardProduct';
@@ -13,6 +13,7 @@ interface IProps {
 }
 
 export const SearchPage = (props: IProps) => {
+    useEffect(() =>{ return () => { props.resetFilter(); }}, [])
     return(
         <div>
             <br/>

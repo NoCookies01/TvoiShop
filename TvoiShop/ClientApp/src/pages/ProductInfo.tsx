@@ -10,6 +10,7 @@ import { ImageBehaviour, Images } from '../components/Images';
 import ElementSelect from '../components/elementSelect/ElementSelect';
 import { SizeInfoWindow } from '../components/windows/SizeInfoWindow';
 import { getRoute } from '../services/routes.service';
+import { ProductInfoPrice } from '../components/productsView/ProductInfoPrice';
 
 interface IProps {
     products: IProduct[];
@@ -137,7 +138,7 @@ export const ProductInfo = (props: IProps) => {
 
                             <div>
                                 {translationService.translate("price|A")}
-                                <p><Price product={productItem}/></p>
+                                <p><ProductInfoPrice product={productItem}/></p>
                             </div>
                             
                         </div>

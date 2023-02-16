@@ -19,19 +19,23 @@ import ServiceLayer from './components/ServiceLayer';
 import { SortOrder } from './data/sortCriteria';
 import { get } from './api/axios';
 
+const productsFn = (products: IProduct[]) => products;
+
 export default function App() {
   const [products, setProducts] = React.useState<IProduct[]>([]);
-  const [filteredProducts, setFilteredProducts] = React.useState<IProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = React.useState<(products: IProduct[]) => IProduct[]>(() => (prod: IProduct[]) => productsFn(prod));
+  const setFilteredProductsState = (fn: (products: IProduct[]) => IProduct[]) => setFilteredProducts(() => fn);
+
   const [filterCriteria, setFilterCriteria] = React.useState<IItem[]>([]);
-  const [searchedProducts, setSearchedProducts] = React.useState<IProduct[]>([]);
+  const [searchedProducts, setSearchedProducts] = React.useState<(products: IProduct[]) => IProduct[]>(() => (prod: IProduct[]) => productsFn(prod));
+  const setSearchedProductsState = (fn: (products: IProduct[]) => IProduct[]) => setSearchedProducts(() => fn);
+  
   const [cart, setCart] = useState<{data: IProductCart[], loadedFromStorage: boolean}>({data: [], loadedFromStorage: false});
-  get("token").then(a => console.log(a))
+
   useEffect(() => {
     GetAll().then(responce => {
       var data = responce.data.sort((a, b) => a.labelName.localeCompare(b.labelName));
       setProducts(data);
-      setFilteredProducts(data);
-      setSearchedProducts(data);
       setFilterCriteria(getFilterCriteriaBasedOnProducts(data));
 
       retrieveCartFromStorage(data);
@@ -45,7 +49,7 @@ export default function App() {
   }, [cart]);
 
   const search = (sortQuerry: string) => {
-    setSearchedProducts(products.filter((p) => {
+    setSearchedProductsState((prod) => prod.filter((p) => {
       return p.labelName.toLowerCase().indexOf(sortQuerry.toLowerCase()) !== -1;
     }));
   };
@@ -110,6 +114,14 @@ export default function App() {
     setCart({data: localCart, loadedFromStorage: true});
   }
 
+  const getFilteredProducts = (prod: IProduct[]) => {
+    return filteredProducts(prod);
+  }
+
+  const getSearchProducts = (prod: IProduct[]) => {
+    return searchedProducts(prod);
+  }
+
   const sortBy = (property: string, sortOrder: SortOrder) => {
     if (products.length === 0) return;
 
@@ -128,7 +140,7 @@ export default function App() {
       return 0;
     };
 
-    setFilteredProducts([...products].sort((a: any, b: any) => {
+    setFilteredProductsState((prod) => [...prod].sort((a: any, b: any) => {
       if (sortOrder === SortOrder.Ascending) {
         return sortFn(a, b);
       }
@@ -137,11 +149,12 @@ export default function App() {
   }
 
   const filterBy = (value: any, property: string) => {
-    setFilteredProducts(products.filter(o => comparePorductsPropertyToValue(o, value, property)));
+    console.log(value, property)
+    setFilteredProductsState((prod) => [...prod].filter(o => comparePorductsPropertyToValue(o, value, property)));
   }
 
   const resetFilter = () => {
-    setFilteredProducts([...products]);
+    setFilteredProductsState((p: IProduct[]) => productsFn(p));
   }
 
   const handleSetCart = (fn: (items: IProductCart[]) => IProductCart[]) => {
@@ -162,7 +175,7 @@ export default function App() {
                 <Route path='collection' element={<CollectionInfo products={products} />} />
                 <Route path='search' element={
                     <SearchPage 
-                      products={searchedProducts} 
+                      products={getFilteredProducts(getSearchProducts(products))} 
                       resetFilter={resetFilter}
                       sortBy={sortBy}
                       filterCriteria={filterCriteria}
@@ -171,7 +184,7 @@ export default function App() {
                 {productCategoryRoutes.map((pcr, index) => (
                   <Route key={index} path={pcr.path} element={
                     <ProductList 
-                      products={filteredProducts} 
+                      products={getFilteredProducts(products)} 
                       title={pcr.title} 
                       category={pcr.category} 
                       resetFilter={resetFilter}
