@@ -13,7 +13,7 @@ export const defaultColor: IColor = {
 
 export const defaultSize: ISize = {
     id: defaultText,
-    value: defaultNumber
+    value: defaultText
 }
 
 export const defaultProduct: IProduct = {
