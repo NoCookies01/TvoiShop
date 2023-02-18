@@ -55,6 +55,6 @@ interface IOrder
 }
 interface IOrderedProduct extends IProduct
 {
-	size: number;
+	size: string;
 	color: string;
 }

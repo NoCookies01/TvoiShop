@@ -1,0 +1,99 @@
+[
+{
+    "count": 0,
+    "collection": "Spring`23",
+    "category": "rings",
+    "labelName": "Pandora Ring",
+    "brand": "Pandora",
+    "price": 790,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644686813_1482f8c862_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644686938_1c950768ae_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644469814_d326e89543_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644656135_2990611849_z.jpg"
+      }
+    ],
+    "weight": 6.3,
+    "colors": [
+      {
+        "name": "silver"
+      },
+      {
+        "name": "gold"
+      },
+      {
+        "name": "rosegold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "50"
+      },
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "none",
+    "popularity": 8,
+    "customPopularity": 8
+  },
+  {
+    "count": 0,
+    "collection": "Spring`23",
+    "category": "rings",
+    "labelName": "Pandora Ring Blue Crystal",
+    "brand": "Pandora",
+    "price": 1090,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644213966_dcde4b3eb5_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644656075_74d59b3043_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644469744_a910c70359_z.jpg"
+      }
+    ],
+    "weight": 7.3,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "50"
+      },
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "none",
+    "popularity": 8,
+    "customPopularity": 8
+  }
+]

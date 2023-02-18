@@ -24,7 +24,7 @@ export function ToastrList() {
         push(message, type);
         setTimeout(() => {
             sliceToastr();
-        }, 750);
+        }, 1150);
     }
 
     useEffect(() => {

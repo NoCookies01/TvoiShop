@@ -12,7 +12,7 @@ namespace TvoiShop.Models.Extended
     [TsInterface(IncludeNamespace = false)]
     public class OrderedProduct: Product
     {
-        public float Size { get; set; }
+        public string Size { get; set; }
         public string Color { get; set; }
     }
 }

@@ -555,6 +555,11 @@ transform: translateY(-50%);
   color: #a8a8a8;
   text-decoration: line-through;
 }
+.oldProductInfoPrice {
+  font-size: 0.9rem;
+  color: #a8a8a8;
+  text-decoration: line-through;
+}
 
 .checkboxSize{
   font-size: 20px;
@@ -565,6 +570,12 @@ input.checkboxSize {
 }
 
 .productSalePrice{
+  font-size: 14px;
+  display: flex;
+  color: #000000;
+  font-weight: 900;
+}
+.productInfoSalePrice{
   font-size: 18px;
   display: flex;
   color: #000000;
@@ -718,6 +729,11 @@ input.checkboxSize {
   }
   .productInfoPrice{
     font-size: 20px;
+  }
+  .oldProductInfoPrice {
+    font-size: 0.9rem;
+    color: #a8a8a8;
+    text-decoration: line-through;
   }
   
   .productSalePrice{

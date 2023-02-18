@@ -25,12 +25,12 @@ export const ProductInfo = (props: IProps) => {
     const [window, setWindow] = React.useState(false)
     const [sizeInfoWindow, setSizeInfoWindow] = React.useState(false)
     const [selectedColor, setSelectedColor] = React.useState<string | undefined>(undefined)
-    const [selectedSize, setSelectedSize] = React.useState<number | undefined>(undefined)
+    const [selectedSize, setSelectedSize] = React.useState<string | undefined>(undefined)
     const navigate = useNavigate();
 
     const onBuyNow = () =>{
         if(!selectedColor || selectedColor.length === 0 ||
-            !selectedSize || selectedSize === 0 ){
+            !selectedSize || selectedSize.length === 0 ){
             toastrService.callToastr(translationService.translate("error order|A"));
         }
         else{
@@ -53,18 +53,18 @@ export const ProductInfo = (props: IProps) => {
     const handleSelectedColor = (value: string) => {
         setSelectedColor(value);
     }
-    const handleSelectedSize = (value: number) => {
+    const handleSelectedSize = (value: string) => {
         setSelectedSize(value);
     }
     const isActive = () => {
         return (
             selectedColor && selectedColor.length > 0 &&
-            selectedSize && selectedSize > 0 
+            selectedSize && selectedSize.length > 0 
         );
     }
     const addToCart = () => {
         if(!selectedColor || selectedColor.length === 0 ||
-            !selectedSize || selectedSize === 0 ){
+            !selectedSize || selectedSize.length === 0){
             toastrService.callToastr(translationService.translate("error order|A"));
         }
         else{
@@ -76,6 +76,9 @@ export const ProductInfo = (props: IProps) => {
     useEffect(() => {
         var prod = props.products.find(Element => Element.id === id) ?? defaultProduct;
         setProductItem(prod);
+        if (!prod.sizes || prod.sizes.length === 0) {
+            handleSelectedSize("Universal");
+        }
         const offeredItems = [...props.products].sort((a, b) => b.customPopularity - a.customPopularity);
         setOfferedProduct(offeredItems.splice(0,6));
         const popularItems = [...props.products].sort((a, b) => a.popularity - b.popularity);
@@ -125,12 +128,12 @@ export const ProductInfo = (props: IProps) => {
                             <div className='size-color-margin'>
                                 {translationService.translate("size|A") + "*"}
                                 <div className='rowStyle prTextMain'>
-                                    <ElementSelect 
+                                    {productItem.sizes && productItem.sizes.length > 0 ? <ElementSelect 
                                         type="single"
                                         checkbox={true}
                                         options={productItem.sizes.map(c => {return {Value: c.value.toString(), Title: `${c.value}`}})}
-                                        onSelectValues={(values: string[]) => handleSelectedSize(Number(values[0]))}
-                                    />
+                                        onSelectValues={(values: string[]) => handleSelectedSize(values[0])}
+                                    /> : <div>{translationService.translate("universal|A", "Universal")}</div>}
                                 </div>
                                 <div className='infoText' onClick={onSizeInfo}>{translationService.translate("choose size|A") + "?"}</div>
                             </div>

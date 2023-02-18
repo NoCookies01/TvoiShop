@@ -124,5 +124,58 @@
     "description": "",
     "popularity": 10,
     "customPopularity": 10
+  },
+  {
+    "count": 0,
+    "collection": "Tiffany classic",
+    "category": "bracelets",
+    "labelName": "Tiffany&Co Classic Bracelet",
+    "brand": "Tiffany",
+    "price": 1590,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52693514598_f1f82c37f5_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52637494149_c856213e52_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52693514583_6b93b4a183_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52693291574_4e811962c1_z.jpg"
+      }
+    ],
+    "weight": 8.2,
+    "colors": [
+      {
+        "name": "blue"
+      },
+      {
+        "name": "red"
+      },
+      {
+        "name": "rose"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": 16
+      },
+      {
+        "value": 17
+      },
+      {
+        "value": 18
+      },
+      {
+        "value": 19
+      }
+    ],
+    "description": "none",
+    "popularity": 2,
+    "customPopularity": 2
   }
 ]
