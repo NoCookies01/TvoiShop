@@ -4,6 +4,8 @@ import toastrService from "../../services/toastr.service";
 import translationService from "../../services/translation.service";
 import OutsideAlerter from "../helpers/Outside";
 import { EndOrderWindow } from "./EndOrderWindow";
+import '../../styles/shoppingCart.css'
+import { Helmet } from 'react-helmet';
 
 interface IProps {
     onCancel: () => void;
@@ -32,31 +34,31 @@ export const OnConfirmOrderWindow = ({onCancel, cancel, products, clearBasket}:I
         setCheckedTelegram(!checkedTelegram);
     };
 
-    const checkTextInput = (event: any) => {
-        var contactType = "";
-        if (checkedPhone) {
-            contactType += " Phone";
+    const isFieldValid = (event: any) => {
+        if(phone.trim().length > 9 && phone.trim().length < 15 && (checkedPhone || checkedViber || checkedTelegram)){
+            toastrService.callToastr(translationService.translate("loading|A"))
+            var contactType = "";
+            if (checkedPhone) {
+                contactType += " Phone";
+            }
+            if (checkedViber) {
+                contactType += " Viber";
+            }
+            if (checkedTelegram) {
+                contactType += " Telegram";
+            }
+    
+            ProceedOrder({
+                contactType: contactType,
+                phone: phone,
+                products: products
+            })
+            .then(a => onEndOrderOk())
+            .catch(e => toastrService.callToastr("Error on sending", "error"));
         }
-        if (checkedViber) {
-            contactType += " Viber";
+        else{
+            toastrService.callToastr(translationService.translate("error confirm order|A"));
         }
-        if (checkedTelegram) {
-            contactType += " Telegram";
-        }
-
-        ProceedOrder({
-            contactType: contactType,
-            phone: phone,
-            products: products
-        })
-        .then(a => onEndOrderOk())
-        .catch(e => toastrService.callToastr("Error on sending", "error"));
-    };
-
-    const isFieldValid = () => {
-        return (
-            phone.trim().length > 9 && phone.trim().length < 15 && (checkedPhone || checkedViber || checkedTelegram)
-        );
     }
 
     const onEndOrderOk = () =>{
@@ -81,15 +83,21 @@ export const OnConfirmOrderWindow = ({onCancel, cancel, products, clearBasket}:I
     return(
         <div className="windowConfirmPosition"> 
         <OutsideAlerter onOutsideClick={onCancel}>
+            <Helmet>
+                <title>Останній крок до підтвердження замовлення | TVOI</title>
+            </Helmet>
             <div className="windowConfirmStyle">
 
-                <div className="confirmText">{translationService.translate("confirm order|A")}</div>
-                <br/>
+                <div className="confirmText">{translationService.translate("confirm order|A")}..</div>
+                <p className="hrLine"></p>
 
+                    <br/>
+
+                    <p className="inputStyle">&nbsp;&nbsp;&nbsp;&nbsp;{translationService.translate("phone|A")}:</p>
                     <div className="positionCenter">
-                        <div>
+                        <div className="fullwidth">
                         <input type="text"
-                        placeholder={translationService.translate("phone|A") + "*"}
+                        placeholder="+380"
                         className="inputNameStyle" 
                         onKeyPress={onCalcSymbolsOnlyChange}
                         onChange={(event) => setPhone(event.target.value)}/>
@@ -98,36 +106,31 @@ export const OnConfirmOrderWindow = ({onCancel, cancel, products, clearBasket}:I
 
                     <div className="orderWindowPos">
                         <div className="inputStyle" >
-                            {translationService.translate("post|A") + "*"}
-                            <p>
+                            {translationService.translate("post|A")}?
                                 <div className="checkboxStyle">
                                     <input type="checkbox" 
                                     onChange={handleCheckedPhone}
                                     checked = {checkedPhone}/>
-                                    <div> &nbsp;Зателефонувати мені</div>
+                                    <div> &nbsp;{translationService.translate("call|A")}</div>
                                 </div>
                                 <div className="checkboxStyle">
                                     <input type="checkbox" 
                                     onChange={handleCheckedViber}
                                     checked = {checkedViber}/>
-                                    <div> &nbsp;Написати у Viber</div>
+                                    <div> &nbsp;{translationService.translate("viber|A")}</div>
                                 </div>
                                 <div className="checkboxStyle">
                                     <input type="checkbox" 
                                     onChange={handleCheckedTelegram}
                                     checked = {checkedTelegram}/>
-                                    <div> &nbsp;Написати у Telegram</div>
+                                    <div> &nbsp;{translationService.translate("telegram|A")}</div>
                                 </div>
-                            </p>
                         </div>
                     </div>
-                    <small className="txtStyle">{"*" + translationService.translate("required field|A")}</small>
-                
-
-                    <div className="btnHomeStylePos">
-                        <button disabled={!isFieldValid()} className="btnHomeStyle" onClick={() => checkTextInput(event)}>{translationService.translate("ok|A")}</button>
-                        <button className="btnHomeStyle"onClick={() => onCancel()}>{translationService.translate("cancel|A")}</button>
-                    </div>
+                <div>
+                    <button className="btnConfirmCartStyle" onClick={() => isFieldValid(event)}>{translationService.translate("ok|A")}</button>
+                    <button className="onCancelButton"onClick={() => onCancel()}>{translationService.translate("cancel|A")}</button>
+                </div>
             </div>
             {orderWindow && <EndOrderWindow handleWindowCancel ={handleWindowCancel} onCancel={onCancel} cancel={cancel}/>}
             </OutsideAlerter>

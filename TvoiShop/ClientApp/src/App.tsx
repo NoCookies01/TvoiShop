@@ -17,14 +17,21 @@ import { comparePorductsPropertyToValue, getFilterCriteriaBasedOnProducts } from
 import localstorageService from './services/localstorage.service';
 import ServiceLayer from './components/ServiceLayer';
 import { SortOrder } from './data/sortCriteria';
-import { get } from './api/axios';
+import ScrollToTop from './components/scroller/ScrollToTop';
+import { FooterPanel } from './components/FooterPanel';
+import { AdminPanel } from './components/adminPanel/AdminPanel';
+import { InfoPage } from './pages/Info';
+import { BrandsList } from './components/productsView/BrandsList';
+import { BrandInfo } from './pages/BrandInfo';
+import translationService from './services/translation.service';
+import { Helmet } from 'react-helmet';
+import { SalePage } from './pages/SalePage';
 
 const productsFn = (products: IProduct[]) => products;
 
 export default function App() {
   const [products, setProducts] = React.useState<IProduct[]>([]);
-  const [filteredProducts, setFilteredProducts] = React.useState<(products: IProduct[]) => IProduct[]>(() => (prod: IProduct[]) => productsFn(prod));
-  const setFilteredProductsState = (fn: (products: IProduct[]) => IProduct[]) => setFilteredProducts(() => fn);
+  const [filteredProducts, setFilteredProducts] = React.useState<((products: IProduct[]) => IProduct[])[]>([productsFn, productsFn]);
 
   const [filterCriteria, setFilterCriteria] = React.useState<IItem[]>([]);
   const [searchedProducts, setSearchedProducts] = React.useState<(products: IProduct[]) => IProduct[]>(() => (prod: IProduct[]) => productsFn(prod));
@@ -50,9 +57,13 @@ export default function App() {
 
   const search = (sortQuerry: string) => {
     setSearchedProductsState((prod) => prod.filter((p) => {
-      return p.labelName.toLowerCase().indexOf(sortQuerry.toLowerCase()) !== -1;
+      return `${p.labelName} ${p.description}`.toLowerCase().indexOf(sortQuerry.toLowerCase()) !== -1;
     }));
   };
+
+  const resetSearch = () => {
+    setSearchedProductsState(productsFn);
+  }
 
   const handleClick = (item: IProductCart) => {
     // Update cart item quantity if already in cart
@@ -115,7 +126,8 @@ export default function App() {
   }
 
   const getFilteredProducts = (prod: IProduct[]) => {
-    return filteredProducts(prod);
+    filteredProducts.forEach(fn => prod = fn(prod));
+    return prod;
   }
 
   const getSearchProducts = (prod: IProduct[]) => {
@@ -140,21 +152,20 @@ export default function App() {
       return 0;
     };
 
-    setFilteredProductsState((prod) => [...prod].sort((a: any, b: any) => {
+    setFilteredProducts([filteredProducts[0], (prod) => [...prod].sort((a: any, b: any) => {
       if (sortOrder === SortOrder.Ascending) {
         return sortFn(a, b);
       }
       return sortFn(a, b) * -1;
-    }));
+    })]);
   }
 
   const filterBy = (value: any, property: string) => {
-    console.log(value, property)
-    setFilteredProductsState((prod) => [...prod].filter(o => comparePorductsPropertyToValue(o, value, property)));
+    setFilteredProducts([(prod) => [...prod].filter(o => comparePorductsPropertyToValue(o, value, property)), filteredProducts[1]]);
   }
 
   const resetFilter = () => {
-    setFilteredProductsState((p: IProduct[]) => productsFn(p));
+    setFilteredProducts([productsFn, productsFn]);
   }
 
   const handleSetCart = (fn: (items: IProductCart[]) => IProductCart[]) => {
@@ -162,17 +173,22 @@ export default function App() {
       return {data: fn(prevCart.data), loadedFromStorage: prevCart.loadedFromStorage};
     });
   }
-
+  
   return (
     <div className='App'>
-      <ToastrList/>
+        <ToastrList/>
         <BrowserRouter>
-        <SearchBar cart={cart.data} setCart={handleSetCart} handleChange={handleChange} search={search} clearBasket={clearBasket} />
+      <ScrollToTop>
+        <SearchBar cart={cart.data} setCart={handleSetCart} handleChange={handleChange} search={search} resetSearch={resetSearch} clearBasket={clearBasket} />
           <Routes>
-            <Route path='/:lang'>
+            <Route path='/:lang' element={<ServiceLayer />}>
                 <Route path='' element={<Home products={products} />}/>
+                <Route path='admin' element={<AdminPanel/>}/>
+                <Route path='info' element={<InfoPage/>}/>
                 <Route path='productInfo/:id' element={<ProductInfo products={products} handleClick={handleClick}/>} />
+                <Route path='brand/:brand' element={<BrandInfo products={products}/>} />
                 <Route path='collection' element={<CollectionInfo products={products} />} />
+                <Route path='sales' element={<SalePage products={products} />} />
                 <Route path='search' element={
                     <SearchPage 
                       products={getFilteredProducts(getSearchProducts(products))} 
@@ -186,6 +202,7 @@ export default function App() {
                     <ProductList 
                       products={getFilteredProducts(products)} 
                       title={pcr.title} 
+                      header={pcr.header}
                       category={pcr.category} 
                       resetFilter={resetFilter}
                       sortBy={sortBy}
@@ -195,8 +212,9 @@ export default function App() {
                   />
                 ))}
             </Route>
-            <Route path='*' element={<Navigate to="/ua" />}/>
+            <Route path='*' element={<Navigate to={`/${translationService.getPrefferedLanguageOrDefault('uk')}`} />}/>
           </Routes>
+      </ScrollToTop>
         </BrowserRouter>
     </div>
   )

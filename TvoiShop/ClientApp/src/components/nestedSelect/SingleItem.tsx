@@ -16,7 +16,7 @@ export default function SingleItem(props: IProps) {
     }
 
     return (
-        <div className="multiItem" onClick={() => select()}>
+        <div className="multiItem itemSelect" onClick={() => select()}>
             {props.item.Title}
         </div>
     )

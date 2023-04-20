@@ -4,11 +4,15 @@ import uaJsonTranlation from '../translations/ua.json';
 
 class TranslationService {
     private _tanslations: {[key: string]: string} = {};
-    private _availableLangulages = ["ua", "de", "en"];
-    private _langCode: string = "ua";
+    private _availableLangulages = ["uk", "de", "en"];
+    private _langCode: string = "uk";
 
     public get lang() { 
         return this._langCode; 
+    }
+
+    public get languages() {
+        return [...this._availableLangulages];
     }
 
     constructor() {
@@ -20,7 +24,7 @@ class TranslationService {
             case "en":
                 this._tanslations = enJsonTranlation;
                 break;
-            case "ua":   
+            case "uk":   
                 this._tanslations = uaJsonTranlation;
                 break;
             case "de":
@@ -32,7 +36,7 @@ class TranslationService {
     }
 
     public setLanguage(langCode: string) {
-        if (this._availableLangulages.findIndex(al => al === langCode.toLocaleLowerCase()) === -1) this._langCode = langCode.toLocaleLowerCase();
+        if (this._availableLangulages.findIndex(al => al === langCode.toLocaleLowerCase()) !== -1) this._langCode = langCode.toLocaleLowerCase();
     }
 
     public getText(key: string, defaultText: string) {
@@ -45,6 +49,22 @@ class TranslationService {
         var text = this.getText(key, defaultText);
         if (text === "") text = key.substring(0, key.length - 2);
         return text;
+    }
+
+    public getPrefferedLanguageOrDefault(defaultLang: string) {
+        var language = navigator.language || (navigator as any).userLanguage; 
+
+        if (!language) {
+            return defaultLang;
+        }
+
+        var langChars = language.slice(0,2);
+        var position = this._availableLangulages.indexOf(langChars);
+        if (position > -1) {
+            return this._availableLangulages[position];
+        }
+
+        return defaultLang;
     }
 }
 

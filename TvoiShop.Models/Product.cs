@@ -27,5 +27,6 @@ namespace TvoiShop.Models
         public string Description { get; set; }
         public float Popularity { get; set; }
         public float CustomPopularity { get; set; }
+        public string Packaging { get; set; }
     }
 }

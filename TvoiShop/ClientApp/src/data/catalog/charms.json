@@ -1,0 +1,107 @@
+[
+    {
+    "count": 0,
+    "collection": "marvel",
+    "category": "charms",
+    "labelName": "Намистина Pandora",
+    "brand": "Pandora",
+    "price": 690,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52780363265_63e645bab3_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52780417608_b9dcc1767c_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52780363485_760a8457f2_z.jpg"
+      }
+    ],
+    "weight": 3.2,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "Сучасно та стильно - довершена срібна намистина із покриттям золота 18к, оригінальне доповнення до твоєї колекції та особливий варіант на подарунок для усіх поціновувачів Marvel. Зручність намистини у тому, що її можна носити як на браслеті, так і як підвіску на твоєму ланцюжку ",
+    "popularity": 5,
+    "customPopularity": 3,
+    "packaging": "Оригінальний мішечок бренду та фірмовий пакет TVOI"
+},
+{
+    "count": 0,
+    "collection": "star wars",
+    "category": "charms",
+    "labelName": "Намистина Pandora",
+    "brand": "Pandora",
+    "price": 590,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52779945476_37456a613d_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52780363085_fe948359f7_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52780363190_2a321c2d96_z.jpg"
+      }
+    ],
+    "weight": 4.1,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "Намистина з підвісками Йода з колекції Star Wars — прикраса для справжніх фанатів. Цю довершену вручну срібну прикрасу доповнено двома підвісками: на ажурній підвісці зображено персонажа Yoda™ з палкою, оповитою плющем, а підвіску-диск оздоблено у лісовому стилі та вручну розфарбовано емаллю зеленого та синього кольорів",
+    "popularity": 5,
+    "customPopularity": 3,
+    "packaging": "Оригінальний мішечок бренду та фірмовий пакет TVOI"
+},
+{
+    "count": 0,
+    "collection": "star wars",
+    "category": "charms",
+    "labelName": "Намистина Pandora",
+    "brand": "Pandora",
+    "price": 535,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52780417533_b41f479faa_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52780417523_a6caa82c12_z.jpg"
+      }
+    ],
+    "weight": 3.4,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "Намистина Чубакка з колекції Зоряні війни завжди нагадуватиме вам про силу справжньої дружби. Ця, довершена вручну, срібна прикраса, з нанесеними вручну темно-коричневою та чорною емаллю, зображує Чубакку, одного з найулюбленіших героїв всіх фанатів Зоряних воєн",
+    "popularity": 5,
+    "customPopularity": 3,
+    "packaging": "Оригінальний мішечок бренду та фірмовий пакет TVOI"
+}
+]

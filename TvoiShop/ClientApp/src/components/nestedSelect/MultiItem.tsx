@@ -28,11 +28,11 @@ export default function MultiItem({ item, onSelect }: IProps){
     return (
       <React.Fragment>
         <OutsideAlerter onOutsideClick={() => setOpen(false)}>
-          <div className="multiItem" onClick={handleClick}>
-            <div>{item.Title}</div>
+          <div onClick={handleClick} className="singleItem">
+            {item.Title}
             {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </div>
-          {open && <div className="multiSubMenu nestedItems">
+          {open && <div className="multiSubMenu nestedItems ">
             {item.Items!.map((child, key) => child.Items && child.Items.length > 0 ?
               <MultiItem onSelect={select} item={child} key={key}/> :
               <SingleItem onSelect={select} item={child} key={key} />

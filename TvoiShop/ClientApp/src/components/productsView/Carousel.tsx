@@ -32,7 +32,7 @@ export const CarouselGallery = (props: IProps) => {
             <Images images={p.images} behaviour={ImageBehaviour.Single} />
           </div>
           <div className='productLabel'>
-            <div>{p.labelName}</div>
+            <div className='productLabelOverflow'>{p.labelName}</div>
             <Price product={p} />
           </div>
         </div>
@@ -42,6 +42,8 @@ export const CarouselGallery = (props: IProps) => {
   return (
     <div>
       <div className='productViewCarouselParent'> 
+      <div className='leftBlurCarouselEffect'></div>
+      <div className='rightBlurCarouselEffect'></div>
       <button onClick={sliderLeft} className ='btnCarouselLeft'> <LeftIcon/> </button>
       <button onClick={sliderRight} className ='btnCarouselRight'> <RightIcon/> </button>
         <div id='slider' className='carousel'>

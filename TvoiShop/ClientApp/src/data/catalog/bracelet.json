@@ -1,0 +1,657 @@
+[
+{
+    "count": 0,
+    "collection": "pandora",
+    "category": "bracelet",
+    "labelName": "Pandora Me Pearl",
+    "brand": "Pandora",
+    "price": 1690,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52637680520_5d6460602c_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52637494149_c856213e52_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52636724212_2bff1d83cc_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52636724182_89aa93629f_z.jpg"
+      }
+    ],
+    "weight": 10.2,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": 17.5
+      },
+      {
+        "value": 19
+      },
+      {
+        "value": 21
+      }
+    ],
+    "description": "",
+    "popularity": 25,
+    "customPopularity": 25
+  },
+  {
+    "count": 0,
+    "collection": "pandora",
+    "category": "bracelet",
+    "labelName": "Pandora Me New Collection",
+    "brand": "Pandora",
+    "price": 1290,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52637680465_97e9c8b404_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52637236536_0fb116946a_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52637680480_beb31bf676_z.jpg"
+      }
+    ],
+    "weight": 10.2,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": 17.5
+      },
+      {
+        "value": 19
+      },
+      {
+        "value": 21
+      }
+    ],
+    "description": "",
+    "popularity": 10,
+    "customPopularity": 10
+  },
+  {
+    "count": 0,
+    "collection": "pandora",
+    "category": "bracelet",
+    "labelName": "Pandora Me New Collection",
+    "brand": "Pandora",
+    "price": 1290,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52637680465_97e9c8b404_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52637236536_0fb116946a_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52637680480_beb31bf676_z.jpg"
+      }
+    ],
+    "weight": 10.2,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": 17.5
+      },
+      {
+        "value": 19
+      },
+      {
+        "value": 21
+      }
+    ],
+    "description": "",
+    "popularity": 10,
+    "customPopularity": 10
+  },
+  {
+    "count": 0,
+    "collection": "Tiffany classic",
+    "category": "bracelets",
+    "labelName": "Tiffany&Co Classic Bracelet",
+    "brand": "Tiffany",
+    "price": 1590,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52693514598_f1f82c37f5_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52637494149_c856213e52_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52693514583_6b93b4a183_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52693291574_4e811962c1_z.jpg"
+      }
+    ],
+    "weight": 8.2,
+    "colors": [
+      {
+        "name": "blue"
+      },
+      {
+        "name": "red"
+      },
+      {
+        "name": "rose"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": 16
+      },
+      {
+        "value": 17
+      },
+      {
+        "value": 18
+      },
+      {
+        "value": 19
+      }
+    ],
+    "description": "none",
+    "popularity": 2,
+    "customPopularity": 2
+  },
+  {
+    "count": 0,
+    "collection": "Hermes Clic H",
+    "category": "bracelets",
+    "labelName": "Hermes clic h",
+    "brand": "Hermes",
+    "price": 3090,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52699292818_5895a0aee6_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52699063074_f7af2a9d53_z.jpg"
+      }
+    ],
+    "weight": 15.6,
+    "colors": [
+      {
+        "name": "gold black"
+      },
+      {
+        "name": "gold rose"
+      }
+    ],
+    "metal": "enamel steel",
+    "sizes": [
+      {
+        "value": "17"
+      }
+    ],
+    "description": "none",
+    "popularity": 4,
+    "customPopularity": 4
+  },
+  {
+    "count": 0,
+    "collection": "Sif Jakobs Erto",
+    "category": "bracelets",
+    "labelName": "Sif Jakobs Bracelet",
+    "brand": "Sif Jakobs",
+    "price": 7990,
+    "salePrice": 4490,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704663665_dcb710efba_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704730088_ecf8fb0639_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704243831_726cfe5785_z.jpg"
+      }
+    ],
+    "weight": 13.4,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "enamel steel",
+    "sizes": [
+      {
+        "value": "16.5 - 19.5 cm"
+      }
+    ],
+    "description": "none",
+    "popularity": 2,
+    "customPopularity": 2
+  },
+  {
+    "count": 0,
+    "collection": "Xenox",
+    "category": "bracelets",
+    "labelName": "Xenox Woman Bracelet",
+    "brand": "Xenox",
+    "price": 1090,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52708553643_a5abeda3bc_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52707546237_196432a72d_z.jpg"
+      }
+    ],
+    "weight": 7.3,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "16.5 - 18.5 cm"
+      }
+    ],
+    "description": "string",
+    "popularity": 3,
+    "customPopularity": 3
+  },
+  {
+    "count": 0,
+    "collection": "Pandora Me Old",
+    "category": "bracelets",
+    "labelName": "Pandora Me Bracelet",
+    "brand": "Pandora",
+    "price": 1290,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644212836_bfcd6ca4bf_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644212871_62b1a29d7f_z.jpg"
+      }
+    ],
+    "weight": 9.3,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "17.5"
+      },
+      {
+        "value": "19"
+      },
+      {
+        "value": "21"
+      }
+    ],
+    "description": "string",
+    "popularity": 11,
+    "customPopularity": 11
+  },
+  {
+    "count": 0,
+    "collection": "Esprit Classic",
+    "category": "bracelets",
+    "labelName": "Esprit woman Bracelet",
+    "brand": "Esprit",
+    "price": 1890,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52713043045_9ff59e9e46_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52712105337_5408560e3a_z.jpg"
+      }
+    ],
+    "weight": 7.8,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "17/19/21"
+      }
+    ],
+    "description": "string",
+    "popularity": 5,
+    "customPopularity": 5
+  },
+  {
+    "count": 0,
+    "collection": "Pandora",
+    "category": "bracelets",
+    "labelName": "Браслет Pandora",
+    "brand": "Pandora",
+    "price": 1290,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644655075_92570f98e0_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644655100_31d6f3d259_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644685978_60c4e618ea_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52643704677_caa3de0262_z.jpg"
+      }
+    ],
+    "weight": 9.9,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "16"
+      },
+      {
+        "value": "17"
+      },
+      {
+        "value": "18"
+      },
+      {
+        "value": "19"
+      }
+    ],
+    "description": "string",
+    "popularity": 15,
+    "customPopularity": 15
+  },
+  {
+    "count": 0,
+    "collection": "Pandora",
+    "category": "bracelets",
+    "labelName": "Браслет Pandora",
+    "brand": "Pandora",
+    "price": 1290,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644212896_cc351cb4f1_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644654945_0a879a7684_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644212921_58711b0831_z.jpg"
+      }
+    ],
+    "weight": 9.9,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "16"
+      },
+      {
+        "value": "17"
+      },
+      {
+        "value": "18"
+      },
+      {
+        "value": "19"
+      }
+    ],
+    "description": "string",
+    "popularity": 15,
+    "customPopularity": 15
+  },
+  {
+    "count": 0,
+    "collection": "Thomas Sabo",
+    "category": "bracelets",
+    "labelName": "Браслет Thomas Sabo",
+    "brand": "Thomas Sabo",
+    "price": 1090,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52721094511_afc3450339_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52721581068_0010f9d0c9_z.jpg"
+      }
+    ],
+    "weight": 11.9,
+    "colors": [
+      {
+        "name": "white"
+      }
+    ],
+    "metal": "freshwater pearl",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "string",
+    "popularity": 6,
+    "customPopularity": 1
+  },
+  {
+    "count": 0,
+    "collection": "Thomas Sabo",
+    "category": "bracelets",
+    "labelName": "Браслет Thomas Sabo",
+    "brand": "Thomas Sabo",
+    "price": 1490,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52721356534_24ca1a0e24_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52721581068_0010f9d0c9_z.jpg"
+      }
+    ],
+    "weight": 11.9,
+    "colors": [
+      {
+        "name": "black"
+      }
+    ],
+    "metal": "obsidian",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "string",
+    "popularity": 7,
+    "customPopularity": 4,
+    "packaging": ""
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "bracelets",
+    "labelName": "Браслет Pandora Me",
+    "brand": "Pandora",
+    "price": 1390,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52643704772_7c1db9647b_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644655120_9c321849d3_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644468884_cc6a9be294_z.jpg"
+      }
+    ],
+    "weight": 11.9,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "17.5"
+      },
+      {
+        "value": "19"
+      },
+      {
+        "value": "21"
+      }
+    ],
+    "description": "Срібний браслет відомого бренду виготовлений у сучасному модному дизайні із масивними ланками, додасть акценту до твого образу на кожен день",
+    "popularity": 7,
+    "customPopularity": 4,
+    "packaging": "Оригінальна коробка бренду та фірмовий пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "bracelets",
+    "labelName": "Браслет Paul Hewitt",
+    "brand": "Paul Hewitt",
+    "price": 1490,
+    "salePrice": 1235,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52753272480_6ae55e739d_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52753272495_fb141d2419_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52753102254_97a674defd_z.jpg"
+      }
+    ],
+    "weight": 7.9,
+    "colors": [
+      {
+        "name": "black"
+      }
+    ],
+    "metal": "leather",
+    "sizes": [
+      {
+        "value": "16"
+      }
+    ],
+    "description": "Браслет унісекс Paul Hewitt має чорний шкіряний ремінець зі сріблястою пластиною з написом 53 08 32.9 N 8 12 39.8 E - координатами головного офісу Paul Hewitt. Застібається на фірмову застібку Paul Hewitt Anchor. Мікс чорного і сріблястого кольорів дозволяє легко поєднувати його з іншими речами.",
+    "popularity": 3,
+    "customPopularity": 3,
+    "packaging": "Мішечок Paul Hewitt та фірмовий пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "bracelets",
+    "labelName": "Браслет Paul Hewitt",
+    "brand": "Paul Hewitt",
+    "price": 1890,
+    "salePrice": 1410,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52753357283_2a52132879_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52753102279_a5a2e2b35e_z.jpg"
+      }
+    ],
+    "weight": 10.4,
+    "colors": [
+      {
+        "name": "red"
+      }
+    ],
+    "metal": "leather",
+    "sizes": [
+      {
+        "value": "16"
+      }
+    ],
+    "description": "Браслет із високоякісної шкіри із фірмовою застібкою Paul Hewitt Anchor. Застібка, яка символізує міцність та нероздільність - нагадування про ваші морські подорожі, що додає браслету особливий шар значущості",
+    "popularity": 3,
+    "customPopularity": 3,
+    "packaging": "Мішечок Paul Hewitt та фірмовий пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "pandora",
+    "category": "bracelets",
+    "labelName": "Браслет Pandora",
+    "brand": "Pandora",
+    "price": 1090,
+    "salePrice": 895,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52800597663_78b3edfc46_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52800398004_ea9d426202_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52800597748_9b71e71219_z.jpg"
+      }
+    ],
+    "weight": 7.8,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "16"
+      }
+    ],
+    "description": "Незмінна класика у колекції прикрас кожної жінки. Срібний браслет, який буде гарно вписуватись під будь-який образ",
+    "popularity": 1,
+    "customPopularity": 1,
+    "packaging": "Оригінальна коробка бренду та фірмовий пакет TVOI"
+  }
+
+]

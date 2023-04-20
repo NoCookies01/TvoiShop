@@ -1,0 +1,444 @@
+[{
+  "count": 0,
+  "collection": "Lancaster Italy",
+  "category": "watches",
+  "labelName": "Lancaster Woman Watch",
+  "brand": "Lancaster",
+  "price": 129990,
+  "salePrice": 88990,
+  "images": [
+    {
+      "url": "https://live.staticflickr.com/65535/52704506189_0c39d7c82f_z.jpg"
+    },
+    {
+      "url": "https://live.staticflickr.com/65535/52704506179_7b84815c28_z.jpg"
+    },
+    {
+      "url": "https://live.staticflickr.com/65535/52703729147_30c0176f48_z.jpg"
+    }
+  ],
+  "weight": 0,
+  "colors": [
+    {
+      "name": "gold with diamonds"
+    }
+  ],
+  "metal": "Gold Plated 18k, diamonds 3.69 carats",
+  "sizes": [
+    {
+      "value": "universal"
+    }
+  ],
+  "description": "string",
+  "popularity": 50,
+  "customPopularity": 5
+},
+  {
+    "count": 0,
+    "collection": "Versace Woman",
+    "category": "watches",
+    "labelName": "Versace Woman Watch",
+    "brand": "Versace",
+    "price": 52800,
+    "salePrice": 25900,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52688775626_48a1f95cc8_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52688775651_72e56903e3_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52689197485_6bafb36baa_z.jpg"
+      }
+    ],
+    "weight": 0,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": 22
+      }
+    ],
+    "description": "string",
+    "popularity": 5,
+    "customPopularity": 5
+  },
+  {
+    "count": 0,
+    "collection": "Versace Woman",
+    "category": "watches",
+    "labelName": "Versace Woman Watch",
+    "brand": "Versace",
+    "price": 62900,
+    "salePrice": 31900,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52689737418_f601b55227_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52689666735_3e52fcf259_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52689517044_2650cb7ec3_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52689666645_d557de187d_z.jpg"
+      }
+    ],
+    "weight": 0,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": 22
+      }
+    ],
+    "description": "string",
+    "popularity": 27,
+    "customPopularity": 27
+  },
+  {
+    "count": 0,
+    "collection": "Roamer of Switzerland",
+    "category": "watches",
+    "labelName": "Roamer Watch",
+    "brand": "Roamer",
+    "price": 30000,
+    "salePrice": 15000,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52699344128_9b6e52a516_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52698851056_2020e373a2_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52699344218_113fb5d238_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "string",
+    "popularity": 28,
+    "customPopularity": 28
+  },
+  {
+    "count": 0,
+    "collection": "Roamer of Switzerland",
+    "category": "watches",
+    "labelName": "Roamer Watch",
+    "brand": "Roamer",
+    "price": 30000,
+    "salePrice": 15000,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52698850961_f45993525a_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52698850816_33fa034e00_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52699129809_9d6c2ee05b_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "silver and gold"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "string",
+    "popularity": 29,
+    "customPopularity": 29
+  },
+  {
+    "count": 0,
+    "collection": "Roamer of Switzerland",
+    "category": "watches",
+    "labelName": "Roamer Watch",
+    "brand": "Roamer",
+    "price": 14990,
+    "salePrice": 10990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52706708070_4629ddcbd1_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "string",
+    "popularity": 30,
+    "customPopularity": 30
+  },
+  {
+    "count": 0,
+    "collection": "Roamer of Switzerland",
+    "category": "watches",
+    "labelName": "Roamer Watch",
+    "brand": "Roamer",
+    "price": 11990,
+    "salePrice": 8990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52706783923_671641db93_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52706783948_e52b19ba8a_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "steel, leather",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "string",
+    "popularity": 31,
+    "customPopularity": 31
+  },
+  {
+    "count": 0,
+    "collection": "Roamer of Switzerland",
+    "category": "watches",
+    "labelName": "Roamer Watch",
+    "brand": "Roamer",
+    "price": 12990,
+    "salePrice": 10990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52705769937_14c903dabb_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "string",
+    "popularity": 32,
+    "customPopularity": 32
+  },
+  {
+    "count": 0,
+    "collection": "Michael Kors",
+    "category": "watches",
+    "labelName": "Michael Kors Watch",
+    "brand": "Michael Kors Classic",
+    "price": 12990,
+    "salePrice": 7990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52705771347_a428c9ea9e_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52706548614_ed954513d6_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "string",
+    "popularity": 15,
+    "customPopularity": 15
+  },
+  {
+    "count": 0,
+    "collection": "Versace",
+    "category": "watches",
+    "labelName": "Versace Watch",
+    "brand": "Versace",
+    "price": 45990,
+    "salePrice": 22990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52706785568_85c5f39a79_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "string",
+    "popularity": 14,
+    "customPopularity": 14
+  },
+  {
+    "count": 0,
+    "collection": "Guess",
+    "category": "watches",
+    "labelName": "Годинник Guess",
+    "brand": "Guess",
+    "price": 6390,
+    "salePrice": 4880,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52758213929_5f07da0b9e_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52758213924_48cd0f35a9_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52758213944_f02b600eb5_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52758213894_31a93f2799_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "gold"
+      },
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "Над моделями цієї колекції працюють провідні європейські дизайнери. Всі моделі виходять одночасно з новими колекціями одягу, отже, всі риси виробів є у тренді. В основі годинника використовуються високоточні швейцарські механізми ETA і Ronda, завдяки чому вироби нічим не поступаюся швейцарському годиннику знаменитих марок.",
+    "popularity": 8,
+    "customPopularity": 2,
+    "packaging": "Оригінальна коробка бренду"
+  },
+  {
+    "count": 0,
+    "collection": "s.Oliver",
+    "category": "watches",
+    "labelName": "Годинник S.Oliver",
+    "brand": "s.Oliver",
+    "price": 4430,
+    "salePrice": 3190,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52768198220_359137cd97_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52767248262_c7d3290b42_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52768038494_233e819ac4_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "steel",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "Незмінна класика та маст хев у гардеробі кожної жінки. Корпус із якісної сталі та надійний механізм - те, що дозволяє годиннику прослужити довгий час та не втратити свого вигляду",
+    "popularity": 10,
+    "customPopularity": 3,
+    "packaging": "Оригінальна коробка бренду"
+  },
+  {
+    "count": 0,
+    "collection": "Lancaster Italy",
+    "category": "watches",
+    "labelName": "Годинник Lancaster",
+    "brand": "Lancaster Italy",
+    "price": 69995,
+    "salePrice": 52665,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52829290507_7f2053829f_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52829289837_341854a36b_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52829865636_656f570bb3_z.jpg"
+      }
+    ],
+    "weight": 160,
+    "colors": [
+      {
+        "name": "white"
+      }
+    ],
+    "metal": "ceramic",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "Новий, красивий і унікальний жіночий годинник, виготовлений в Італії та прикрашений 70 діамантами (загальна кількість 0,59 карата). Годинник стане ідеальним подарунком і подарує довготривале задоволення першому власнику. Корпус: біла кераміка, діаметр 33 мм, висота 10 мм, загартоване мінеральне кришталеве скло, водонепроникність 50 м (5 ATM), безель із червоним золотом із 70 діамантами 0,59 карата. Серійний номер: OLA0649RG/BN",
+    "popularity": 10,
+    "customPopularity": 3,
+    "packaging": "Оригінальна коробка бренду, сертифікат на діаманти, паспорт на годинник"
+  }
+]

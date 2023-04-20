@@ -1,0 +1,378 @@
+[
+    {
+    "count": 0,
+    "collection": "Spring`23",
+    "category": "earrings",
+    "labelName": "Pandora Earrings",
+    "brand": "Pandora",
+    "price": 790,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644216216_e3954f8205_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644689223_9f39d3bfe3_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644216186_49aa5e206e_z.jpg"
+      }
+    ],
+    "weight": 7.2,
+    "colors": [
+      {
+        "name": "silver"
+      },
+      {
+        "name": "gold"
+      },
+      {
+        "name": "rosegold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "none",
+    "popularity": 10,
+    "customPopularity": 10
+  },
+  {
+    "count": 0,
+    "collection": "Spring`23",
+    "category": "earrings",
+    "labelName": "Pandora Double Earrings",
+    "brand": "Pandora",
+    "price": 890,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52643708052_2047f0dccb_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644658290_023a6e3a54_z.jpg"
+      }
+    ],
+    "weight": 7.2,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "none",
+    "popularity": 11,
+    "customPopularity": 11
+  },
+  {
+    "count": 0,
+    "collection": "Esprit",
+    "category": "earrings",
+    "labelName": "Esprit Earrings",
+    "brand": "Esprit",
+    "price": 1490,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52713531678_5f118c7b1d_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52713473110_4dd9831fe0_z.jpg"
+      }
+    ],
+    "weight": 9.5,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "none",
+    "popularity": 6,
+    "customPopularity": 6
+  },
+  {
+    "count": 0,
+    "collection": "Pandora",
+    "category": "earrings",
+    "labelName": "Pandora Earrings",
+    "brand": "Pandora",
+    "price": 890,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644658310_63aa6d4791_z.jpg"
+      }
+    ],
+    "weight": 7.2,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "universal"
+      }
+    ],
+    "description": "none",
+    "popularity": 12,
+    "customPopularity": 12
+  },
+  {
+    "count": 0,
+    "collection": "Sif Jakobs",
+    "category": "earrings",
+    "labelName": "Сережки Sif Jakobs",
+    "brand": "Sif Jakobs",
+    "price": 1890,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52722966281_fe9cd7d011_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52723441368_b61d86bf5d_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52722435857_206fe8c762_z.jpg"
+      }
+    ],
+    "weight": 8.4,
+    "colors": [
+      {
+        "name": "black"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "one size"
+      }
+    ],
+    "description": "none",
+    "popularity": 5,
+    "customPopularity": 3
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "earrings",
+    "labelName": "Сережка Pandora",
+    "brand": "Pandora",
+    "price": 790,
+    "salePrice": 550,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52740382445_35eff8fd23_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740459908_5da1d9f4f0_z.jpg"
+      }
+    ],
+    "weight": 4.4,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "One size"
+      }
+    ],
+    "description": "Срібна сережка інкрустована камінцями Цирконію. Її можна носити як на одному вушку, так і на двох - усе на ваш вибір. Тому ми вказали ціну за одну штуку",
+    "popularity": 5,
+    "customPopularity": 3,
+    "packaging": "Оригінальний мішечок бренду та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "earrings",
+    "labelName": "Сережки Pandora",
+    "brand": "Pandora",
+    "price": 1250,
+    "salePrice": 785,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52740587305_98d8ac6101_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740665883_b61f0ed407_z.jpg"
+      }
+    ],
+    "weight": 4.8,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "One size"
+      }
+    ],
+    "description": "Срібні сережки у вигляді квітки із тонким напиленням рожевого золота 18к та вставками кубічного цирконію. Любов та ніжність у всіх її проявах",
+    "popularity": 5,
+    "customPopularity": 3,
+    "packaging": "Оригінальний мішечок бренду та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "earrings",
+    "labelName": "Сережки Pandora",
+    "brand": "Pandora",
+    "price": 990,
+    "salePrice": 710,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52740184826_e45ee5ef1b_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740438174_c8404a6867_z.jpg"
+      }
+    ],
+    "weight": 4.1,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "One size"
+      }
+    ],
+    "description": "Срібні сережки-пусети інкрустовані голубими Цирконіями, кольором, який символізує спокій та зосередженість",
+    "popularity": 10,
+    "customPopularity": 10,
+    "packaging": "Оригінальний мішечок бренду та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "earrings",
+    "labelName": "Сережки s.Oliver",
+    "brand": "s.Oliver",
+    "price": 1995,
+    "salePrice": 1465,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52771296792_3c1987bf94_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52772313978_7308d94449_z.jpg"
+      }
+    ],
+    "weight": 4.1,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "One size"
+      }
+    ],
+    "description": "Срібні сережки інкрустовані білими Цирконіями. Адже вона цього варта",
+    "popularity": 4,
+    "customPopularity": 3,
+    "packaging": "Оригінальна коробка бренду"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "earrings",
+    "labelName": "Срібні сережки-пусети",
+    "brand": "xenox",
+    "price": 1090,
+    "salePrice": 665,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52774803221_d13e928fea_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52775060429_6349346c60_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52774803196_4596ce4c98_z.jpg"
+      }
+    ],
+    "weight": 4.1,
+    "colors": [
+      {
+        "name": "silver"
+      },
+      {
+        "name": "red"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "One size"
+      }
+    ],
+    "description": "Срібні базові сережки-пусети, доступні у двох кольорах. Ідеальний варіант на кожен день під будь-який образ",
+    "popularity": 2,
+    "customPopularity": 3,
+    "packaging": "Чорна коробка під сережки та фірмовий пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "earrings",
+    "labelName": "Сережки Sif Jakobs",
+    "brand": "Sif Jakobs",
+    "price": 3995,
+    "salePrice": 3495,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52813149925_608077f0fb_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52812739666_0c74edb8d8_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52812181997_89f1d72156_z.jpg"
+      }
+    ],
+    "weight": 4.3,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "One size"
+      }
+    ],
+    "description": "Довершені найкращими ювелірами від Sif Jakobs ці сережки із срібла з позолотою 18к та інкрустацією камінців цирконію із діамантовою огранкою - це вишуканість та простота водночас - ідеальний варіант для Неї",
+    "popularity": 5,
+    "customPopularity": 5,
+    "packaging": "Оригінальна коробка бренду"
+  }
+]

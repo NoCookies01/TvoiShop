@@ -13,12 +13,12 @@ interface ISortItem extends IItem {
 
 const getSortCriteria = (): ISortItem[] => [{
     Title: translationService.translate("sort price Up|A"),
-    Value: "price",
+    Value: "price" && "salePrice",
     SortOrder: SortOrder.Descending
 },
 {
     Title: translationService.translate("sort price Down|A"),
-    Value: "price",
+    Value: "price" && "salePrice",
     SortOrder: SortOrder.Ascending
 },
 {

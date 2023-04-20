@@ -1,0 +1,695 @@
+[
+{
+    "count": 0,
+    "collection": "Spring`23",
+    "category": "rings",
+    "labelName": "Pandora Ring",
+    "brand": "Pandora",
+    "price": 790,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644686813_1482f8c862_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644686938_1c950768ae_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644469814_d326e89543_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644656135_2990611849_z.jpg"
+      }
+    ],
+    "weight": 6.3,
+    "colors": [
+      {
+        "name": "silver"
+      },
+      {
+        "name": "gold"
+      },
+      {
+        "name": "rosegold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "50"
+      },
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "none",
+    "popularity": 8,
+    "customPopularity": 8
+  },
+  {
+    "count": 0,
+    "collection": "Spring`23",
+    "category": "rings",
+    "labelName": "Pandora Ring Blue Crystal",
+    "brand": "Pandora",
+    "price": 1090,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644213966_dcde4b3eb5_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644656075_74d59b3043_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644469744_a910c70359_z.jpg"
+      }
+    ],
+    "weight": 7.3,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "50"
+      },
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "none",
+    "popularity": 8,
+    "customPopularity": 8
+  },
+  {
+    "count": 0,
+    "collection": "s.Oliver",
+    "category": "rings",
+    "labelName": "s.Oliver ring",
+    "brand": "Pandora",
+    "price": 1390,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704213716_0b24e83cc8_z.jpg"
+      }
+    ],
+    "weight": 9.3,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "none",
+    "popularity": 5,
+    "customPopularity": 5
+  },
+  {
+    "count": 0,
+    "collection": "s.Oliver",
+    "category": "rings",
+    "labelName": "s.Oliver ring",
+    "brand": "Pandora",
+    "price": 1390,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704213706_2415ea3004_z.jpg"
+      }
+    ],
+    "weight": 10.3,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "none",
+    "popularity": 6,
+    "customPopularity": 6
+  },
+  {
+    "count": 0,
+    "collection": "s.Oliver",
+    "category": "rings",
+    "labelName": "s.Oliver ring",
+    "brand": "Pandora",
+    "price": 890,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704216801_dc0d177c17_z.jpg"
+      }
+    ],
+    "weight": 6.8,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925, Freshwater Pearl",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "none",
+    "popularity": 7,
+    "customPopularity": 7
+  },
+  {
+    "count": 0,
+    "collection": "Xenox",
+    "category": "rings",
+    "labelName": "Xenox Ring",
+    "brand": "Xenox",
+    "price": 990,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52708572258_631e8ec2c2_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52708087526_8e33a6d27f_z.jpg"
+      }
+    ],
+    "weight": 6.5,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      }
+    ],
+    "description": "Срібна каблучка із тонким напиленням рожевого золота 18к. Нагадати про свої почуття так просто",
+    "popularity": 3,
+    "customPopularity": 3,
+    "packaging": "Оригінальна коробка бренду"
+  },
+  {
+    "count": 0,
+    "collection": "Gooix",
+    "category": "rings",
+    "labelName": "Gooix Ring",
+    "brand": "Gooix",
+    "price": 1990,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52713731352_6592bd055f_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52714513854_27d531dfd0_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52714255141_5c6a72b0e9_z.jpg"
+      }
+    ],
+    "weight": 9.5,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      }
+    ],
+    "description": "Срібна каблучка із діамантовою обробкою. Бо вона цього варта",
+    "popularity": 7,
+    "customPopularity": 7,
+    "packaging": "Оригінальна коробка бренду"
+  },
+  {
+    "count": 0,
+    "collection": "Pandora",
+    "category": "rings",
+    "labelName": "Каблучка Pandora",
+    "brand": "Pandora",
+    "price": 890,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644213896_a7e7d59f10_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644686828_56311d0c88_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644686868_6f6330f984_z.jpg"
+      }
+    ],
+    "weight": 7.5,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "string",
+    "popularity": 16,
+    "customPopularity": 16
+  },
+  {
+    "count": 0,
+    "collection": "Pandora",
+    "category": "rings",
+    "labelName": "Каблучка Pandora",
+    "brand": "Pandora",
+    "price": 1090,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52644686873_fd9ba70a50_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644213956_f49bd38501_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52644469784_f85c573c0f_z.jpg"
+      }
+    ],
+    "weight": 8.5,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "string",
+    "popularity": 16,
+    "customPopularity": 16
+  },
+  {
+    "count": 0,
+    "collection": "Sif Jakobs",
+    "category": "rings",
+    "labelName": "Каблучка Sif Jakobs",
+    "brand": "Sif Jakobs",
+    "price": 4770,
+    "salePrice": 2590,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52720120961_876d853ce2_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52720120951_28c331f97d_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52719601967_c90779e5d2_z.jpg"
+      }
+    ],
+    "weight": 10.5,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "56"
+      }
+    ],
+    "description": "string",
+    "popularity": 4,
+    "customPopularity": 2
+  },
+  {
+    "count": 0,
+    "collection": "Esprit",
+    "category": "rings",
+    "labelName": "Каблучка Esprit",
+    "brand": "Esprit",
+    "price": 1990,
+    "salePrice": 1375,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52723535775_1463e4eff1_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52723132516_5165165ccd_z.jpg"
+      }
+    ],
+    "weight": 6.1,
+    "colors": [
+      {
+        "name": "silver"
+      },
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "17"
+      },
+      {
+        "value": "18"
+      }
+    ],
+    "description": "string",
+    "popularity": 6,
+    "customPopularity": 2
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "rings",
+    "labelName": "Каблучка із султанітом",
+    "brand": "Tvoi",
+    "price": 2570,
+    "salePrice": 1330,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52735213458_6e09e7a05d_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52739425722_362f593cf8_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52739942511_77566e168f_z.jpg"
+      }
+    ],
+    "weight": 6.5,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "54"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "Неймовірна срібна каблучка із Султанітом - дорогоцінним каменем, який міняє колір взалежності від освітлення. Наприклад, на фото зображений колір каменя під світлом сонячних променів. Під світлом ламп - камінь набуде насиченого зеленого кольору, близького до кольору Ізумруду ",
+    "popularity": 6,
+    "customPopularity": 2,
+    "packaging": "Чорна коробка під каблучки та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "rings",
+    "labelName": "Каблучка Pandora",
+    "brand": "Pandora",
+    "price": 1190,
+    "salePrice": 785,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52740499143_030b58f250_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740420875_237326b8e0_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740264104_2a40a22b28_z.jpg"
+      }
+    ],
+    "weight": 6.7,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      }
+    ],
+    "description": "Срібна каблучка у вигляді квітки із тонким напиленням рожевого золота 18к та вставками кубічного цирконію. Любов та ніжність у всіх її проявах",
+    "popularity": 6,
+    "customPopularity": 2,
+    "packaging": "Оригінальна коробка бренду та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "rings",
+    "labelName": "Каблучка Pandora",
+    "brand": "Pandora",
+    "price": 1390,
+    "salePrice": 990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52740011306_f60a9a4a00_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740420760_99f673a9a9_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740011371_e9266f9925_z.jpg"
+      }
+    ],
+    "weight": 6.3,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      }
+    ],
+    "description": "Нагадай про свої почуття із цією срібною каблучкою. Тонке напиленням рожевого золота 18к та інкрустація камінцем Цирконію у вигляді сердечка",
+    "popularity": 6,
+    "customPopularity": 2,
+    "packaging": "Оригінальна коробка бренду та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "rings",
+    "labelName": "Каблучка Pandora",
+    "brand": "Pandora",
+    "price": 1390,
+    "salePrice": 885,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52740263809_f78b8a5a88_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740498878_7a3a288048_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740011126_aeeaf634c8_z.jpg"
+      }
+    ],
+    "weight": 6.9,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "52"
+      },
+      {
+        "value": "54"
+      }
+    ],
+    "description": "Неймовірно сяюча срібна каблучка інкрустована камінцями Цирконію. Просто та акуратно - ідеальний варіант каблучки, яка підійде під будь-який твій образ",
+    "popularity": 15,
+    "customPopularity": 15,
+    "packaging": "Оригінальна коробка бренду та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "rings",
+    "labelName": "Каблучка Pandora",
+    "brand": "Pandora",
+    "price": 1190,
+    "salePrice": 895,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52740498908_52163bd81b_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740498893_f5dd319fb5_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52740011296_537db32893_z.jpg"
+      }
+    ],
+    "weight": 5.8,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "54"
+      }
+    ],
+    "description": "Натхненна зачарованою трояндою, каблучка із кубічного цирконію в центрі обідка, оточену ажурним листям і вигнутими гілками, а також трьома меншими червоними каменями. Оспівуючи недосконале, але чарівне кохання між діснеївською Попелюшкою та Чудовиськом, каблучка стане елегантним, вигадливим доповненням до будь-якого образу",
+    "popularity": 5,
+    "customPopularity": 3,
+    "packaging": "Оригінальна коробка бренду та пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "gift",
+    "category": "rings",
+    "labelName": "Каблучка із позолотою",
+    "brand": "Xenox",
+    "price": 1055,
+    "salePrice": 845,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52764924028_d41645f1ec_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52764924623_17c0798372_z.jpg"
+      }
+    ],
+    "weight": 5.4,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "50"
+      },
+      {
+        "value": "52"
+      },
+      {
+        "value": "56"
+      }
+    ],
+    "description": "Довершена рожевим золотом 18к, ця срібна каблучка із сяючим камінчиком підкреслить витонченість вашого смаку і додасть особливі нотки казковості. Для тебе - лише найкраще",
+    "popularity": 5,
+    "customPopularity": 3,
+    "packaging": "Чорна коробка під каблучку та фірмовий пакет TVOI"
+  },
+  {
+    "count": 0,
+    "collection": "Sif Jakobs",
+    "category": "rings",
+    "labelName": "Каблучка Sif Jakobs",
+    "brand": "Sif Jakobs",
+    "price": 6490,
+    "salePrice": 5090,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52770010796_29b623ab2c_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52769475222_836ab67b4e_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52770509848_361fe42545_z.jpg"
+      }
+    ],
+    "weight": 8.4,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "56"
+      }
+    ],
+    "description": "Ви не купуєте прикрасу - ви купуєте статус. Ця каблучка із високоякісного срібла, інкрустована камінцями Цирконію найвищого класу, зробить дорогим будь-який ваш образ, адже вона розроблена знаменитими дизайнерами та виготовлена найкращими ювелірами від Sif Jakobs",
+    "popularity": 3,
+    "customPopularity": 3,
+    "packaging": "Оригінальна коробка бренду"
+  }
+]

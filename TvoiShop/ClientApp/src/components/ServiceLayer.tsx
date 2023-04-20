@@ -1,11 +1,15 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
+import translationService from '../services/translation.service';
 
 
 export default function ServiceLayer() {
-    let data = useParams<any>();
+    let {lang} = useParams<any>();
+    
+    if (lang) {
+        translationService.setLanguage(lang);
+        translationService.load();
+    }
 
-    console.log(data)
-
-    return null;
+    return <><Outlet /></>;
 }

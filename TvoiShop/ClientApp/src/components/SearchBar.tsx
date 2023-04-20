@@ -16,6 +16,7 @@ interface IProps {
   handleChange: (product: IProductCart, count: number) => void;
   clearBasket: () => void;
   search: (querry: string) => void;
+  resetSearch?: () => void;
 }
 
 export const SearchBar = (props: IProps) => {
@@ -24,21 +25,31 @@ export const SearchBar = (props: IProps) => {
   const [openSearch, setOpenSearch] = useState(false);
   const navigate = useNavigate();
 
-  const cancelBasket = () => {
-    setOpenBasket(false);
+  const openBasketState = (st: boolean) => {
+    /* Lock / Unlock scroll on opened basket */
+    if (st) {
+      document.body.style.overflow = 'hidden';
+    }
+    else {
+      document.body.style.overflow = '';
+    }
+    
+    setOpenBasket(st);
   }
+
   const cancelSidebar = () => {
     setOpenSidebar(false);
     setOpenSearch(false);
   }
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    navigate(getRoute(`search`));
     props.search(event.target.value);
   };
   const handleSearchClick = () => {
-    navigate(getRoute(`search`));
     setOpenSearch(true);
   };
   const cancelSearch = () => {
+    if (props.resetSearch) props.resetSearch();
     setOpenSearch(false);
   }
 
@@ -56,14 +67,13 @@ export const SearchBar = (props: IProps) => {
       <OutsideAlerter onOutsideClick={cancelSidebar}>
         <SideBar isOpen={openSidebar} {...props} cancel={cancelSidebar}/>
         {openSearch && <form role="search" className="searchBarPos" >
+        <CancelIcon className="icon positionRightAbsolute" onClick={cancelSearch}/> 
         <input 
         className="searchBar"
         type="text" 
         aria-label={translationService.translate("search|A")}
         placeholder={translationService.translate("search|A") + "..."}
-        onChange ={handleSearch} 
-        onClick ={() => {navigate(getRoute(`search`))}}/>
-        <CancelIcon className="icon" onClick={cancelSearch}/> 
+        onChange ={handleSearch}/>
         </form>}
       </OutsideAlerter>
 
@@ -75,9 +85,9 @@ export const SearchBar = (props: IProps) => {
       
       <div className="searchBarIconPos">
         <SearchIcon className="icon" onClick={handleSearchClick}/>
-        <CartIcon className="icon" onClick={() => setOpenBasket(!openBasket)} />
-        { props.cart.length > 0 && <><div className="cartFullIconCount" onClick={() => setOpenBasket(!openBasket)}>{count}</div></>}
-        {openBasket && <Basket {...props} cancel={cancelBasket} />}
+        <CartIcon className="icon" onClick={() => openBasketState(!openBasket)} />
+        { props.cart.length > 0 && <><div className="cartFullIconCount" onClick={() => openBasketState(!openBasket)}>{count}</div></>}
+        {openBasket && <Basket {...props} cancel={() => openBasketState(false)} />}
       </div>
 
     </div>

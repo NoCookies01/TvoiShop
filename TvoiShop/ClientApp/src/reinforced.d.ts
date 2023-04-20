@@ -31,6 +31,7 @@ interface IProduct extends IIdentifier
 	description: string;
 	popularity: number;
 	customPopularity: number;
+	packaging: string;
 }
 interface ISize extends IIdentifier
 {

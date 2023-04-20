@@ -16,6 +16,7 @@ interface IProps {
     checkbox?: boolean;
     options: IOption[];
     onSelectValues: (values: string[]) => void;
+    onlyItemPreselected?: boolean;
 }
 
 export default function ElementSelect(props: IProps){
@@ -23,7 +24,17 @@ export default function ElementSelect(props: IProps){
     
     React.useEffect(() => {
         if (!props.options.every(po => options.findIndex(o => po.Value === o.Value) !== -1)) {
-            setOptions(props.options);
+            setOptions(() => {
+                const copy = props.options.map(o => {return {...o}});
+                if (props.onlyItemPreselected && options.length === 1) {
+                    const option = copy[0] as activableOption;
+                    option.active = true;
+
+                    props.onSelectValues([option.Value]);
+                }
+
+                return copy;
+            });
         }
     }, [props.options]);
 

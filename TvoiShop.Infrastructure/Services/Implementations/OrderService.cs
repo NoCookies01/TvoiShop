@@ -29,7 +29,10 @@ namespace TvoiShop.Infrastructure.Services.Implementations
 
             order.Products.ForEach(p =>
             {
-                message += $"Name: {p.LabelName} \n" +
+                message +=
+                    $"{p.Id} \n" +
+                    $"******************** \n" +
+                    $"Name: {p.LabelName} \n" +
                     $"Color: {p.Color} \n" +
                     $"Size: {p.Size} \n" +
                     $"Count: {p.Count} pcs \n" +

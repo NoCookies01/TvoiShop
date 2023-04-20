@@ -1,0 +1,248 @@
+[
+    {
+    "count": 0,
+    "collection": "sif jakobs",
+    "category": "necklaces",
+    "labelName": "Sif Jakobs Necklace",
+    "brand": "Sif Jakobs",
+    "price": 4690,
+    "salePrice": 3990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704645783_7fd8f659d3_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704414694_c02749ecc5_z.jpg"
+      }
+    ],
+    "weight": 11.2,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925, Zirconia",
+    "sizes": [
+      {
+        "value": "42/45 cm"
+      }
+    ],
+    "description": "string",
+    "popularity": 11,
+    "customPopularity": 11
+  },
+  {
+    "count": 0,
+    "collection": "sif jakobs",
+    "category": "necklaces",
+    "labelName": "Sif Jakobs Necklace",
+    "brand": "Sif Jakobs",
+    "price": 4690,
+    "salePrice": 3990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52703651742_59404f755a_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704645583_fa2b7ac513_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704645718_6fc272d7c9_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704160416_252a19f24e_z.jpg"
+      }
+    ],
+    "weight": 15.2,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "silver 925, Gold-Plated 18K, Zirconia",
+    "sizes": [
+      {
+        "value": "42 + 4cm"
+      }
+    ],
+    "description": "string",
+    "popularity": 12,
+    "customPopularity": 12
+  },
+  {
+    "count": 0,
+    "collection": "sif jakobs Pila Grande",
+    "category": "necklaces",
+    "labelName": "Sif Jakobs Necklace",
+    "brand": "Sif Jakobs",
+    "price": 5490,
+    "salePrice": 2990,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704603460_cbaa1a2297_z.jpg"
+      }
+    ],
+    "weight": 11.2,
+    "colors": [
+      {
+        "name": "silver"
+      }
+    ],
+    "metal": "silver 925, Zirconia",
+    "sizes": [
+      {
+        "value": "45 cm"
+      }
+    ],
+    "description": "string",
+    "popularity": 13,
+    "customPopularity": 13
+  },
+  {
+    "count": 0,
+    "collection": "sif jakobs",
+    "category": "necklaces",
+    "labelName": "Sif Jakobs Necklace",
+    "brand": "Sif Jakobs",
+    "price": 7290,
+    "salePrice": 5590,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704645738_d29428af3c_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52703637947_3ce5e0a162_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704414534_5a92ca4ed0_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52704580190_001153fe0c_z.jpg"
+      }
+    ],
+    "weight": 15.2,
+    "colors": [
+      {
+        "name": "silver"
+      },
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925, Gold Plated 18K, Zirconia",
+    "sizes": [
+      {
+        "value": "45 cm"
+      }
+    ],
+    "description": "string",
+    "popularity": 14,
+    "customPopularity": 14
+  },
+  {
+    "count": 0,
+    "collection": "Xenox",
+    "category": "necklaces",
+    "labelName": "Xenox Woman Necklace",
+    "brand": "Xenox",
+    "price": 1290,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52708302619_21510366f1_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52708048946_924a8ff002_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52708459950_f72992d503_z.jpg"
+      }
+    ],
+    "weight": 10.1,
+    "colors": [
+      {
+        "name": "silver"
+      },
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "40 - 45 cm"
+      }
+    ],
+    "description": "string",
+    "popularity": 5,
+    "customPopularity": 5
+  },
+  {
+    "count": 0,
+    "collection": "Xenox",
+    "category": "necklaces",
+    "labelName": "Xenox Woman Necklace",
+    "brand": "Xenox",
+    "price": 1790,
+    "salePrice": 0,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52708533258_4fae240ee1_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52708048966_c706f5fce3_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52708459990_c21bbfa18c_z.jpg"
+      }
+    ],
+    "weight": 14.1,
+    "colors": [
+      {
+        "name": "rose gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "40 - 45 cm"
+      }
+    ],
+    "description": "string",
+    "popularity": 6,
+    "customPopularity": 6
+  },
+  {
+    "count": 0,
+    "collection": "sif jakobs",
+    "category": "necklaces",
+    "labelName": "Ланцюжок Sif Jakobs",
+    "brand": "Sif Jakobs",
+    "price": 3490,
+    "salePrice": 3165,
+    "images": [
+      {
+        "url": "https://live.staticflickr.com/65535/52704645738_d29428af3c_z.jpg"
+      },
+      {
+        "url": "https://live.staticflickr.com/65535/52703637947_3ce5e0a162_z.jpg"
+      }
+    ],
+    "weight": 15.8,
+    "colors": [
+      {
+        "name": "gold"
+      }
+    ],
+    "metal": "silver 925",
+    "sizes": [
+      {
+        "value": "45 cm"
+      }
+    ],
+    "description": "Елегантний трьохшаровий срібний ланцюжок із позолотою 18к виготовлений найкращими ювелірами від Sif Jakobs. Ніжна підвіска, яка прикрасить твою зону декольте",
+    "popularity": 10,
+    "customPopularity": 10,
+    "packaging": "Оригінальна коробка бренду"
+  }
+]

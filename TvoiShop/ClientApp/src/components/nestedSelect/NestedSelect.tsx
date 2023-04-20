@@ -11,7 +11,7 @@ interface IProps {
     items: IItem[];
     defaultText: string;
     onSelect: (value: IItem[]) => void;
-    reset: () => void;
+    reset?: () => void;
 }
 
 export default function NestedSelect({ items, defaultText, onSelect, reset }: IProps){
@@ -25,19 +25,19 @@ export default function NestedSelect({ items, defaultText, onSelect, reset }: IP
     };
 
     const resetClick = () => {
-        reset();
+        if (reset) reset();
         setExpand(false);
         selectItem([{Value: defaultText, Title: defaultText}]);
     }
 
     return (
         <div className="nestedList">
-            <div className="multiItem" onClick={() => setExpand(!isExpand)}>{selectedItem[selectedItem.length-1].Title}</div>
-            {isExpand && <OutsideAlerter onOutsideClick={() => setExpand(false)}><div className="nestedItems">{items.map((child, key) => child.Items && child.Items.length > 0 ?
+            <div className="multiItem textBold" onClick={() => setExpand(!isExpand)}>{selectedItem[selectedItem.length-1].Title}</div>
+            <div className="nestedItems">{items.map((child, key) => child.Items && child.Items.length > 0 ?
                 <MultiItem onSelect={select} item={child} key={key} /> :
                 <SingleItem onSelect={select} item={child} key={key} />
             )}
-            <button className="btnHomeStyleWhite" onClick={resetClick}>{translationService.translate("reset|A")}</button></div></OutsideAlerter>}
+            </div>
         </div>
     );
 };

@@ -58,38 +58,6 @@ namespace TvoiShop.Infrastructure.Services.Implementations
 
         public UserTokens GetTokenOrEmpty(UserModel userModel)
         {
-            /* string result = "";
-             if (userModel != null && userModel.Name != null && userModel.Password != null)
-             {
-                 var user = GetUserOrNULL(userModel.Name);
-
-                 if (user != null)
-                 {
-                     //create claims details based on the user information
-                     var claims = new[] {
-                         new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
-                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                         new Claim("UserId", user.Id.ToString()),
-                         new Claim("DisplayName", user.UserName),
-                         new Claim("UserName", user.UserName),
-                         new Claim("Email", user.Email)
-                     };
-
-                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-                     var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                     var token = new JwtSecurityToken(
-                         _configuration["Jwt:Issuer"],
-                         _configuration["Jwt:Audience"],
-                         claims,
-                         expires: DateTime.UtcNow.AddDays(14),
-                         signingCredentials: signIn);
-
-                     result = new JwtSecurityTokenHandler().WriteToken(token);
-                 }
-             }
-
-             return result;*/
             var user = GetUserOrNULL(userModel.Name);
             if (user == null) return new UserTokens();
             var token = JwtHelpers.GenTokenkey(new UserTokens()

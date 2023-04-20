@@ -1,0 +1,175 @@
+@media(max-width: 1030px) {
+
+    .sideBarAdminPositioin{
+        width: auto !important;
+    }
+    .sideBarAdminStyle{
+        width: auto !important;
+    }
+    .cardElementPanel{
+        top: 55px !important;
+        left: 0 !important;
+    }
+}
+
+.loginPanelPos{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(242, 242, 242);
+    z-index: 1;
+}
+
+.containerAdmin{
+    margin-top: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    height: calc(100vh - 55px);
+}
+
+.loginPanelStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 9px 14px -3px rgba(0,0,0,0.12);
+}
+
+.inputLoginStyle{
+    background-color: rgb(242, 242, 242);
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.inputLoginStyle:focus{
+    outline: none;
+}
+
+.btnConfirmLoginStyle{
+    padding: 10px;
+    background-color: rgb(19 19 19);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.1s;
+    outline: none;
+  }
+  
+  .btnConfirmLoginStyle:disabled{
+    background-color: #373737;
+  }
+
+.adminPanel{
+    padding: 5px;
+    width: 100%;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+.sideBarAdminPositioin{
+    position: relative;
+    left: 0;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.sideBarAdminStyle{
+    background-color: rgb(232, 232, 232);
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.cardElementPanel{
+    background-color: rgb(232, 232, 232);
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+}
+
+.headerCardElement{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px;
+    margin: 10px;
+    background-color: #232323;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.inputStyleAdmin{
+    border: none;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 0.8rem;
+}
+
+.inputStyleAdmin:focus{
+    outline: none;
+}
+
+.tableCell {
+    padding: 5px 10px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    max-width: 360px;
+}
+
+.form {
+    margin: 0 10px;
+}
+
+.headerRow {
+    border-bottom: 1px solid grey;
+}
+
+.tableCellHeader {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.tableRow {
+    padding: 3px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.tableBody > .tableRow:last-child {
+    border-bottom: none;
+}

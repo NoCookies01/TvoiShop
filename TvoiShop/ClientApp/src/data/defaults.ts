@@ -32,5 +32,6 @@ export const defaultProduct: IProduct = {
     sizes: [defaultSize],
     description: defaultText,
     popularity: defaultNumber,
-    customPopularity: defaultNumber
+    customPopularity: defaultNumber,
+    packaging: defaultText
 }

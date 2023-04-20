@@ -2,9 +2,13 @@ import React from "react";
 import {ReactComponent as InstaIcon} from '../images/insta.svg';
 import {ReactComponent as TelegramIcon} from '../images/telegram.svg';
 import {ReactComponent as PhoneIcon} from '../images/phone.svg';
+import {ReactComponent as InfoIcon} from '../images/info.svg';
+import { getRoute } from "../services/routes.service";
+import { useNavigate } from "react-router";
 
 
 export const FooterPanel = () => {
+  const navigate = useNavigate();
   return(
     <div className="footerStylePos">
       <div className="footerStyle">

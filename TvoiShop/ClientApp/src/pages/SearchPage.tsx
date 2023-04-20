@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import { FooterPanel } from '../components/FooterPanel';
 import { InstrumentPanel } from '../components/InstrumentPanel';
 import IItem from '../components/nestedSelect/item';
 import { CardProducts } from '../components/productsView/CardProduct';
 import { SortOrder } from '../data/sortCriteria';
+import { Helmet } from 'react-helmet';
 
 interface IProps {
     products: IProduct[];
@@ -16,6 +18,9 @@ export const SearchPage = (props: IProps) => {
     useEffect(() =>{ return () => { props.resetFilter(); }}, [])
     return(
         <div>
+            <Helmet>
+                <title>Каталог: стильні ювелірні вироби, елегантні недорогі годинники, дешеві | TVOI</title>
+            </Helmet>
             <br/>
             <br/>
             <div className="simItemPos">
@@ -26,10 +31,8 @@ export const SearchPage = (props: IProps) => {
                   filterCriteria={props.filterCriteria}
                 />
             </div>
-
-            <div className='productView'> 
-                <CardProducts products = {props.products} />
-            </div>
+            <CardProducts products = {props.products} />
+            <FooterPanel/>
         </div>
         
     );

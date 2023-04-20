@@ -1,0 +1,50 @@
+@media(max-width: 1030px) {
+
+    .blockSmallInfoPage{
+        width: 100% !important;
+    }
+
+    .largeText{
+        padding-top: 10px;
+        font-size: 1.2rem !important; 
+        text-align: center !important;
+    }
+    
+    .mediumText{
+        font-size: 0.9rem !important;
+        text-align: center !important;
+    }
+}
+
+.blockInfoPage{
+    background-color: #e6e6e6;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.blockSmallInfoPage{
+    background-color: #e6e6e6;
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 30%;
+}
+
+.largeText{
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mediumText{
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+.centered{
+    display: flex;
+    justify-content: center;
+}

@@ -1,6 +1,5 @@
 /* Provide sufficient contrast against white background */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
 a {
   color: #0366d6;
 }
@@ -14,8 +13,8 @@ p{
 }
 
 body {
+  font-family: 'Golos Text', sans-serif;
   background-color: rgb(242, 242, 242);
-  font-family: Montserrat;
 }
 
 .bgMainTheme{
@@ -62,8 +61,7 @@ body {
   height: 100%;
 }
 
-
-.sidenav{
+.sidenav {
   height: 100%;  
   width: 200px;  
   position: fixed; 
@@ -71,11 +69,12 @@ body {
   top: 0; 
   left: 0; 
   background-color:#232323; 
-  transition: 0.75s cubic-bezier(0, 0.84, 0.25, 1);
   overflow-x: hidden; 
   padding: 10px;
   display: flex; 
-  flex-direction: column; 
+  flex-direction: column;
+  transition: left 0.35s cubic-bezier(0, 0.84, 0.25, 1);
+  transform: translate3d(0, 0, 0);
 }
 
 .hiddenNav {
@@ -98,8 +97,7 @@ body {
 
 .logoStyle{
   font-size: 20px;
-  letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 500;
   color: black;
   text-transform: uppercase;
   cursor: pointer;
@@ -115,7 +113,7 @@ body {
   letter-spacing: 2px;
   line-height: 1.6;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 300;
   transition: 0.1s;
 }
 
@@ -194,11 +192,11 @@ transform: translateY(-50%);
 .searchBar{
   padding-left: 15px;
   padding-right: 15px;
-  background-color: white;
+  background-color: transparent;
   border: transparent;
   color: #232323;
   font-size: 17px;
-  font-weight: 900;
+  font-weight: 500;
 }
 .searchBar:focus{
   outline: none !important;
@@ -208,6 +206,12 @@ transform: translateY(-50%);
   background-color: transparent;
   width: 24px;
   margin: 5px;
+  cursor: pointer;
+}
+
+.iconCarousel{
+  background-color: transparent;
+  width: 24px;
   cursor: pointer;
 }
 
@@ -247,7 +251,7 @@ transform: translateY(-50%);
 
 .logoIcon{
   background-color: transparent;
-  width: 100px;
+  width: 70px;
   cursor: pointer;
 }
 
@@ -260,20 +264,20 @@ transform: translateY(-50%);
   margin-left: 5px;
   margin-top: 5px;
   font-size: 10px;
-  font-weight: 900;
+  letter-spacing: 0.2px;
   cursor: pointer;
-  text-decoration: underline;
 }
 
 /* CUSTOM SCROLLBAR */
 
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f0f0f0; 
+  background: transparent; 
 }
  
 /* Handle */
@@ -299,10 +303,6 @@ transform: translateY(-50%);
   overflow-x: scroll;
 }
 
-.bannerCarousel::-webkit-scrollbar {
-  display: none;
-}
-
 .bannerCardText{
   background-color: white;
   position: absolute;
@@ -323,6 +323,33 @@ transform: translateY(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.photoBannerPosSmall{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoBannerSmallPos{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+}
+
+.photoBannerSmallStyle{
+  display: none;
+}
+
+.photoBannerSmallStyleTwo{
+  width: 45%;
+  position: relative;
+  left: auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .photoBannerCardPos{
@@ -379,7 +406,7 @@ transform: translateY(-50%);
 .txtBanner{
   color: #e9e9e9;
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 400;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1px;
@@ -391,6 +418,53 @@ transform: translateY(-50%);
 .txtBanner:hover{
   letter-spacing: 10px;
   transition: 0.8s;
+}
+
+.txtBannerRight{
+  color: #232323;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+.springSalePos{
+  position: absolute;
+  left: auto;
+}
+
+.springSaleBigText{
+  background-color: white;
+  color: #232323;
+  font-size: 2.5vw;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+.springSaleBigTextRose{
+  background-color: white;
+  color: #ebbdbd;
+  font-size: 2.3vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 1px;
+}
+.springSaleSmallText{
+  color: #232323;
+  font-size: 1vw;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 2px;
 }
 
 .btnBanner{
@@ -417,8 +491,8 @@ transform: translateY(-50%);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: calc(37vw - 330px);
+  padding-right: calc(37vw - 330px);
 }
 
 /* CAROUSEL */
@@ -428,6 +502,15 @@ transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.productViewCarouselParentBrand{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .carousel{
@@ -444,48 +527,58 @@ transform: translateY(-50%);
   justify-content: center;
 }
 
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
 .btnCarouselLeft{
   background-color: transparent;
   position: absolute;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  left: 0px;
-  z-index: 1;
-  width: 100px;
-  height: 337px;
+  left: 15px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
   border: none;
-  opacity: 7%;
-  transition: 0.5s;
+  border-radius: 25px;
+  opacity: 35%;
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.15);
 }
 
 .btnCarouselLeft:hover{
   opacity: 45%;
-  transition: 0.5s;
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.25);
 }
 
 .btnCarouselRight{
   background-color: transparent;
   position: absolute;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
-  right: 0px;
-  z-index: 1;
-  width: 100px;
-  height: 337px;
+  right: 15px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
   border: none;
-  opacity: 7%;
-  transition: 0.5s;
+  border-radius: 25px;
+  opacity: 35%;
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.15);
 }
 
 .btnCarouselRight:hover{
   opacity: 45%;
-  transition: 0.5s;
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.25);
 }
 
 /* CAROUSEL */
@@ -493,13 +586,29 @@ transform: translateY(-50%);
 .productCard{
   display: inline-block;
   width: 300px;
-  height:auto;
-  background-color: white;
+  height: auto;
   color: black;
-  margin: 1.5px;
+  margin: 4.5px;
+}
+
+.cardTag{
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  background-color: #232323;
+  opacity: 65%;
+  color: white;
+  font-size: 8px;
+  font-weight: 100;
+  letter-spacing: 0.8px;
+  border-radius: 5px 5px 5px 5px;
+  text-transform: uppercase;
 }
 
 .productImagePos{
+  position: relative;
   display: flex;
   justify-content: right;
   width: 300px;
@@ -514,11 +623,12 @@ transform: translateY(-50%);
 }
 
 .productLabel{
+  background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
   font-size: 14px;
-  font-weight: 900;
+  font-weight: 500;
   text-transform: uppercase;
   display: flex;
   justify-content: left;
@@ -530,20 +640,29 @@ transform: translateY(-50%);
   transition: 0.2s;
 }
 
+.productLabelOverflow{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
 .productPrice{
-  font-size: 18px;
+  font-size: 1rem;
   display: flex;
   justify-content: right;
   padding-right: 10px;
-  font-weight: 900;
+  font-weight: 500;
+  color: #232323;
 }
 
 .productInfoPrice{
+  color: #232323;
   font-size: 18px;
   display: flex;
   justify-content: right;
   padding-right: 10px;
-  font-weight: 900;
+  font-weight: 500;
 }
 
 .size-color-margin{
@@ -552,13 +671,16 @@ transform: translateY(-50%);
 }
 
 .oldPrice {
+  font-size: 0.8rem !important;
   color: #a8a8a8;
   text-decoration: line-through;
+  font-weight: 500 !important;
 }
 .oldProductInfoPrice {
   font-size: 0.9rem;
   color: #a8a8a8;
   text-decoration: line-through;
+  font-weight: 400;
 }
 
 .checkboxSize{
@@ -570,23 +692,35 @@ input.checkboxSize {
 }
 
 .productSalePrice{
-  font-size: 14px;
+  font-size: 1rem;
   display: flex;
-  color: #000000;
-  font-weight: 900;
+  color: #232323;
+  font-weight: 500;
 }
 .productInfoSalePrice{
   font-size: 18px;
   display: flex;
-  color: #000000;
-  font-weight: 900;
+  color: #232323;
+  font-weight: 500;
 }
 
 .hrLine{
   background-color: rgb(227, 227, 227);
-  width: 25%;
+  width: 100%;
   height: 1px;
   margin-bottom: 10px;
+}
+
+.textBold{
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+}
+
+.hrLineCart{
+  background-color: rgb(242, 242, 242);
+  width: 40%;
+  height: 0.5px;
+  margin-left: 160px;
 }
 
 .showProductInfoButton{
@@ -611,6 +745,24 @@ input.checkboxSize {
   flex-wrap: wrap;
 }
 
+.leftBlurCarouselEffect {
+  height: 100%;
+  width: 15px;
+  position: absolute;
+  left: 0;
+  background-image: linear-gradient(to right, white , #ffffff00);
+  z-index: 1;
+}
+
+.rightBlurCarouselEffect {
+  height: 100%;
+  width: 15px;
+  position: absolute;
+  right: 0;
+  background-image: linear-gradient(to right, #ffffff00 , white);
+  z-index: 1;
+}
+
 .bannerPage{
   position: relative;
   display: flex;
@@ -628,10 +780,31 @@ input.checkboxSize {
 .topSpace {
   margin-top: 15%;
 }
+.carousel::-webkit-scrollbar {
+  display: none;
+}
 
 /* Product Info Page Style*/
 
 @media(max-width: 1030px) {
+
+  .btnHomeStyleShort{
+    width: 25% !important;
+  }
+
+  .btnHomeStyleGray{
+    width: 25% !important;
+  }
+
+  .productViewCarouselParentBrand{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .bannerCardText{
+    height: 40px !important;
+  }
+
   .searchBarCancelBtn{
     border: none !important;
     outline: none !important;
@@ -643,22 +816,20 @@ input.checkboxSize {
     padding-right: 20px !important;
   }
   .searchBarPos{
-    background-color: white !important;
+    background-color: rgb(242, 242, 242) !important;
     height: auto !important;
-    width: 100vw !important;
+    width: 50% !important;
     display: flex !important;
-    position: fixed !important;
-    padding-right: 35px !important;
+    position: absolute !important;
     left: 0 !important;
-    top: 50px !important;
+    right: 0 !important;
+    margin: auto !important;
+    top: 9px !important;
+    border-radius: 15px !important;
   }
   .searchBar{
-    width: 100vw !important;
-    height: 45px !important;
-    padding: 10px !important;
-    padding-left: 20px !important;
     font-size: 15px !important;
-    text-transform: uppercase !important;
+    padding: 5px 15px 5px 15px !important;
   }
   .sizeInfoStyle{
     width: auto !important;
@@ -669,25 +840,25 @@ input.checkboxSize {
     opacity: 99% !important;
   }
 
-  .instrPanel{
-    margin-top: 5px !important;
-  }
-
   .photoBannerCardPos{
-    width: 390px !important;
     margin: 0 !important;
+    margin-bottom: 25px !important;
   }
 
   .bannerCarousel{
     justify-content: flex-start !important;
   }
 
-  .navItem{
-    font-size: 20px !important;
-    margin-top: 8px !important;
+  .navItem{    
+    font-size: 1.2rem !important;
+    margin-top: 5px !important;
   }
   
   .icon{
+    width: 30px !important;
+  }
+
+  .iconSearch{
     width: 30px !important;
   }
   .sticky{
@@ -701,9 +872,7 @@ input.checkboxSize {
     overflow-x: scroll;
     justify-content: flex-start;
   }
-  .productViewCarouselParent::-webkit-scrollbar {
-    display: none;
-  }
+
 
   .btnCarouselLeft{
     display: none;
@@ -721,11 +890,12 @@ input.checkboxSize {
     padding: 0;
   }
   .productLabel{
+    border-radius: 5px;
     font-size: 10px;
   }
 
   .productPrice{
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .productInfoPrice{
     font-size: 20px;
@@ -737,12 +907,12 @@ input.checkboxSize {
   }
   
   .productSalePrice{
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .productImagePos{
-    width: 192px;
-    height: 192px;
+    width: 30vw;
+    height: 30vw;
   }
 
   .productInfoView{
@@ -776,7 +946,6 @@ input.checkboxSize {
   }
 
   .productIngPgSecondaryImage{
-
     height: 400px !important;
     width: 400px !important;
   }
@@ -802,24 +971,45 @@ input.checkboxSize {
   .prDesc{
     font-size: 12px !important;
     margin: 0 !important;
-    padding: 20px 20px 0px 20px !important; 
+    padding: 0px 20px 0px 20px !important; 
     width: 100% !important;
-    background-color: rgb(242, 242, 242) !important;
+    background-color: rgb(255, 255, 255) !important;
   }
 
   .prColumnPos{
     display: flex;
-    width: 350px !important;
+    width: 100% !important;
     justify-content: left !important;
     margin: 0 !important;
-    padding: 20px !important;
+    padding: 20px 20px 5px 20px !important;
   }
 
   .btnInfoPgStylePos{
+    height: 80px !important;
     position: fixed !important;
     bottom: 0 !important;
     right: 0 !important;
     z-index: 500 !important;
+    border-radius: 20px 20px 0px 0px;
+    -webkit-box-shadow: 0px 0px 20px 7px rgb(0 0 0 / 6%);
+    -moz-box-shadow: 0px 0px 20px 7px rgb(0 0 0 / 6%);
+    box-shadow: 0px 0px 20px 7px rgb(0 0 0 / 6%);
+  }
+
+  .btnInfoPg:hover{
+    border-radius: 15px;
+    background-color: #232323;
+    transition: 0.1s;
+  }
+  .btnInfoPg:disabled{
+    border-radius: 15px;
+    background-color: #2d2d2d;
+  }
+
+  .btnInfoPgStyle{
+    height: 62% !important;
+    margin: 15px !important;
+    border-radius: 15px !important;
   }
 
   .simItemPos{
@@ -834,16 +1024,12 @@ input.checkboxSize {
   }
 
   .hyperLinkStyle{
-    background-color: #232323;
-    color:white;
-    padding: 5px;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.2s;
-    text-align: center;
+    border-radius: 10px !important;
+    background-color: transparent !important;
+    color: #747474 !important;
+    border: rgb(230, 230, 230);
+    border-style: solid;
+    border-width: 1px;
   }
 
   .photoBannerPos{
@@ -875,12 +1061,6 @@ input.checkboxSize {
     height: auto !important;
     position: relative !important;
   }
-
-  .inputNameStyle{
-    width: 350px !important;
-    letter-spacing: 0px !important;
-    margin-right: 0px !important;
-  }
   
   .inputStyle{
     width: 350px !important;
@@ -889,8 +1069,9 @@ input.checkboxSize {
   }
 
   .closeIcon{
-    width: 45px !important;
-    bottom: 0 !important;
+    width: 35px !important;
+    bottom: 15px !important;
+    right: 15px !important;
     top: auto !important;
   }
   .cartFullIconCount{
@@ -898,13 +1079,150 @@ input.checkboxSize {
     left: 40px !important;
   }
   .toastrStyle--info {
-    width: 100vw;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 25px;
+  }
+
+  .toastrStyle--error {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+  }
+
+  .ocpStyle{
+    text-align: center !important;
+    margin-bottom: 10px;
+  }
+
+  .btnHomeStyleWhite{
+    width: 100% !important;
+  }
+
+  .container{
+    width: 100% !important;
+  }
+
+  .priceViewProduct{
+    width: 100%;
+    background-color: rgb(242, 242, 242) !important;
+    padding: 15px !important;
+  }
+
+  .productLabelOverflow{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 150px !important;
   }
 }
 
+@media screen and (max-width: 620px) {
+
+  .priceViewProduct{
+    border-radius: 15px !important;
+  }
+
+  .prColumnPos{
+    display: flex;
+    width: 100% !important;
+    justify-content: left !important;
+    margin: 0 !important;
+    padding: 20px 20px 5px 20px !important;
+  }
+
+  .photoBannerStyle{
+    display: none;
+  }
+
+
+  .photoBannerPosSmall{
+    margin: 10px !important;
+    height: auto;
+  }
+  .springSaleBigText{
+    background-color: transparent !important;
+    color: white !important;
+    font-size: 1.1rem !important;
+    text-align: center;
+  }
+
+  .springSaleBigTextRose{
+    background-color: transparent !important;
+    font-size: 1rem !important;
+    text-align: center;
+  }
+  .springSaleSmallText{
+    display: none !important;
+  }
+  .springSalePos{
+    bottom: 36% !important;
+    width: 350px !important;
+    margin-left: 0!important;
+    left: auto;
+    right: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .photoBannerSmallStyle{
+    border-radius: 15px !important;
+    display: block !important;
+    height: 100%;
+    width: 100%;
+  }
+
+  .photoBannerSmallStyleTwo{
+    display: none;
+  }
+
+  .productImagePos {
+    width: 46vw;
+    height: 46vw;
+  }
+  .btnHomeStyleShort{
+    width: 50% !important;
+    border-radius: 10px !important;
+  }
+  .btnHomeStyleGray{
+    width: 50% !important;
+    border-radius: 25px !important;
+  }
+
+  .btnHomeStyleWhite{
+    border-radius: 10px !important;
+    width: 60% !important;
+    white-space: nowrap !important;
+    background-color: transparent !important;
+    color: #ebbdbd !important;
+    font-weight: 600 !important;
+    border: #ebbdbd !important;
+    border-style: solid !important;
+    border-width: 3px !important;
+  }
+
+  .brandStyle{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  .footerStyle{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 15px;
+  }
+
+  .simItemStyleSpecial{
+    margin: 10px !important;
+    border-radius: 10px !important;
+  }
+}
 
 .productInfoView{
   display: flex;
@@ -925,7 +1243,7 @@ input.checkboxSize {
 
 .prLblName{
   font-size: 25px;
-  font-weight: 900;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 5px;
@@ -968,45 +1286,70 @@ input.checkboxSize {
   flex-wrap: wrap;
   justify-content: flex-start;
   padding-left: 20px;
-  text-transform: uppercase;
-  font-weight: 900;
-  color: #2a2929;
+  font-weight: 500;
+  color: #6a6a6a;
   font-size: 13px;
 }
 
+.priceViewProduct{
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
 .btnInfoPgStylePos{
-  background-color: #232323;
+  background-color: white;
   width: 100%;
   height: 50px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
+  align-items: center;
 }
 
 .btnInfoPgStyle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(19 19 19);
+}
+
+.btnInfoPg{
+  height: 100%;
   background-color: transparent;
   border: none;
   color: white;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: 0.1s;
 }
 
-.btnInfoPgStyle:hover{
-  background-color: #2e2e2e;
+.btnInfoPg:hover{
+  background-color: #232323;
   transition: 0.1s;
 }
-.btnInfoPgStyle:disabled{
+.btnInfoPg:disabled{
   background-color: #2d2d2d;
 }
 
 .prTextMain{
   font-size: 16px !important;
   color:black;
-  font-weight: 900;
+  font-weight: 400;
   margin-right: 5px;
   text-transform: uppercase;
+}
+
+.prTextDesc{
+  font-size: 0.8rem !important;
+  color: black;
+  font-weight: 400;
+  margin: 5px;
+  text-transform: none;
 }
 
 .prPrice{
@@ -1015,14 +1358,15 @@ input.checkboxSize {
 }
 
 .prDesc{
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
   text-align: justify;
-  width: 400px;
-  font-size: 15px;
-  font-weight: 900;
-  color: #2a2929;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6a6a6a;
 }
 
 .simItemPos{
@@ -1040,11 +1384,23 @@ input.checkboxSize {
   background-color: white;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 10px;
   font-size: 10px;
-  letter-spacing: 1.5px;
-  font-weight: 900;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+}
+
+.simItemStyleSpecial{
+  color: #232323;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 10px 25px 10px 25px;
+  padding: 10px;
+  font-size: 12px;
+  letter-spacing: 0.35px;
   text-transform: uppercase;
 }
 
@@ -1064,15 +1420,17 @@ input.checkboxSize {
 }
 
 .btnHomeStyle{
-  height: 28px;
   width: 100%;
-  background-color: #232323;
-  color: white;
+  color: #6a6a6a;
+  background-color: rgb(242, 242, 242);
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 500;
+  padding: 5px;
+  margin-top: 5px;
   border: none;
+  border-radius: 10px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   transition: 0.1s;
   outline: none;
 }
@@ -1082,24 +1440,56 @@ input.checkboxSize {
 }
 
 .btnHomeStyle:hover{
+  background-color: #232323;
+  transition: 0.1s;
+}
+
+.btnCartStyle{
+  height: 45px;
+  width: 100%;
+  background-color: #232323;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.1s;
+  outline: none;
+}
+
+.btnCartStyle:disabled{
+  background-color: #2d2d2d;
+}
+
+.btnCartStyle:hover{
   background-color: #383838;
   transition: 0.1s;
 }
 
 .btnHomeStyleWhite{
-  width: 100%;
-  background-color: rgb(240, 240, 240);
-  color: #232323;
-  font-size: 12px;
-  font-weight: 900;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #ebbdbd;
+  width: 15vw;
+  padding: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: #ebbdbd;
+  border-width: 3px;
+  border-style: solid;
   text-transform: uppercase;
   transition: 0.1s;
   outline: none;
 }
 
 .btnHomeStyleWhite:hover{
-  background-color: #b8b8b8;
+  background-color: #ebbdbd;
+  color: white;
+  border: white;
   transition: 0.1s;
 }
 
@@ -1107,16 +1497,17 @@ input.checkboxSize {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
-  padding: 20px;
-  background-color: rgb(255, 255, 255);
-  border-color: #232323;
-  color: #000000;
+  width: 15%;
+  padding: 15px;
+  background-color: rgb(19 19 19);
+  border: none;
+  color: white;
   font-size: 12px;
-  letter-spacing: 5px;
-  font-weight: 900;
+  letter-spacing: 2.5px;
+  font-weight: 500;
   text-transform: uppercase;
-  transition: 0.2s
+  transition: 0.2s;
+  margin: 15px;
 }
 
 .btnHomeStyleShort:hover{
@@ -1125,15 +1516,81 @@ input.checkboxSize {
   transition: 0.2s;
 }
 
+.btnHomeStyleGray{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  color: #232323;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.2s;
+  margin: 15px;
+}
+
+.btnHomeStyleGray:hover{
+  background-color: rgb(242, 242, 242);
+  transition: 0.2s;
+}
+
 /* Instrument Panel Style*/
+
+.filterPanelStyle{
+  background-color: white;
+  padding: 10px;
+  margin: 0px 10px;
+  border-radius: 15px;
+  position: absolute;
+  left: 0;
+  top: 62px;
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 10px 4px rgb(0 0 0 / 10%);
+  -moz-box-shadow: 0px 0px 10px 4px rgb(0 0 0 / 10%);
+  box-shadow: 0px 0px 10px 4px rgb(0 0 0 / 10%);
+}
 
 .instrPanel{
   display: flex;
   flex-direction: row;
-  height: 40px;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
-  background-color: #232323;
-  color: white;
+  background-color: rgb(242, 242, 242);
+  color: #6a6a6a;
+  padding: 15px;
+}
+
+.filter{
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 100;
+  border: #6a6a6a;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter:hover{
+  border: #c1c1c1;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  transition: 0.2s;
+}
+
+.instrTextStyle:hover{
+  color: rgb(211, 211, 211);
 }
 
 select {
@@ -1198,7 +1655,7 @@ span.choose {
 .container {
   width: 500px;
   margin: 50px auto 0;
-  text-align: center
+  padding: 0 !important;
 }
 
 /*Styling Selectbox*/
@@ -1352,15 +1809,19 @@ button.badge {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(2.5px);
 }
 
 .orderWindowPos{
+  height: 175px;
+  padding-left: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
 }
 
 .windowConfirmStyle{
+  padding: 25px;
   position: fixed;
   height: 100vh;
   width: 500px;
@@ -1369,7 +1830,6 @@ button.badge {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
   background-color: white;
 }
 
@@ -1379,35 +1839,40 @@ button.badge {
 
 .confirmText{
   color: rgb(0, 0, 0);
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 1.5px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 1px;
   text-transform: uppercase;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .inputNameStyle{
-  width: 275px;
-  letter-spacing: 1.5px;
+  width: 100%;
+  font-size: 16px;
+  letter-spacing: 0.5px;
   font-weight: 900;
-  text-align: center;
-  border-color: rgb(235, 235, 235);
+  text-align: left;
+  border: #232323;
+  border-width: 1px;
   border-style: solid;
-  border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  color: #232323;
+  padding: 10px 10px 10px 25px;
+}
+
+.inputNameStyle:focus{
+  outline: none;
 }
 
 .inputStyle{
-  letter-spacing: 1.5px;
-  font-weight: 900;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 1rem;
   color: rgb(0, 0, 0);
-  border-color: rgb(235, 235, 235);
-  border-style: solid;
-  border-radius: 5px;
+  border: none;
 }
 
 .inputStyle:focus{
@@ -1435,8 +1900,10 @@ button.badge {
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
+
+
 
 /* footer */
 
@@ -1472,6 +1939,13 @@ button.badge {
   flex-wrap: wrap;
 }
 
+.rowStyle-center-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .columnStyle{
   display: flex;
   flex-direction: column;
@@ -1484,13 +1958,19 @@ button.badge {
 }
 
 .positionRight{
-  display: flex;
-  justify-content: right;
+  position: absolute;
+  right: 25px;
+}
+
+.positionRightAbsolute{
+  position: absolute;
+  right: 0;
 }
 
 .positionLeft{
-  display: flex;
-  justify-content: left;
+  position: absolute;
+  left: 0;
+  padding-left: 15px;
 }
 
 .toastrStyle--info {
@@ -1498,16 +1978,19 @@ button.badge {
   position: fixed;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 50px;
-  padding: 10px;
+  margin-top: 60px;
+  padding: 10px 25px 10px 25px;
   color: white;
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: 600;
-  z-index: 2000;
+  z-index: 2000000000;
+  opacity: 95%;
 }
 
 .toastrStyle--error {
@@ -1515,23 +1998,26 @@ button.badge {
   position: fixed;
   display: flex;
   justify-content: center;
+  text-align: center;
+  align-items: center;
   left: 50%;
   transform: translateX(-50%);
-  margin: 50px;
-  padding: 10px;
+  margin-top: 60px;
+  padding: 10px 25px 10px 25px;
   color: white;
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: 600;
-  z-index: 2000;
+  z-index: 2000000000;
+  opacity: 95%;
 }
 
 .cartFullIconCount {
   margin-top: 5px;
   display: flex;
   color: white;
-  font-weight: 900;
+  font-weight: 500;
   position: absolute;
   right: 0;
   top: 0;
@@ -1620,24 +2106,35 @@ button.badge {
 }
 
 .hyperLinkStyle{
-  background-color: #232323;
-  color:white;
-  padding: 5px;
+  background-color: rgb(19, 19, 19);
+  color: white;
+  padding: 10px;
+  margin-bottom: 15px;
   font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 2px;
+  font-weight: 500;
+  letter-spacing: 0.35px;
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.2s;
   text-align: center;
 }
 .hyperLinkStyle:hover{
-  color: rgb(170, 170, 170);
+  background-color: #232323;
   transition: 0.2s;
+}
+
+.ocpStyle{
+  color:rgb(0, 88, 7);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 .checkboxStyle{
   display: flex;
+  align-items: center;
   margin: 5px;
 }
 
@@ -1654,14 +2151,60 @@ button.badge {
   align-items: center;
   color: white;
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.1s;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+
 .langStyle:hover{
   color: rgb(200, 200, 200);
   transition: 0.1s;
+}
+.brandPosition{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.brandStyle{
+  color: #232323;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 5px;
+  margin: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.1s;
+}
+
+.brandStyle:hover{
+  color: rgb(90, 90, 90);
+  transition: 0.1s;
+}
+
+.brandPosition::-webkit-scrollbar {
+  display: none;
+}
+
+.shadowStyle{
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 20px 7px rgb(0 0 0 / 6%);
+  -moz-box-shadow: 0px 0px 20px 7px rgb(0 0 0 / 6%);
+  box-shadow: 0px 0px 20px 7px rgb(0 0 0 / 6%);
+}
+
+.flexview{
+  display: flex;
+  flex: 1;
 }

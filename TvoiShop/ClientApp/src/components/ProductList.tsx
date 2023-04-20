@@ -4,11 +4,13 @@ import { CardProducts } from './productsView/CardProduct';
 import { InstrumentPanel } from './InstrumentPanel';
 import IItem from './nestedSelect/item';
 import { SortOrder } from '../data/sortCriteria';
+import { Helmet } from 'react-helmet';
 
 interface IProps {
   products: IProduct[];
   category: string;
   title: string;
+  header: string;
   sortBy: (property: string, sortOrder: SortOrder) => void;
   filterBy: (value: any, property: string) => void;
   filterCriteria: IItem[];
@@ -22,14 +24,15 @@ export const ProductList = (props: IProps) => {
     const prod = [...props.products].filter((p) => p.category === props.category);
     
     setProducts(prod);
+  }, [props]);
 
-    return () => {
-      props.resetFilter();
-    };
-  }, [props.products, props]);
-
+  useEffect(() => () => props.resetFilter(), []);
+  
   return(
     <div>
+      <Helmet>
+        <title>{props.header}</title>
+      </Helmet>
       <br/>
       <br/>
       <div className="simItemPos">
@@ -43,10 +46,8 @@ export const ProductList = (props: IProps) => {
           filterCriteria={props.filterCriteria}
         />
       </div>
-
-      <div className='productView'> 
-        <CardProducts products = {products} />
-      </div>
+ 
+      <CardProducts products = {products} />
     </div>
   )
 };

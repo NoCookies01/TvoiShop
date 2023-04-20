@@ -432,6 +432,9 @@ namespace TvoiShop.Infrastructure.Migrations
                     b.Property<string>("Metal")
                         .HasColumnType("text");
 
+                    b.Property<string>("Packaging")
+                        .HasColumnType("text");
+
                     b.Property<float>("Popularity")
                         .HasColumnType("real");
 

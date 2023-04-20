@@ -1,4 +1,5 @@
 import React from "react";
+import { Checkbox } from "../checkbox/CheckBox";
 import IOption from "./Item";
 
 interface IProps {
@@ -14,10 +15,10 @@ export default function Option(props: IProps) {
     }
 
     return (
-        <div className="rowStyle">
+        <div className="rowStyle-center-row">
             &nbsp;&nbsp;
-            {props.showCheckbox && <input type="checkbox" checked={props.active} onClick={select} className="checkboxSize"/>}
-            <div>
+            {props.showCheckbox && <Checkbox checked={props.active} onClick={select} />}
+            <div onClick={select}>
                 &nbsp;{props.option.Title}
             </div>
         </div>
