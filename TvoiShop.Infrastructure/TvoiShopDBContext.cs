@@ -12,19 +12,47 @@ using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Duende.IdentityServer.EntityFramework.Options;
 using Microsoft.Extensions.Options;
 using TvoiShop.Infrastructure.Migrations;
+using Duende.IdentityServer.EntityFramework.Interfaces;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Duende.IdentityServer.EntityFramework.Entities;
+using Duende.IdentityServer.EntityFramework.Extensions;
 
 #nullable disable
 
 namespace TvoiShop.Infrastructure
 {
-    public partial class TvoiShopDBContext : ApiAuthorizationDbContext<ApplicationUser>
+    public partial class TvoiShopDBContext : IdentityDbContext<ApplicationUser>, IPersistedGrantDbContext
     {
+        private readonly IOptions<OperationalStoreOptions> _operationalStoreOptions;
+
+        /// <summary>
+        /// Gets or sets the <see cref="DbSet{PersistedGrant}"/>.
+        /// </summary>
+        public DbSet<PersistedGrant> PersistedGrants { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="DbSet{DeviceFlowCodes}"/>.
+        /// </summary>
+        public DbSet<DeviceFlowCodes> DeviceFlowCodes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="DbSet{Key}"/>.
+        /// </summary>
+        public DbSet<Key> Keys { get; set; }
+
+        Task<int> IPersistedGrantDbContext.SaveChangesAsync() => base.SaveChangesAsync();
 
         public TvoiShopDBContext(DbContextOptions<TvoiShopDBContext> options,
             IOptions<OperationalStoreOptions> operationalStoreOptions)
-            : base(options, operationalStoreOptions)
+            : base(options)
         {
+            _operationalStoreOptions = operationalStoreOptions;
             Database.EnsureCreated();
+        }
+
+        public TvoiShopDBContext(): base()
+        {
         }
 
         public virtual DbSet<Product> Products { get; set; }
@@ -39,6 +67,7 @@ namespace TvoiShop.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ConfigurePersistedGrantContext(_operationalStoreOptions.Value);
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<Image>(entity =>
