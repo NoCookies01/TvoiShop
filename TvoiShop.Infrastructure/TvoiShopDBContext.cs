@@ -11,7 +11,6 @@ using TvoiShop.Models;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Duende.IdentityServer.EntityFramework.Options;
 using Microsoft.Extensions.Options;
-using System.Data.Entity;
 using TvoiShop.Infrastructure.Migrations;
 
 #nullable disable
